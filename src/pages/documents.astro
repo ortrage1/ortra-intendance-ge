@@ -14,6 +14,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
 ---
 <Base title="Documents" description="Bibliothèque des documents officiels sur les formations CFC et AFP en hôtellerie-intendance.">
   <div class="wrap page">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Documents</li></ol></nav>
     <h1>Documents</h1>
     <p class="lede">Les documents officiels en vigueur, avec leur éditeur et leur date de vérification. Les documents s'ouvrent chez leur éditeur.</p>
 
@@ -61,7 +62,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
   .page { padding-block: 40px 0 }
   .lede { font-size: 1.12rem; color: var(--muted); max-width: var(--measure) }
   .filters { display: flex; gap: 6px; margin: 20px 0 8px }
-  .filters button { font: inherit; font-size: .9rem; font-weight: 650; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer }
+  .filters button { font: inherit; font-size: .9rem; font-weight: 650; min-height: var(--tap); min-width: var(--tap); color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 0 16px; cursor: pointer }
   .filters button[aria-pressed='true'] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent) }
   .groupe { margin-top: 32px; max-width: 52rem }
   .groupe h2 { font-size: 1.2rem }

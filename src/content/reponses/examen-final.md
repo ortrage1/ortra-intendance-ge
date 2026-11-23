@@ -1,21 +1,32 @@
 ---
 titre: "L'examen final (procédure de qualification)"
-resume: "L'examen comprend un travail pratique et un entretien professionnel, complétés par la note d'expérience. Les règles figurent dans les dispositions d'exécution, complétées le 7 novembre 2025."
-motsCles: ["examen", "examen final", "procédure de qualification", "PQ", "notes", "grille", "évaluation", "entretien professionnel", "travail pratique", "TPP", "expert", "série zéro"]
+resume: "L'examen comprend un travail pratique, avec un entretien professionnel, et la culture générale. Pour les apprentis s'ajoute une note d'expérience ; pour les adultes en article 32, il n'y en a pas et le calcul change."
+motsCles: ["examen", "examen final", "procédure de qualification", "PQ", "notes", "grille", "évaluation", "entretien professionnel", "travail pratique", "TPP", "expert", "série zéro", "note d'expérience", "culture générale", "article 32", "adulte", "réussite"]
 formation: les-deux
-public: [evaluer, former]
+public: [evaluer, former, reconversion]
 ordre: 4
 source:
-  libelle: "Hotel & Gastro formation Suisse et OrTra intendance Suisse"
+  libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 18, 19 et 25"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"
-verifieLe: 2026-11-16
+verifieLe: 2026-11-23
 statut: verifie
 ---
 
 **Ce qui est évalué**
 
-- Le travail pratique, avec des tâches définies par domaine de compétences.
-- L'entretien professionnel.
-- La note d'expérience, calculée à partir des notes de l'école professionnelle.
+- **Le travail pratique prescrit (TPP)**, vers la fin de la formation. Il comprend un entretien professionnel.
+- **La culture générale.**
+- **La note d'expérience**, pour les apprentis seulement : la moyenne des notes semestrielles de l'école professionnelle (4 notes pour l'AFP, 6 pour le CFC).
 
-**Documents de référence.** Les dispositions d'exécution, les guides, les grilles d'évaluation et les séries zéro sont publiés par Hotel & Gastro formation Suisse, avec une version pour les candidats et une version pour les experts. Ils sont listés dans la bibliothèque de documents.
+**Comment la note globale est calculée**
+
+| | Pratique | Culture générale | Expérience |
+|---|---|---|---|
+| Apprentis | 60 % | 20 % | 20 % |
+| Article 32 | 80 % | 20 % | – |
+
+**Pour réussir**, il faut à la fois une note de travail pratique d'au moins 4 et une note globale d'au moins 4.
+
+**Quelles règles s'appliquent à vous ?** Les règles ci-dessus s'appliquent aux examens dès le 1er janvier 2026 pour l'AFP et dès le 1er janvier 2027 pour le CFC. Les personnes formées selon l'ancien droit, ou qui répètent l'examen, sont expliquées dans [Où trouver le plan de formation ?](/reponses/plan-de-formation/).
+
+**Documents de référence.** Les dispositions d'exécution, une pour chaque diplôme, détaillent le déroulement. Elles sont dans la [bibliothèque de documents](/documents/), avec les guides, les grilles d'évaluation et les séries zéro.

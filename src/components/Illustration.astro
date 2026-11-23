@@ -1,0 +1,85 @@
+---
+// Illustrations maison, vectorielles, dans le style du logo : formes arrondies,
+// pétrole pour le CFC et la structure, ocre pour l'AFP et l'accent. Aucune personne
+// représentée : le métier est évoqué par ses objets (linge, chambre, accueil).
+// Décoratives : masquées aux lecteurs d'écran.
+interface Props { nom: 'accueil' | 'cfc' | 'afp'; class?: string }
+const { nom, class: cls } = Astro.props;
+---
+<figure class:list={['illu', cls]} aria-hidden="true">
+  {nom === 'accueil' && (
+    <svg viewBox="0 0 480 340" role="presentation" focusable="false">
+      <rect class="soft" x="250" y="28" width="196" height="150" rx="18" />
+      <path class="frame" d="M348 28v150M250 103h196" />
+      <circle class="sun" cx="404" cy="66" r="16" />
+      <rect class="line" x="24" y="300" width="432" height="4" rx="2" />
+      <rect class="wood" x="56" y="226" width="250" height="16" rx="6" />
+      <rect class="wood" x="76" y="242" width="12" height="58" rx="4" />
+      <rect class="wood" x="274" y="242" width="12" height="58" rx="4" />
+      <rect class="paper" x="86" y="190" width="190" height="36" rx="10" />
+      <path class="fold" d="M96 208h122" />
+      <rect class="acc" x="98" y="152" width="166" height="36" rx="10" />
+      <path class="fold-light" d="M108 170h108" />
+      <rect class="afp" x="116" y="118" width="130" height="32" rx="10" />
+      <path class="fold-light" d="M126 134h80" />
+      <path class="pot" d="M352 238h64l-8 62h-48z" />
+      <path class="leaf" d="M384 238c-30-18-38-52-26-80 20 14 30 46 26 80z" />
+      <path class="leaf2" d="M384 238c24-22 26-60 6-86-16 22-18 56-6 86z" />
+      <path class="leaf" d="M384 238c34-6 54-30 58-58-28 2-50 24-58 58z" />
+    </svg>
+  )}
+  {nom === 'cfc' && (
+    <svg viewBox="0 116 480 160" role="presentation" focusable="false">
+      <rect class="line" x="24" y="262" width="432" height="4" rx="2" />
+      <rect class="acc" x="40" y="128" width="26" height="134" rx="8" />
+      <rect class="soft" x="60" y="176" width="270" height="58" rx="12" />
+      <rect class="paper" x="60" y="164" width="270" height="30" rx="12" />
+      <rect class="soft-strong" x="78" y="146" width="96" height="30" rx="14" />
+      <rect class="afp" x="210" y="152" width="96" height="22" rx="8" />
+      <path class="fold-light" d="M222 163h56" />
+      <rect class="wood" x="70" y="234" width="12" height="28" rx="4" />
+      <rect class="wood" x="306" y="234" width="12" height="28" rx="4" />
+      <rect class="wood" x="360" y="214" width="96" height="12" rx="5" />
+      <path class="acc" d="M376 214a32 32 0 0 1 64 0z" />
+      <rect class="acc" x="402" y="174" width="12" height="10" rx="4" />
+      <rect class="wood" x="372" y="226" width="10" height="36" rx="4" />
+      <rect class="wood" x="434" y="226" width="10" height="36" rx="4" />
+    </svg>
+  )}
+  {nom === 'afp' && (
+    <svg viewBox="0 72 480 204" role="presentation" focusable="false">
+      <rect class="line" x="24" y="262" width="432" height="4" rx="2" />
+      <path class="basket" d="M110 170h220l-20 92H130z" />
+      <path class="weave" d="M128 196h184M134 222h172M140 246h160" />
+      <rect class="paper" x="132" y="142" width="176" height="30" rx="10" />
+      <rect class="afp" x="146" y="114" width="148" height="30" rx="10" />
+      <path class="fold-light" d="M158 129h92" />
+      <rect class="acc" x="162" y="88" width="116" height="28" rx="10" />
+      <path class="fold-light" d="M174 102h64" />
+      <circle class="soft-strong" cx="388" cy="226" r="34" />
+      <circle class="paper" cx="388" cy="226" r="20" />
+      <rect class="wood" x="360" y="252" width="56" height="10" rx="4" />
+    </svg>
+  )}
+</figure>
+
+<style>
+  .illu { margin: 0; color: var(--accent) }
+  .illu svg { display: block; width: 100%; height: auto }
+  .soft { fill: var(--soft) }
+  .soft-strong { fill: color-mix(in srgb, var(--accent) 22%, var(--soft)) }
+  .frame { fill: none; stroke: var(--surface); stroke-width: 8 }
+  .sun { fill: color-mix(in srgb, var(--afp) 55%, var(--surface)) }
+  .line { fill: var(--line) }
+  .wood { fill: color-mix(in srgb, var(--ink) 55%, var(--bg)) }
+  .paper { fill: var(--surface); stroke: var(--line); stroke-width: 2 }
+  .acc { fill: var(--accent) }
+  .afp { fill: var(--afp) }
+  .fold { fill: none; stroke: var(--line); stroke-width: 3; stroke-linecap: round }
+  .fold-light { fill: none; stroke: color-mix(in srgb, var(--surface) 55%, transparent); stroke-width: 3; stroke-linecap: round }
+  .pot { fill: var(--afp) }
+  .leaf { fill: var(--accent) }
+  .leaf2 { fill: color-mix(in srgb, var(--accent) 70%, var(--soft)) }
+  .basket { fill: color-mix(in srgb, var(--afp) 35%, var(--surface)) }
+  .weave { fill: none; stroke: color-mix(in srgb, var(--afp) 60%, var(--surface)); stroke-width: 4; stroke-linecap: round }
+</style>

@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import Search from '../components/Search.astro';
+import Illustration from '../components/Illustration.astro';
 
 const reponses = (await getCollection('reponses')).sort((a, b) => a.data.ordre - b.data.ordre);
 const populaires = (await getCollection('documents')).filter((d) => d.data.populaire);
@@ -15,10 +16,13 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
 ---
 <Base title="Accueil">
   <section class="hero">
-    <div class="wrap">
+    <div class="wrap hero-grid">
+      <div class="hero-text">
       <h1>Toutes les réponses sur les métiers de l'hôtellerie-intendance à Genève</h1>
       <p class="lede">Gestionnaire CFC et employé·e AFP : formations, examens et démarches, expliqués simplement et reliés aux sources officielles.</p>
       <Search />
+      </div>
+      <Illustration nom="accueil" class="hero-illu" />
     </div>
   </section>
 
@@ -78,6 +82,11 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
 
 <style>
   .hero { padding-block: clamp(32px, 6vw, 72px) clamp(16px, 3vw, 32px) }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center }
+  .hero-text { min-width: 0 }
+  .hero-illu { max-width: 440px; justify-self: end; width: 100% }
+  /* Sur téléphone, la recherche reste visible sans défiler : l'illustration s'efface. */
+  @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr } .hero-illu { display: none } }
   h1 { max-width: 22ch }
   .lede { font-size: 1.15rem; color: var(--muted); max-width: 52ch; margin: 0 0 24px }
   .block { padding-block: clamp(24px, 4vw, 44px) }

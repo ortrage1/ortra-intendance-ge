@@ -2,6 +2,7 @@
 import { getCollection, render } from 'astro:content';
 import Base from '../../layouts/Base.astro';
 import SourceBox from '../../components/SourceBox.astro';
+import Illustration from '../../components/Illustration.astro';
 
 export async function getStaticPaths() {
   const metiers = await getCollection('metiers');
@@ -23,6 +24,7 @@ const autre = metier.data.sigle === 'CFC' ? { href: '/metiers/afp/', label: 'Voi
     {metier.data.anciensNoms.length > 0 && (
       <p class="aka"><strong>Vous connaissez peut-être ce métier sous un autre nom :</strong> {metier.data.anciensNoms.join(' · ')}</p>
     )}
+    <Illustration nom={metier.data.formation === 'afp' ? 'afp' : 'cfc'} class="fiche-illu" />
     <div class="prose"><Content /></div>
     <p class="next"><a href="/reponses/cfc-ou-afp/">Comparer le CFC et l'AFP</a> · <a href={autre.href}>{autre.label}</a></p>
     <SourceBox libelle={metier.data.source.libelle} url={metier.data.source.url} verifieLe={metier.data.verifieLe} />
@@ -37,6 +39,7 @@ const autre = metier.data.sigle === 'CFC' ? { href: '/metiers/afp/', label: 'Voi
   .facts dt { font-size: .78rem; color: var(--muted) }
   .facts dd { margin: 0; font-weight: 700 }
   .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+  .page :global(.fiche-illu) { max-width: 420px; margin: 8px 0 12px }
   .aka { font-size: .95rem; background: var(--soft); border-radius: 12px; padding: 12px 16px; max-width: var(--measure) }
   .next { margin-top: 28px; font-weight: 600 }
 </style>

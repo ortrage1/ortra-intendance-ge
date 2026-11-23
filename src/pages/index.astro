@@ -6,6 +6,8 @@ import Illustration from '../components/Illustration.astro';
 
 const reponses = (await getCollection('reponses')).sort((a, b) => a.data.ordre - b.data.ordre);
 const populaires = (await getCollection('documents')).filter((d) => d.data.populaire);
+// L'encadré genevois reprend la fiche « Où ont lieu les cours ? » : une seule source à corriger.
+const lieux = reponses.find((r) => r.id === 'lieux-des-cours')!;
 const profils = [
   { q: 'AFP ou CFC', titre: 'Je découvre le métier', texte: 'Jeunes et parents : CFC ou AFP, trouver une place', icone: 'M12 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM4 21c1.5-4 4.5-6 8-6s6.5 2 8 6' },
   { q: 'Diplôme adulte', titre: 'Je me reconvertis', texte: "Adultes : faire reconnaître son expérience", icone: 'M4 17 10 11l4 4 6-7M15 8h5v5' },
@@ -74,7 +76,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
       <div class="note">
         <svg width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21Z" fill="none" stroke="currentColor" stroke-width="1.8" /><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="1.8" /></svg>
         <h2>Bon à savoir à Genève</h2>
-        <p>Les apprentis genevois suivent leurs cours hors du canton : à Marcelin (VD) pour l'orientation intendance, à Crans-Montana (VS) pour l'orientation hôtellerie. Les adultes qui passent par l'article 32 se forment à Genève. <a href="/reponses/lieux-des-cours/">En savoir plus</a></p>
+        <p>{lieux.data.resume} <a href="/reponses/lieux-des-cours/">En savoir plus</a>{lieux.data.statut === 'a-confirmer' && <span class="statut a-confirmer"> À confirmer avant publication</span>}</p>
       </div>
     </div>
   </section>

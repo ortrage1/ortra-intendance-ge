@@ -16,13 +16,13 @@ statut: verifie
 
 | CHF par mois | 1re année | 2e année | 3e année |
 |---|---|---|---|
-| CFC, gestionnaire | 780–1050 | 960–1250 | 1250–1450 |
+| CFC, gestionnaire | 780⁠–⁠1050 | 960⁠–⁠1250 | 1250⁠–⁠1450 |
 | AFP, employé·e | 1020 | 1300 | – |
 
 **Pourquoi une fourchette pour le CFC ?** Le salaire dépend de la convention collective qui s'applique à l'entreprise formatrice :
 
 - dans un **établissement médico-social (EMS)**, c'est la convention collective de la Fegems ;
-- dans un **hôtel ou un restaurant**, c'est la [convention pour les apprentis de l'hôtellerie-restauration suisse](https://hotelgastro.ch/wp-content/uploads/2026/04/Convention-pour-les-apprentis-dans-lhotellerie-restauration-suisse-1.pdf).
+- dans un **hôtel ou un restaurant**, c'est la [convention pour les apprentis dans l’hôtellerie-restauration suisse](https://www.hfthun.ch/hubfs/HFThun/HFT_Convention_pour_les_apprentis_dans_lhotellerie-restauration_suisse.pdf) (texte de 1992, état au 1er mai 2013, copie publiée par l’école hôtelière de Thoune).
 
 Le montant exact figure dans le contrat d'apprentissage.
 

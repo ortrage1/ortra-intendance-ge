@@ -89,7 +89,6 @@ p { text-wrap: pretty }
 .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top }
 .prose thead th { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted) }
 .prose tbody th { font-weight: 700 }
-.prose tbody td { white-space: nowrap }
 /* Fil d'Ariane : repère de navigation, pas une étiquette décorative. */
 .crumbs { font-size: .9rem; color: var(--muted); margin: 0 0 12px }
 .crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 8px; list-style: none; margin: 0; padding: 0 }

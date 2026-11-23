@@ -19,3 +19,5 @@ statut: a-confirmer
 **Adultes (article 32).** Tous les cours ont lieu à Genève.
 
 Les dates des cours-blocs de l'année scolaire sont publiées par l'école hôtelière de Thoune.
+
+Les dates des cours-blocs 2026-2027 se trouvent dans la [bibliothèque de documents](/documents/).

@@ -4,6 +4,7 @@ resume: "L'examen comprend un travail pratique, avec un entretien professionnel,
 motsCles: ["examen", "examen final", "procédure de qualification", "PQ", "notes", "grille", "évaluation", "entretien professionnel", "travail pratique", "TPP", "expert", "série zéro", "note d'expérience", "culture générale", "article 32", "adulte", "réussite"]
 formation: les-deux
 public: [evaluer, former, reconversion]
+rubrique: evaluer
 ordre: 4
 source:
   libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 18, 19 et 25"

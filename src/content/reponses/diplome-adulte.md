@@ -4,6 +4,7 @@ resume: "Avec 5 ans d'expérience, dont 3 dans le domaine, un adulte domicilié 
 motsCles: ["adulte", "diplôme adulte", "reconversion", "article 32", "art. 32", "certification", "CPA", "expérience", "financement", "gratuit", "Qualifications+", "Q+"]
 formation: les-deux
 public: [reconversion]
+rubrique: se-former
 ordre: 2
 source:
   libelle: "Office pour l'orientation, la formation professionnelle et continue (OFPC)"

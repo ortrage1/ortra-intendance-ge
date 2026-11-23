@@ -14,6 +14,8 @@ const reponses = defineCollection({
     motsCles: z.array(z.string()).default([]),
     formation,
     public: z.array(z.enum(['decouvrir', 'reconversion', 'former', 'evaluer'])).default([]),
+    // Rubrique du menu où la fiche apparaît (pages « Les métiers », « Se former »…).
+    rubrique: z.enum(['metiers', 'se-former', 'former', 'evaluer']).optional(),
     ordre: z.number().default(99),
     source,
     verifieLe: z.coerce.date(),

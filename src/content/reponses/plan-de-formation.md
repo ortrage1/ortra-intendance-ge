@@ -4,6 +4,7 @@ resume: "Les plans de formation de 2023 s'appliquent aux nouvelles formations. L
 motsCles: ["plan de formation", "programme", "formateur", "entreprise formatrice", "ordonnance", "compétences", "cours interentreprises", "CIE", "ancien droit", "dispositions transitoires", "répéter", "ancien plan", "gestionnaire en intendance", "spécialiste en hôtellerie"]
 formation: les-deux
 public: [former]
+rubrique: former
 ordre: 6
 source:
   libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 25"

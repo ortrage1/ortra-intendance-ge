@@ -4,6 +4,7 @@ resume: "Les apprentis genevois suivent les cours professionnels hors du canton,
 motsCles: ["cours", "école", "lieu", "école professionnelle", "Marcelin", "CEMEF", "Morges", "Crans-Montana", "cours-blocs", "hors canton", "Vaud", "Valais", "EMS", "hôtel", "trouver mon lieu de cours"]
 formation: les-deux
 public: [decouvrir, former]
+rubrique: se-former
 ordre: 3
 source:
   libelle: "OFPC, Professions ouvertes à l'apprentissage, Genève 2026"

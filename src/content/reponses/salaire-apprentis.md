@@ -4,6 +4,7 @@ resume: "À Genève, un apprenti CFC gagne entre 780 et 1450 francs par mois sel
 motsCles: ["salaire", "salaire apprenti", "rémunération", "paie", "combien", "gagner", "argent", "francs", "CHF", "par mois", "13e salaire", "vacances", "horaire", "convention collective", "CCT", "EMS", "Fegems", "hôtel"]
 formation: les-deux
 public: [decouvrir, former]
+rubrique: se-former
 ordre: 7
 source:
   libelle: "OFPC, Salaires des apprentis 2026-2027 (version de juin 2026)"

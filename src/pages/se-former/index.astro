@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Rubrique from '../../components/Rubrique.astro';
+---
+<Base title="Se former" description="Apprentissage, diplôme à l'âge adulte, préapprentissage : toutes les voies pour se former en hôtellerie-intendance à Genève.">
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Se former</li></ol></nav>
+    <h1>Se former en hôtellerie-intendance</h1>
+    <p class="lede">En apprentissage dès la fin de l'école obligatoire, à l'âge adulte en faisant reconnaître son expérience, ou après une année de préparation : voici les voies possibles à Genève.</p>
+    <Rubrique rubrique="se-former" titre="Vos questions" />
+  </div>
+</Base>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+</style>

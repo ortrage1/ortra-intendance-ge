@@ -4,6 +4,7 @@ resume: "Les places ouvertes sont publiées par les entreprises formatrices et r
 motsCles: ["place", "apprentissage", "trouver", "chercher", "entreprise", "stage", "postuler", "candidature", "jeune"]
 formation: les-deux
 public: [decouvrir]
+rubrique: se-former
 ordre: 5
 source:
   libelle: "orientation.ch, Cité des métiers du Grand Genève"

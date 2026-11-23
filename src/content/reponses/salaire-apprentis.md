@@ -6,8 +6,8 @@ formation: les-deux
 public: [decouvrir, former]
 ordre: 7
 source:
-  libelle: "OFPC, Salaires des apprentis 2026-2027"
-  url: "https://www.citedesmetiers.ch/app/uploads/2026/04/Salaires-2026-2027.pdf"
+  libelle: "OFPC, Salaires des apprentis 2026-2027 (version de juin 2026)"
+  url: "https://www.ge.ch/document/9412/telecharger"
 verifieLe: 2026-11-23
 statut: a-confirmer
 ---

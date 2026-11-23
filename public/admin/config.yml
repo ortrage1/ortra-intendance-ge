@@ -1,8 +1,8 @@
 # yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
-# Outil d'édition du site. Le dépôt GitHub sera renseigné à la création de l'organisation OrTra.
+# Outil d’édition du site, relié au dépôt GitHub du projet.
 backend:
   name: github
-  repo: ORGANISATION/ortra-intendance-site
+  repo: ortrage1/ortra-intendance-ge
   branch: main
 
 locale: fr

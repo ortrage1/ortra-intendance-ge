@@ -15,7 +15,11 @@
   --warn-bg: #FBF1DC;
   --mark: #F6E7C8;
 
-  --f-body: "Hanken Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+  /* Titres et logo : Hanken Grotesk. Texte courant : Atkinson Hyperlegible Next,
+     conçue pour la lisibilité (malvoyance, dyslexie, lecteurs allophones). */
+  --f-display: "Hanken Grotesk Variable", "Helvetica Neue", Arial, sans-serif;
+  --f-body: "Atkinson Hyperlegible Next Variable", "Helvetica Neue", Arial, sans-serif;
+  --tap: 44px;
   --text-base: 1.0625rem;
   --h1: clamp(1.75rem, 1.2rem + 2.4vw, 2.75rem);
   --h2: clamp(1.35rem, 1.1rem + 1vw, 1.75rem);
@@ -43,7 +47,10 @@ img { max-width: 100%; height: auto }
 a { color: var(--accent); text-underline-offset: .18em }
 a:hover { text-decoration-thickness: 2px }
 :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 4px }
-h1, h2, h3 { line-height: 1.12; text-wrap: balance; letter-spacing: -0.015em }
+::selection { background: var(--mark); color: var(--ink) }
+html { scrollbar-color: color-mix(in srgb, var(--accent) 45%, var(--line)) var(--bg); caret-color: var(--accent) }
+h1, h2, h3 { font-family: var(--f-display); line-height: 1.12; text-wrap: balance; letter-spacing: -0.015em }
+table, .num { font-variant-numeric: tabular-nums }
 h1 { font-size: var(--h1); font-weight: 750; margin: 0 0 14px }
 h2 { font-size: var(--h2); font-weight: 700; margin: 0 0 16px }
 h3 { font-size: 1.15rem; font-weight: 700; margin: 0 0 8px }
@@ -81,6 +88,14 @@ p { text-wrap: pretty }
 .prose table { border-collapse: collapse; width: 100%; font-size: .95rem; margin: 8px 0 20px }
 .prose th, .prose td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top }
 .prose thead th { font-size: .8rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted) }
+.prose tbody th { font-weight: 700 }
+.prose tbody td { white-space: nowrap }
+/* Fil d'Ariane : repère de navigation, pas une étiquette décorative. */
+.crumbs { font-size: .9rem; color: var(--muted); margin: 0 0 12px }
+.crumbs ol { display: flex; flex-wrap: wrap; gap: 4px 8px; list-style: none; margin: 0; padding: 0 }
+.crumbs li + li::before { content: "›"; margin-right: 8px; color: var(--line) }
+.crumbs a { color: var(--muted) }
+.crumbs a:hover { color: var(--accent) }
 .table-scroll { overflow-x: auto }
 .prose ul { padding-left: 1.2em }
 .prose li + li { margin-top: 4px }

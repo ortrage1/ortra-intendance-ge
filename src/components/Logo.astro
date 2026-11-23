@@ -1,0 +1,26 @@
+---
+// Logo retenu (piste A, « Trois niveaux ») : trois bandes empilées,
+// linge plié et parcours AFP → CFC → brevet. La bande du haut marque l'étape suivante.
+interface Props { size?: number }
+const { size = 40 } = Astro.props;
+---
+<span class="logo-lockup">
+  <svg class="mark" width={size} height={size} viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+    <rect class="top" x="14" y="9" width="20" height="8" rx="3" />
+    <rect x="9" y="20" width="30" height="8" rx="3" />
+    <rect x="4" y="31" width="40" height="8" rx="3" />
+  </svg>
+  <span class="words">
+    <span class="name">intendance</span>
+    <span class="org">OrTra · Genève</span>
+  </span>
+</span>
+
+<style>
+  .logo-lockup { display: inline-flex; align-items: center; gap: 10px }
+  .mark { flex: none; fill: var(--accent) }
+  .mark .top { fill: var(--afp) }
+  .words { display: flex; flex-direction: column; gap: 1px }
+  .name { font-family: var(--f-display); font-size: 1.4rem; font-weight: 800; letter-spacing: -0.02em; line-height: 1; color: var(--ink) }
+  .org { font-family: var(--f-display); font-size: .7rem; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: var(--accent) }
+</style>

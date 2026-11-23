@@ -14,10 +14,10 @@ statut: verifie
 
 **Salaire par mois, année scolaire 2026-2027**
 
-| | 1re année | 2e année | 3e année |
+| CHF par mois | 1re année | 2e année | 3e année |
 |---|---|---|---|
-| Gestionnaire en hôtellerie-intendance CFC | 780 à 1050 CHF | 960 à 1250 CHF | 1250 à 1450 CHF |
-| Employé·e en hôtellerie-intendance AFP | 1020 CHF | 1300 CHF | – |
+| CFC, gestionnaire | 780–1050 | 960–1250 | 1250–1450 |
+| AFP, employé·e | 1020 | 1300 | – |
 
 **Pourquoi une fourchette pour le CFC ?** Le salaire dépend de la convention collective qui s'applique à l'entreprise formatrice :
 

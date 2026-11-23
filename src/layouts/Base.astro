@@ -1,0 +1,94 @@
+---
+import '@fontsource-variable/hanken-grotesk';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+const { title, description = "Toutes les informations sur les métiers de l'hôtellerie-intendance à Genève, expliquées simplement et reliées aux sources officielles." } = Astro.props;
+const fullTitle = title === 'Accueil' ? "OrTra intendance Genève · Métiers de l'hôtellerie-intendance" : `${title} · OrTra intendance Genève`;
+const path = Astro.url.pathname;
+const nav = [
+  { href: '/metiers/cfc/', label: 'Les métiers', match: '/metiers' },
+  { href: '/reponses/diplome-adulte/', label: 'Se former', match: '/reponses/diplome-adulte' },
+  { href: '/reponses/plan-de-formation/', label: 'Former', match: '/reponses/plan-de-formation' },
+  { href: '/documents/', label: 'Documents', match: '/documents' },
+];
+---
+<!doctype html>
+<html lang="fr-CH">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <meta name="theme-color" content="#1F5A66" />
+  </head>
+  <body>
+    <a class="skip" href="#contenu">Aller au contenu</a>
+    <header class="site-head">
+      <div class="wrap head-row">
+        <a class="logo" href="/" aria-label="Accueil, OrTra intendance Genève">
+          <svg width="34" height="34" viewBox="0 0 34 34" aria-hidden="true"><rect x="1" y="1" width="32" height="32" rx="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M9 21.5h16M10.5 21.5v-6.5l6.5-4.5 6.5 4.5v6.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+          <span><b>OrTra intendance Genève</b><small>Métiers de l'hôtellerie-intendance</small></span>
+        </a>
+        <nav aria-label="Navigation principale">
+          <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+          <ul class="nav" id="menu">
+            {nav.map((n) => (
+              <li><a href={n.href} aria-current={path.startsWith(n.match) ? 'page' : undefined}>{n.label}</a></li>
+            ))}
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <main id="contenu">
+      <slot />
+    </main>
+    <footer class="site-foot">
+      <div class="wrap foot-grid">
+        <div><strong>OrTra intendance Genève</strong><p>Organisation du monde du travail pour les métiers de l'intendance à Genève.</p></div>
+        <div><strong>Orientation et démarches</strong><p>Cité des métiers du Grand Genève<br />Rue Prévost-Martin 6, 1205 Genève</p></div>
+        <div><strong>Fiabilité</strong><p>Chaque information indique sa source officielle et sa date de vérification.</p></div>
+      </div>
+      <p class="wrap trial">Site d'essai, non public. Contenu en cours de validation.</p>
+    </footer>
+    <script>
+      const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
+      const menu = document.getElementById('menu');
+      btn?.addEventListener('click', () => {
+        const open = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!open));
+        menu?.classList.toggle('open', !open);
+      });
+    </script>
+  </body>
+</html>
+
+<style>
+  .site-head { border-bottom: 1px solid var(--line); background: var(--bg) }
+  .head-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; position: relative }
+  .logo { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; min-width: 0 }
+  .logo svg { flex: none; color: var(--accent) }
+  .logo b { display: block; font-size: 1.05rem; line-height: 1.1; letter-spacing: -0.01em }
+  .logo small { display: block; color: var(--muted); font-size: .78rem }
+  .nav { display: flex; gap: 4px; list-style: none; margin: 0; padding: 0 }
+  .nav a { display: block; text-decoration: none; padding: 8px 12px; border-radius: 999px; font-weight: 500; font-size: .95rem; color: var(--ink); transition: background var(--dur-fast) var(--ease) }
+  .nav a:hover { background: var(--soft) }
+  .nav a[aria-current='page'] { background: var(--soft); color: var(--accent); font-weight: 650 }
+  .menu-btn { display: none; font: inherit; font-weight: 600; background: var(--surface); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; padding: 8px 14px; cursor: pointer }
+  @media (max-width: 860px) {
+    .menu-btn { display: inline-block }
+    .nav { display: none; position: absolute; right: max(16px, env(safe-area-inset-right, 0px)); top: calc(100% + 6px); flex-direction: column; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 8px; min-width: 14rem; box-shadow: 0 16px 32px -18px rgb(0 0 0 / .35); z-index: 20 }
+    .nav.open { display: flex }
+  }
+  .site-foot { border-top: 1px solid var(--line); margin-top: 48px; font-size: .92rem; color: var(--muted) }
+  .foot-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; padding-block: 32px 16px }
+  @media (max-width: 760px) { .foot-grid { grid-template-columns: 1fr } }
+  .site-foot strong { color: var(--ink); display: block; margin-bottom: 6px }
+  .site-foot p { margin: 0 }
+  .trial { padding-block: 0 24px; font-size: .82rem }
+</style>

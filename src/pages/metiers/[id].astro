@@ -1,0 +1,34 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SourceBox from '../../components/SourceBox.astro';
+
+export async function getStaticPaths() {
+  const metiers = await getCollection('metiers');
+  return metiers.map((m) => ({ params: { id: m.id }, props: { metier: m } }));
+}
+const { metier } = Astro.props;
+const { Content } = await render(metier);
+const autre = metier.data.sigle === 'CFC' ? { href: '/metiers/afp/', label: 'Voir la formation AFP (2 ans)' } : { href: '/metiers/cfc/', label: 'Voir la formation CFC (3 ans)' };
+---
+<Base title={metier.data.titre} description={metier.data.resume}>
+  <article class="wrap narrow page" data-pagefind-body data-pagefind-filter={`formation:${metier.data.formation}`}>
+    <p class="kicker"><span class={`badge ${metier.data.formation}`}>{metier.data.sigle}</span> {metier.data.duree} · Fiche métier</p>
+    <h1 data-pagefind-meta="title">{metier.data.titre}</h1>
+    <p class="lede">{metier.data.resume}</p>
+    {metier.data.anciensNoms.length > 0 && (
+      <p class="aka">Anciens noms ou abréviations : {metier.data.anciensNoms.join(' · ')}</p>
+    )}
+    <div class="prose"><Content /></div>
+    <p class="next"><a href="/reponses/cfc-ou-afp/">Comparer le CFC et l'AFP</a> · <a href={autre.href}>{autre.label}</a></p>
+    <SourceBox libelle={metier.data.source.libelle} url={metier.data.source.url} verifieLe={metier.data.verifieLe} />
+  </article>
+</Base>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .kicker { display: flex; align-items: center; gap: 8px; color: var(--muted); font-size: .9rem; margin: 0 0 10px }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+  .aka { font-size: .92rem; color: var(--muted); border-left: 3px solid var(--line); padding-left: 12px }
+  .next { margin-top: 28px; font-weight: 600 }
+</style>

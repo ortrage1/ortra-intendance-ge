@@ -1,0 +1,35 @@
+---
+import { getCollection, render } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import SourceBox from '../../components/SourceBox.astro';
+
+export async function getStaticPaths() {
+  const reponses = await getCollection('reponses');
+  return reponses.map((r) => ({ params: { id: r.id }, props: { reponse: r } }));
+}
+const { reponse } = Astro.props;
+const { Content } = await render(reponse);
+const autres = (await getCollection('reponses')).filter((r) => r.id !== reponse.id).sort((a, b) => a.data.ordre - b.data.ordre).slice(0, 4);
+---
+<Base title={reponse.data.titre} description={reponse.data.resume}>
+  <article class="wrap narrow page" data-pagefind-body data-pagefind-filter={`formation:${reponse.data.formation}`}>
+    <p class="kicker"><a href="/">Accueil</a> · Question fréquente</p>
+    <h1 data-pagefind-meta="title">{reponse.data.titre}</h1>
+    <p class="lede"><strong>En bref.</strong> {reponse.data.resume}</p>
+    <div class="prose table-scroll"><Content /></div>
+    <SourceBox libelle={reponse.data.source.libelle} url={reponse.data.source.url} verifieLe={reponse.data.verifieLe} statut={reponse.data.statut} />
+  </article>
+  <aside class="wrap narrow others" aria-label="Autres questions">
+    <h2>Autres questions</h2>
+    <ul class="list">
+      {autres.map((r) => <li><a href={`/reponses/${r.id}/`}><span class="txt">{r.data.titre}</span><span class="arrow" aria-hidden="true">→</span></a></li>)}
+    </ul>
+  </aside>
+</Base>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .kicker { color: var(--muted); font-size: .9rem; margin: 0 0 10px }
+  .lede { font-size: 1.12rem; background: var(--soft); border-radius: 12px; padding: 14px 16px; max-width: var(--measure) }
+  .others { padding-block: 40px 0 }
+</style>

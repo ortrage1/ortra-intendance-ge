@@ -1,0 +1,14 @@
+---
+interface Props {
+  libelle: string;
+  url?: string;
+  verifieLe: Date;
+  statut?: 'verifie' | 'a-confirmer';
+}
+const { libelle, url, verifieLe, statut = 'verifie' } = Astro.props;
+const date = verifieLe.toLocaleDateString('fr-CH');
+---
+<aside class="source" aria-label="Source de l'information">
+  <span>Source : {url ? <a href={url} target="_blank" rel="noopener">{libelle}</a> : libelle}</span>
+  <span class={`statut ${statut}`}>{statut === 'verifie' ? `Vérifié le ${date}` : 'À confirmer avant publication'}</span>
+</aside>

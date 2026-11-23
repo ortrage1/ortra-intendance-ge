@@ -1,0 +1,68 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const TYPES: Record<string, string> = {
+  'ordonnance': 'Ordonnances', 'plan-de-formation': 'Plans de formation', 'programme': 'Programmes de formation',
+  'examen': 'Examen final', 'information': 'Informations', 'calendrier': 'Calendriers', 'formulaire': 'Formulaires',
+};
+const docs = (await getCollection('documents')).sort((a, b) => a.data.titre.localeCompare(b.data.titre, 'fr'));
+const groupes = Object.entries(TYPES)
+  .map(([type, libelle]) => ({ type, libelle, items: docs.filter((d) => d.data.type === type) }))
+  .filter((g) => g.items.length);
+const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
+---
+<Base title="Documents" description="Bibliothèque des documents officiels sur les formations CFC et AFP en hôtellerie-intendance.">
+  <div class="wrap page">
+    <h1>Documents</h1>
+    <p class="lede">Les documents officiels en vigueur, avec leur éditeur et leur date de vérification. Les documents s'ouvrent chez leur éditeur.</p>
+
+    <div class="filters" role="group" aria-label="Filtrer par formation">
+      <button type="button" data-f="tout" aria-pressed="true">Tous</button>
+      <button type="button" data-f="cfc" aria-pressed="false">CFC</button>
+      <button type="button" data-f="afp" aria-pressed="false">AFP</button>
+    </div>
+
+    {groupes.map((g) => (
+      <section class="groupe" data-groupe>
+        <h2>{g.libelle}</h2>
+        <ul class="list">
+          {g.items.map((d) => (
+            <li data-formation={d.data.formation}>
+              <a href={d.data.url} target="_blank" rel="noopener">
+                <span class={`badge ${d.data.formation}`}>{badge(d.data.formation)}</span>
+                <span class="txt">{d.data.titre}<span class="meta">{d.data.editeur}{d.data.date ? ` · ${d.data.date}` : ''} · vérifié le {d.data.verifieLe.toLocaleDateString('fr-CH')}</span></span>
+                <span class="arrow" aria-hidden="true">↗</span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    ))}
+  </div>
+</Base>
+
+<script>
+  const boutons = document.querySelectorAll<HTMLButtonElement>('.filters [data-f]');
+  boutons.forEach((b) => b.addEventListener('click', () => {
+    const f = b.dataset.f;
+    boutons.forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    document.querySelectorAll<HTMLElement>('[data-formation]').forEach((li) => {
+      const v = li.dataset.formation;
+      li.hidden = !(f === 'tout' || v === f || v === 'les-deux');
+    });
+    document.querySelectorAll<HTMLElement>('[data-groupe]').forEach((s) => {
+      s.hidden = !s.querySelector('[data-formation]:not([hidden])');
+    });
+  }));
+</script>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .lede { font-size: 1.12rem; color: var(--muted); max-width: var(--measure) }
+  .filters { display: flex; gap: 6px; margin: 20px 0 8px }
+  .filters button { font: inherit; font-size: .9rem; font-weight: 650; color: var(--muted); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 6px 14px; cursor: pointer }
+  .filters button[aria-pressed='true'] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent) }
+  .groupe { margin-top: 32px; max-width: 52rem }
+  .groupe h2 { font-size: 1.2rem }
+</style>

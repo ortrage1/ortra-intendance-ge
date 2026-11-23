@@ -1,0 +1,197 @@
+---
+import { getCollection } from 'astro:content';
+
+// Données légères transmises au navigateur : réponses directes et documents.
+// Le texte intégral des pages est cherché par Pagefind (index produit à la construction).
+const reponses = (await getCollection('reponses')).map((r) => ({
+  url: `/reponses/${r.id}/`,
+  titre: r.data.titre,
+  resume: r.data.resume,
+  mots: [r.data.titre, ...r.data.motsCles].join(' '),
+  formation: r.data.formation,
+  source: r.data.source.libelle,
+  verifie: r.data.verifieLe.toLocaleDateString('fr-CH'),
+  statut: r.data.statut,
+}));
+const documents = (await getCollection('documents')).map((d) => ({
+  url: d.data.url,
+  titre: d.data.titre,
+  editeur: d.data.editeur,
+  date: d.data.date ?? '',
+  formation: d.data.formation,
+  mots: [d.data.titre, d.data.type, d.data.lieu, d.data.editeur].join(' '),
+}));
+const suggestions = ['AFP ou CFC', 'Diplôme adulte', 'Où ont lieu les cours', 'Examen final', 'Plan de formation'];
+---
+<div class="search-block" data-search>
+  <form class="search" role="search">
+    <svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" fill="none" stroke="currentColor" stroke-width="2"/><path d="m20 20-4-4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+    <label class="sr" for="q">Rechercher sur le site</label>
+    <input id="q" name="q" type="search" autocomplete="off" placeholder="Ex. : examen, cours, adulte" />
+    <span class="kbd" aria-hidden="true">/</span>
+    <button class="btn" type="submit">Rechercher</button>
+  </form>
+  <div class="chips">
+    <span>Souvent recherché :</span>
+    {suggestions.map((s) => <button class="chip" type="button" data-q={s}>{s}</button>)}
+  </div>
+  <div class="results" aria-live="polite"></div>
+</div>
+
+<script is:inline type="application/json" id="search-data" set:html={JSON.stringify({ reponses, documents })}></script>
+
+<script>
+  type Formation = 'cfc' | 'afp' | 'les-deux';
+  interface Reponse { url: string; titre: string; resume: string; mots: string; formation: Formation; source: string; verifie: string; statut: string }
+  interface Doc { url: string; titre: string; editeur: string; date: string; formation: Formation; mots: string }
+  interface PagefindHit { url: string; excerpt: string; meta: { title?: string }; filters: Record<string, string[]> }
+  interface Pagefind { search: (q: string) => Promise<{ results: { data: () => Promise<PagefindHit> }[] }> }
+
+  const STOP = new Set(['ou', 'de', 'la', 'le', 'les', 'un', 'une', 'des', 'en', 'et', 'a', 'au', 'on', 'sur', 'qui', 'que', 'du', 'pour', 'est']);
+  // Synonymes et anciens noms : un terme tapé est complété par ses équivalents.
+  const SYN: Record<string, string> = {
+    gei: 'gestionnaire cfc', eei: 'employe afp', art: 'article', pq: 'examen', cie: 'cours interentreprises',
+    diplome: 'diplome certificat', salaire: 'salaire apprenti', apprenti: 'apprentissage', adultes: 'adulte',
+  };
+
+  const root = document.querySelector<HTMLElement>('[data-search]');
+  const dataEl = document.getElementById('search-data');
+  if (root && dataEl) init(root, JSON.parse(dataEl.textContent ?? '{}'));
+
+  function norm(s: string) {
+    return s.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  }
+  function terms(s: string) {
+    const base = norm(s).split(' ').filter((w) => w.length > 1 && !STOP.has(w));
+    return base.flatMap((w) => [w, ...(SYN[w] ? SYN[w].split(' ') : [])]);
+  }
+  function score(text: string, ts: string[]) {
+    const hay = ` ${norm(text)} `;
+    return ts.reduce((s, w) => s + (hay.includes(` ${w}`) ? 2 : w.length > 3 && hay.includes(w.slice(0, 4)) ? 1 : 0), 0);
+  }
+  function esc(s: string) {
+    return s.replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c] as string);
+  }
+  function badge(f: Formation) {
+    return f === 'les-deux' ? '<span class="badge les-deux">CFC·AFP</span>' : `<span class="badge ${f}">${f.toUpperCase()}</span>`;
+  }
+
+  function init(rootEl: HTMLElement, data: { reponses: Reponse[]; documents: Doc[] }) {
+    const input = rootEl.querySelector<HTMLInputElement>('#q')!;
+    const out = rootEl.querySelector<HTMLElement>('.results')!;
+    let filtre: 'tout' | 'cfc' | 'afp' = 'tout';
+    let pagefind: Pagefind | null | undefined;
+    let seq = 0;
+
+    async function loadPagefind() {
+      if (pagefind !== undefined) return pagefind;
+      try {
+        const path = '/pagefind/pagefind.js';
+        pagefind = (await import(/* @vite-ignore */ path)) as Pagefind;
+      } catch {
+        pagefind = null; // en développement, l'index n'existe pas encore
+      }
+      return pagefind;
+    }
+    const garde = (f: Formation) => filtre === 'tout' || f === filtre || f === 'les-deux';
+
+    async function render() {
+      const brut = input.value.trim();
+      const mine = ++seq;
+      if (!brut) { out.innerHTML = ''; return; }
+      const ts = terms(brut);
+      // Une réponse directe n'est proposée que si la plupart des mots réellement tapés y figurent
+      // (les synonymes aident à classer les pages, pas à déclencher une réponse).
+      const tapes = norm(brut).split(' ').filter((w) => w.length > 2 && !STOP.has(w));
+      const couverture = (text: string) => {
+        if (!tapes.length) return 0;
+        const hay = ` ${norm(text)} `;
+        return tapes.filter((w) => hay.includes(` ${w}`)).length / tapes.length;
+      };
+      const reps = data.reponses
+        .map((r) => [score(r.mots, ts), r] as const)
+        .filter(([s, r]) => s >= 2 && couverture(r.mots) >= 0.6)
+        .sort((a, b) => b[0] - a[0]);
+      const docs = data.documents.map((d) => [score(d.mots, ts), d] as const).filter(([s, d]) => s >= 2 && garde(d.formation)).sort((a, b) => b[0] - a[0]).slice(0, 5);
+
+      let pages: PagefindHit[] = [];
+      const pf = await loadPagefind();
+      if (pf) {
+        const res = await pf.search(brut);
+        pages = (await Promise.all(res.results.slice(0, 8).map((r) => r.data())))
+          .filter((p) => !reps[0] || !p.url.startsWith(reps[0][1].url))
+          .filter((p) => { const f = (p.filters.formation?.[0] ?? 'les-deux') as Formation; return garde(f); })
+          .slice(0, 4);
+      }
+      if (mine !== seq) return;
+
+      const total = (reps.length ? 1 : 0) + pages.length + docs.length;
+      let h = `<div class="results-head"><span>${total ? `${total} résultat${total > 1 ? 's' : ''} pour « ${esc(brut)} »` : ''}</span>
+        <div class="filters" role="group" aria-label="Filtrer par formation">${(['tout', 'cfc', 'afp'] as const).map((k) => `<button type="button" data-f="${k}" aria-pressed="${filtre === k}">${k === 'tout' ? 'Tout' : k.toUpperCase()}</button>`).join('')}</div></div>`;
+      if (reps.length) {
+        const r = reps[0][1];
+        h += `<article class="answer"><span class="tag">Réponse directe</span><h3><a href="${r.url}">${esc(r.titre)}</a></h3><p>${esc(r.resume)}</p>
+          <div class="src"><span>Source : ${esc(r.source)}</span><span class="statut ${r.statut}">${r.statut === 'verifie' ? `Vérifié le ${esc(r.verifie)}` : 'À confirmer avant publication'}</span><a href="${r.url}">Lire la réponse complète →</a></div></article>`;
+      }
+      if (pages.length) h += `<p class="group-title">Pages</p>` + pages.map((p) => `<a class="hit" href="${p.url}">${badge((p.filters.formation?.[0] ?? 'les-deux') as Formation)}<strong>${esc(p.meta.title ?? p.url)}</strong><span class="meta">${p.excerpt}</span></a>`).join('');
+      if (docs.length) h += `<p class="group-title">Documents officiels</p>` + docs.map(([, d]) => `<a class="hit" href="${d.url}" target="_blank" rel="noopener">${badge(d.formation)}<strong>${esc(d.titre)}</strong><span class="meta">${esc(d.editeur)}${d.date ? ` · ${esc(d.date)}` : ''} · s'ouvre dans un nouvel onglet</span></a>`).join('');
+      if (!total) h += `<div class="empty">Aucun résultat pour « ${esc(brut)} ». Essayez un mot plus simple, par exemple « examen », « adulte » ou « cours ».</div>`;
+      out.innerHTML = h;
+    }
+
+    let timer: number | undefined;
+    input.addEventListener('input', () => { clearTimeout(timer); timer = window.setTimeout(render, 120); });
+    rootEl.querySelector('form')!.addEventListener('submit', (e) => { e.preventDefault(); render(); });
+    out.addEventListener('click', (e) => {
+      const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-f]');
+      if (b) { filtre = b.dataset.f as typeof filtre; render(); }
+    });
+    document.querySelectorAll<HTMLElement>('[data-q]').forEach((b) => b.addEventListener('click', () => {
+      input.value = b.dataset.q ?? ''; filtre = 'tout'; render(); input.focus({ preventScroll: true });
+      rootEl.scrollIntoView({ behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' });
+    }));
+    document.addEventListener('keydown', (e) => {
+      const t = document.activeElement?.tagName ?? '';
+      if (e.key === '/' && !/INPUT|TEXTAREA|SELECT/.test(t)) { e.preventDefault(); input.focus(); }
+    });
+    const initial = new URLSearchParams(location.search).get('q');
+    if (initial) { input.value = initial; render(); }
+  }
+</script>
+
+<style>
+  .search { display: flex; align-items: center; gap: 8px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 18px; padding: 6px 6px 6px 16px; box-shadow: 0 1px 2px rgb(0 0 0 / .04), 0 8px 24px -12px rgb(0 0 0 / .18); max-width: 44rem; transition: border-color var(--dur-fast) var(--ease), box-shadow var(--dur) var(--ease) }
+  .search:focus-within { border-color: var(--accent); box-shadow: 0 0 0 4px color-mix(in srgb, var(--accent) 18%, transparent) }
+  .search svg { flex: none; color: var(--muted) }
+  .search input { flex: 1; min-width: 0; font: inherit; font-size: 1.1rem; color: var(--ink); background: transparent; border: 0; padding: 12px 4px; outline: none }
+  .search input::placeholder { color: var(--muted) }
+  .kbd { flex: none; font-size: .75rem; color: var(--muted); border: 1px solid var(--line); border-radius: 5px; padding: 1px 6px }
+  @media (hover: none), (max-width: 600px) { .kbd { display: none } }
+  .btn { font: inherit; font-weight: 650; background: var(--accent); color: var(--accent-ink); border: 0; border-radius: 14px; padding: 12px 20px; cursor: pointer; transition: transform var(--dur-fast) var(--ease), filter var(--dur-fast) var(--ease) }
+  .btn:hover { filter: brightness(1.08) }
+  .btn:active { transform: scale(.97) }
+  @media (max-width: 480px) { .btn { padding: 12px 14px } }
+  .chips { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-top: 16px; max-width: 44rem }
+  .chips > span { font-size: .875rem; color: var(--muted); margin-right: 4px }
+  .chip { font: inherit; font-size: .9rem; font-weight: 500; color: var(--ink); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; padding: 7px 14px; cursor: pointer; transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease) }
+  .chip:hover { border-color: var(--accent); background: var(--soft) }
+  .results { max-width: 44rem; margin-top: 16px }
+  .results :global(.results-head) { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 8px; font-size: .9rem; color: var(--muted); margin-bottom: 10px; animation: fade var(--dur) var(--ease) both }
+  .results :global(.filters) { display: flex; gap: 6px }
+  .results :global(.filters button) { font: inherit; font-size: .85rem; font-weight: 650; color: var(--muted); background: transparent; border: 1px solid var(--line); border-radius: 999px; padding: 4px 12px; cursor: pointer }
+  .results :global(.filters button[aria-pressed='true']) { color: var(--accent-ink); background: var(--accent); border-color: var(--accent) }
+  .results :global(.answer) { background: var(--surface); border: 1.5px solid var(--accent); border-radius: var(--radius); padding: 18px 20px; margin-bottom: 14px; animation: fade var(--dur) var(--ease) both }
+  .results :global(.answer h3) { margin: 6px 0 8px }
+  .results :global(.answer h3 a) { color: var(--ink); text-decoration: none }
+  .results :global(.answer p) { margin: 0 0 10px }
+  .results :global(.src) { font-size: .85rem; color: var(--muted); display: flex; flex-wrap: wrap; gap: 4px 14px; border-top: 1px solid var(--line); padding-top: 10px }
+  .results :global(.tag) { font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--accent) }
+  .results :global(.group-title) { font-size: .8rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; color: var(--muted); margin: 16px 0 6px }
+  .results :global(.hit) { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 2px 12px; align-items: baseline; padding: 12px 10px; border-radius: 10px; color: inherit; text-decoration: none; transition: background var(--dur-fast) var(--ease); animation: fade var(--dur) var(--ease) both }
+  .results :global(.hit:hover), .results :global(.hit:focus-visible) { background: var(--soft) }
+  .results :global(.hit strong) { font-weight: 650 }
+  .results :global(.hit .meta) { grid-column: 2; font-size: .85rem; color: var(--muted) }
+  .results :global(mark) { background: var(--mark); color: inherit; border-radius: 3px; padding: 0 1px }
+  .results :global(.empty) { padding: 14px; color: var(--muted); background: var(--surface); border-radius: var(--radius); border: 1px dashed var(--line) }
+  @keyframes fade { from { opacity: 0; transform: translateY(4px) } to { opacity: 1; transform: none } }
+</style>

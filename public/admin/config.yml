@@ -1,0 +1,133 @@
+# yaml-language-server: $schema=https://unpkg.com/@sveltia/cms/schema/sveltia-cms.json
+# Outil d'édition du site. Le dépôt GitHub sera renseigné à la création de l'organisation OrTra.
+backend:
+  name: github
+  repo: ORGANISATION/ortra-intendance-site
+  branch: main
+
+locale: fr
+media_folder: /public/documents
+public_folder: /documents
+
+collections:
+  - name: reponses
+    label: Questions fréquentes
+    label_singular: Question
+    description: Les réponses directes affichées en tête de la recherche.
+    folder: /src/content/reponses
+    extension: md
+    format: frontmatter
+    create: true
+    slug: "{{titre}}"
+    summary: "{{titre}}"
+    sortable_fields: [ordre, titre]
+    fields:
+      - { name: titre, label: Question, widget: string }
+      - { name: resume, label: "Réponse en bref (2 phrases)", widget: text }
+      - { name: motsCles, label: "Mots que les gens tapent", widget: list, hint: "Synonymes, anciens noms, abréviations. Un mot ou une expression par ligne." }
+      - name: formation
+        label: Formation concernée
+        widget: select
+        options: [{ label: CFC, value: cfc }, { label: AFP, value: afp }, { label: Les deux, value: les-deux }]
+      - name: public
+        label: Pour qui ?
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: "Je découvre (jeunes, parents)", value: decouvrir }
+          - { label: Je me reconvertis, value: reconversion }
+          - { label: Je forme, value: former }
+          - { label: J'évalue, value: evaluer }
+      - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int, default: 99 }
+      - name: source
+        label: Source officielle
+        widget: object
+        fields:
+          - { name: libelle, label: Nom de la source, widget: string }
+          - { name: url, label: Adresse web, widget: string, required: false }
+      - { name: verifieLe, label: Vérifié le, widget: datetime, time_format: false, date_format: "DD.MM.YYYY", format: "YYYY-MM-DD" }
+      - name: statut
+        label: Statut
+        widget: select
+        options: [{ label: Vérifié, value: verifie }, { label: À confirmer, value: a-confirmer }]
+      - { name: body, label: Réponse complète, widget: markdown }
+
+  - name: metiers
+    label: Fiches métier
+    label_singular: Fiche métier
+    folder: /src/content/metiers
+    extension: md
+    format: frontmatter
+    create: false
+    summary: "{{titre}}"
+    fields:
+      - { name: titre, label: Titre officiel, widget: string }
+      - { name: sigle, label: Diplôme, widget: select, options: [CFC, AFP] }
+      - name: formation
+        label: Formation
+        widget: select
+        options: [{ label: CFC, value: cfc }, { label: AFP, value: afp }]
+      - { name: duree, label: Durée, widget: string }
+      - { name: resume, label: Résumé, widget: text }
+      - { name: anciensNoms, label: "Anciens noms et abréviations", widget: list, required: false }
+      - name: source
+        label: Source officielle
+        widget: object
+        fields:
+          - { name: libelle, label: Nom de la source, widget: string }
+          - { name: url, label: Adresse web, widget: string, required: false }
+      - { name: verifieLe, label: Vérifié le, widget: datetime, time_format: false, date_format: "DD.MM.YYYY", format: "YYYY-MM-DD" }
+      - { name: body, label: Texte de la fiche, widget: markdown }
+
+  - name: bibliotheque
+    label: Documents
+    files:
+      - name: documents
+        label: Bibliothèque de documents
+        file: /src/content/documents.json
+        format: json
+        fields:
+          - name: documents
+            label: Documents
+            label_singular: Document
+            widget: list
+            root: true
+            summary: "{{titre}}"
+            fields:
+              - { name: id, label: "Identifiant (sans espaces ni accents)", widget: string }
+              - { name: titre, label: Titre, widget: string }
+              - { name: url, label: "Adresse du document (ou fichier téléversé)", widget: file }
+              - { name: editeur, label: Éditeur, widget: string }
+              - name: formation
+                label: Formation
+                widget: select
+                options: [{ label: CFC, value: cfc }, { label: AFP, value: afp }, { label: Les deux, value: les-deux }]
+              - name: type
+                label: Type de document
+                widget: select
+                options:
+                  - { label: Ordonnance, value: ordonnance }
+                  - { label: Plan de formation, value: plan-de-formation }
+                  - { label: Programme de formation, value: programme }
+                  - { label: Examen final, value: examen }
+                  - { label: Information, value: information }
+                  - { label: Calendrier, value: calendrier }
+                  - { label: Formulaire, value: formulaire }
+              - name: lieu
+                label: Lieu d'apprentissage
+                widget: select
+                options:
+                  - { label: Entreprise, value: entreprise }
+                  - { label: École professionnelle, value: ecole }
+                  - { label: Cours interentreprises, value: cours-interentreprises }
+                  - { label: Examen, value: examen }
+                  - { label: Général, value: general }
+              - { name: date, label: Date du document, widget: string, required: false }
+              - { name: verifieLe, label: Vérifié le, widget: datetime, time_format: false, date_format: "DD.MM.YYYY", format: "YYYY-MM-DD" }
+              - name: mode
+                label: Mode de diffusion
+                widget: select
+                default: lien
+                options: [{ label: Lien vers l'éditeur, value: lien }, { label: Copie autorisée, value: copie }, { label: Hébergé par OrTra, value: heberge }]
+              - { name: populaire, label: "Afficher sur la page d'accueil", widget: boolean, default: false }

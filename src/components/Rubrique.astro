@@ -1,0 +1,31 @@
+---
+// Liste des fiches d'une rubrique, tirée automatiquement du contenu :
+// une fiche ajoutée dans l'outil d'édition avec cette rubrique apparaît ici.
+import { getCollection } from 'astro:content';
+
+interface Props { rubrique: 'metiers' | 'se-former' | 'former' | 'evaluer'; titre?: string }
+const { rubrique, titre = 'Questions de cette rubrique' } = Astro.props;
+const fiches = (await getCollection('reponses'))
+  .filter((r) => r.data.rubrique === rubrique)
+  .sort((a, b) => a.data.ordre - b.data.ordre);
+---
+{fiches.length > 0 && (
+  <section class="rubrique">
+    <h2>{titre}</h2>
+    <ul class="list">
+      {fiches.map((r) => (
+        <li>
+          <a href={`/reponses/${r.id}/`}>
+            <span class="txt">{r.data.titre}<span class="meta">{r.data.resume}</span></span>
+            <span class="arrow" aria-hidden="true">→</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .rubrique { margin-top: 32px; max-width: 52rem }
+  .rubrique .meta { margin-top: 2px; font-size: .92rem }
+</style>

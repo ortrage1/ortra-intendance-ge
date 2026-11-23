@@ -1,0 +1,42 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Rubrique from '../../components/Rubrique.astro';
+
+const metiers = (await getCollection('metiers')).sort((a) => (a.data.sigle === 'CFC' ? -1 : 1));
+---
+<Base title="Les métiers" description="Gestionnaire en hôtellerie-intendance CFC et employé·e en hôtellerie-intendance AFP : les deux métiers, leurs différences et les perspectives.">
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Les métiers</li></ol></nav>
+    <h1>Les métiers de l'hôtellerie-intendance</h1>
+    <p class="lede">Accueillir, servir, entretenir les locaux et le linge : ces métiers rendent la vie agréable dans les hôtels, les hôpitaux, les EMS, les foyers et les crèches. Deux formations y mènent.</p>
+
+    <ul class="duo">
+      {metiers.map((m) => (
+        <li>
+          <a href={`/metiers/${m.id}/`} class="metier">
+            <span class={`badge ${m.data.formation}`}>{m.data.sigle}</span>
+            <strong>{m.data.titre}</strong>
+            <span class="meta">{m.data.duree} · {m.data.resume}</span>
+            <span class="go">Voir la fiche métier →</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+
+    <Rubrique rubrique="metiers" titre="Choisir et évoluer" />
+  </div>
+</Base>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+  .duo { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; max-width: 52rem }
+  @media (max-width: 720px) { .duo { grid-template-columns: 1fr } }
+  .metier { display: flex; flex-direction: column; gap: 8px; height: 100%; padding: 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); color: inherit; text-decoration: none; transition: border-color var(--dur-fast) var(--ease) }
+  .metier:hover { border-color: var(--accent) }
+  .metier .badge { align-self: flex-start }
+  .metier strong { font-family: var(--f-display); font-size: 1.2rem; line-height: 1.2 }
+  .metier .meta { color: var(--muted); font-size: .95rem }
+  .metier .go { margin-top: auto; color: var(--accent); font-weight: 700 }
+</style>

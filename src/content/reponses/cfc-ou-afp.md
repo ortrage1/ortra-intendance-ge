@@ -4,6 +4,7 @@ resume: "L'AFP dure 2 ans et prépare aux tâches d'exécution. Le CFC dure 3 an
 motsCles: ["AFP ou CFC", "différence", "choisir", "niveau", "durée", "parents", "employé", "gestionnaire", "attestation", "certificat"]
 formation: les-deux
 public: [decouvrir]
+rubrique: metiers
 ordre: 1
 source:
   libelle: "Ordonnances du SEFRI du 6 et du 10 juillet 2023"

@@ -23,3 +23,6 @@ Les demandes viennent d'une personne bénévole non technicienne. Elle valide ch
 6. Avant de proposer un changement : `npm run build` doit réussir.
 7. Ne jamais ajouter de script de suivi, de service tiers ou de collecte de données personnelles.
 8. Expliquer chaque changement en une ou deux phrases simples, compréhensibles par une personne non technicienne.
+9. Tout ce que la personne lit est en français : titres et descriptions des propositions de modification (pull requests),
+   messages d'enregistrement (commits), questions posées pendant le travail.
+10. Avant d'ajouter une phrase, relire la page : ne pas répéter une information déjà présente, la compléter ou la remplacer.

@@ -15,7 +15,7 @@ const donnees = PROFILS.map((p) => ({
         ...(t.liens ?? []),
         ...fiches
           .filter((r) => r.data.parcours.includes(`${p.id}/${t.id}`))
-          .map((r) => ({ href: `/reponses/${r.id}/`, label: r.data.titre, resume: r.data.resume })),
+          .map((r) => ({ href: `/reponses/${r.id}/`, label: r.data.titre, resume: r.data.resume, aConfirmer: r.data.statut === 'a-confirmer' })),
       ],
     }))
     .filter((t) => t.items.length > 0),
@@ -47,7 +47,7 @@ const donnees = PROFILS.map((p) => ({
 
 <script>
   import { compterEvenement } from '../scripts/stats';
-  interface Item { href: string; label: string; resume?: string }
+  interface Item { href: string; label: string; resume?: string; aConfirmer?: boolean }
   interface Theme { id: string; label: string; items: Item[] }
   interface Profil { id: string; label: string; detail: string; rubrique: string; themes: Theme[] }
 
@@ -138,6 +138,7 @@ const donnees = PROFILS.map((p) => ({
           const li = el('li'); li.style.setProperty('--i', String(i));
           const a = el('a'); a.href = it.href;
           const txt = el('span', 'txt', it.label);
+          if (it.aConfirmer) txt.append(el('span', 'a-confirmer-tag', 'À confirmer'));
           if (it.resume) txt.append(el('span', 'meta', it.resume));
           const fl = el('span', 'arrow', '→'); fl.setAttribute('aria-hidden', 'true');
           a.append(txt, fl); li.append(a); liste.append(li);
@@ -187,6 +188,7 @@ const donnees = PROFILS.map((p) => ({
   .parcours .etape-titre:focus { outline: none }
   .parcours .reponses { margin-top: 12px }
   .parcours .reponses .meta { margin-top: 2px; font-size: .92rem }
+  .parcours .a-confirmer-tag { display: inline-block; margin-left: 8px; padding: 0 8px; font-size: .78rem; font-weight: 700; color: var(--warn); background: var(--warn-bg); border-radius: 99px; vertical-align: middle }
   .parcours .etape-pied { margin: 16px 0 0; font-size: .95rem }
   .parcours .etape-pied .sep { color: var(--muted) }
 

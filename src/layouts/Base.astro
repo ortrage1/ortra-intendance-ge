@@ -68,15 +68,19 @@ const nav = [
         <div><strong>Orientation et démarches</strong><p>Cité des métiers du Grand Genève<br />Rue Prévost-Martin 6, 1205 Genève</p></div>
         <div><strong>Fiabilité</strong><p>Chaque information indique sa source officielle et sa date de vérification.</p></div>
       </div>
-      <p class="wrap trial">Site d'essai, non public. Contenu en cours de validation.</p>
+      <p class="wrap trial">Version de travail accessible par lien. Contenu en cours de validation.</p>
     </footer>
     <script>
       const btn = document.querySelector<HTMLButtonElement>('.menu-btn');
       const menu = document.getElementById('menu');
-      btn?.addEventListener('click', () => {
-        const open = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!open));
-        menu?.classList.toggle('open', !open);
+      const basculer = (ouvrir: boolean) => {
+        btn?.setAttribute('aria-expanded', String(ouvrir));
+        menu?.classList.toggle('open', ouvrir);
+      };
+      btn?.addEventListener('click', () => basculer(btn.getAttribute('aria-expanded') !== 'true'));
+      // Échap ferme le menu et ramène le focus sur le bouton « Menu ».
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && btn?.getAttribute('aria-expanded') === 'true') { basculer(false); btn.focus(); }
       });
     </script>
   </body>

@@ -25,7 +25,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
       <p class="lede">Gestionnaire CFC et employé·e AFP : formations, examens et démarches, expliqués simplement et reliés aux sources officielles.</p>
       <Search />
       </div>
-      <Illustration nom="accueil" class="hero-illu" />
+      <div class="hero-illu"><Illustration nom="accueil" /></div>
     </div>
   </section>
 
@@ -47,7 +47,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
         {parStats && <p class="more">Selon les visites des {populaires.periode}, mis à jour le {new Date(populaires.misAJourLe).toLocaleDateString('fr-CH')}.</p>}
       </div>
       <div>
-        <h2>Documents les plus consultés</h2>
+        <h2>Documents utiles</h2>
         <ul class="list">
           {docsPopulaires.map((d) => (
             <li><a href={d.data.url} target="_blank" rel="noopener">

@@ -24,6 +24,7 @@ const autres = (await getCollection('reponses')).filter((r) => r.id !== reponse.
   <article class="wrap narrow page" data-pagefind-body data-pagefind-filter={`formation:${reponse.data.formation}`}>
     <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li>{rubrique ? <li><a href={rubrique.href}>{rubrique.label}</a></li> : <li>Questions fréquentes</li>}</ol></nav>
     <h1 data-pagefind-meta="title">{reponse.data.titre}</h1>
+    {reponse.data.statut === 'a-confirmer' && <p class="a-confirmer"><strong>À confirmer.</strong> Cette réponse attend encore la validation d'OrTra intendance Genève.</p>}
     <p class="lede"><strong>En bref.</strong> {reponse.data.resume}</p>
     <div class="prose table-scroll"><Content /></div>
     <SourceBox libelle={reponse.data.source.libelle} url={reponse.data.source.url} verifieLe={reponse.data.verifieLe} statut={reponse.data.statut} />
@@ -38,6 +39,7 @@ const autres = (await getCollection('reponses')).filter((r) => r.id !== reponse.
 
 <style>
   .page { padding-block: 40px 0 }
+  .a-confirmer { margin: 0 0 12px; padding: 10px 14px; color: var(--ink); background: var(--warn-bg); border-radius: 10px; max-width: var(--measure) }
   .lede { font-size: 1.12rem; background: var(--soft); border-radius: 12px; padding: 14px 16px; max-width: var(--measure) }
   .others { padding-block: 40px 0 }
 </style>

@@ -1,19 +1,578 @@
 [
-  {"id": "plan-formation-cfc", "titre": "Plan de formation, Gestionnaire en hôtellerie-intendance CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "cfc", "type": "plan-de-formation", "lieu": "general", "date": "2023", "verifieLe": "2026-11-23", "populaire": true},
-  {"id": "plan-formation-afp", "titre": "Plan de formation, Employé·e en hôtellerie-intendance AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "afp", "type": "plan-de-formation", "lieu": "general", "date": "2023", "verifieLe": "2026-11-23", "populaire": true},
-  {"id": "ordonnance-cfc", "titre": "Ordonnance sur la formation, Gestionnaire en hôtellerie-intendance CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf", "editeur": "SEFRI", "formation": "cfc", "type": "ordonnance", "lieu": "general", "date": "6 juillet 2023", "verifieLe": "2026-11-23"},
-  {"id": "ordonnance-afp", "titre": "Ordonnance sur la formation, Employé·e en hôtellerie-intendance AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf", "editeur": "SEFRI", "formation": "afp", "type": "ordonnance", "lieu": "general", "date": "10 juillet 2023", "verifieLe": "2026-11-23"},
-  {"id": "programme-entreprise-cfc", "titre": "Programme de formation pour les entreprises formatrices, CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Gestionnaire_en_hotellerie-intendance_CFC.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "cfc", "type": "programme", "lieu": "entreprise", "date": "juillet 2025", "verifieLe": "2026-11-23"},
-  {"id": "programme-entreprise-afp", "titre": "Programme de formation pour les entreprises formatrices, AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "afp", "type": "programme", "lieu": "entreprise", "verifieLe": "2026-11-23"},
-  {"id": "programme-cie-cfc", "titre": "Programme des cours interentreprises, CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Gestionnaire_en_hotellerie-intendance_CFC.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "cfc", "type": "programme", "lieu": "cours-interentreprises", "verifieLe": "2026-11-23"},
-  {"id": "programme-cie-afp", "titre": "Programme des cours interentreprises, AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "afp", "type": "programme", "lieu": "cours-interentreprises", "verifieLe": "2026-11-23"},
-  {"id": "dispositions-pq-cfc", "titre": "Dispositions d'exécution de la procédure de qualification, CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final-1.pdf", "editeur": "Hotel & Gastro formation Suisse, OrTra intendance Suisse", "formation": "cfc", "type": "examen", "lieu": "examen", "date": "complétées le 7 novembre 2025", "verifieLe": "2026-11-23", "populaire": true},
-  {"id": "dispositions-pq-afp", "titre": "Dispositions d'exécution de la procédure de qualification, AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final.pdf", "editeur": "Hotel & Gastro formation Suisse, OrTra intendance Suisse", "formation": "afp", "type": "examen", "lieu": "examen", "date": "complétées le 7 novembre 2025", "verifieLe": "2026-11-23", "populaire": true},
-  {"id": "guide-entretien-cfc", "titre": "Guide de l'entretien professionnel, CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/10/Guide-de-lentretien-prof.-CFC.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "cfc", "type": "examen", "lieu": "examen", "date": "octobre 2026", "verifieLe": "2026-11-23"},
-  {"id": "guide-entretien-afp", "titre": "Guide de l'entretien professionnel, AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Guide_de_lentretien_professionnel.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "afp", "type": "examen", "lieu": "examen", "verifieLe": "2026-11-23"},
-  {"id": "note-experience", "titre": "Recommandation pour le calcul de la note d'expérience", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Recommandation_relative_au_calcul_de_la_note_dexperience_Hotellerie-intendance-1.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "les-deux", "type": "examen", "lieu": "ecole", "verifieLe": "2026-11-23"},
-  {"id": "equipements-minimaux", "titre": "Liste des équipements minimaux pour les entreprises formatrices", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Liste_des_equipements_minimaux_pour_les_entreprises_formatrices_Hotellerie-intendance-1.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "les-deux", "type": "information", "lieu": "entreprise", "verifieLe": "2026-11-23"},
-  {"id": "fiche-cfc", "titre": "Fiche d'information, Gestionnaire en hôtellerie-intendance CFC", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Gestionnaire_en_hotellerie-intendance_CFC.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "cfc", "type": "information", "lieu": "general", "date": "2026", "verifieLe": "2026-11-23", "populaire": true},
-  {"id": "fiche-afp", "titre": "Fiche d'information, Employé·e en hôtellerie-intendance AFP", "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf", "editeur": "Hotel & Gastro formation Suisse", "formation": "afp", "type": "information", "lieu": "general", "date": "2026", "verifieLe": "2026-11-23"},
-  {"id": "dates-cours-blocs", "titre": "Dates des cours-blocs 2026-2027, Crans-Montana et Thoune", "url": "https://www.hfthun.ch/hubfs/HFThun/HFThun%20Kursdaten%202026-2027.pdf", "editeur": "Hotelfachschule Thun", "formation": "les-deux", "type": "calendrier", "lieu": "ecole", "date": "2026-2027", "verifieLe": "2026-11-23"}
+  {
+    "id": "plan-formation-cfc",
+    "titre": "Plan de formation, Gestionnaire en hôtellerie-intendance CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "cfc",
+    "type": "plan-de-formation",
+    "lieu": "general",
+    "date": "2023",
+    "verifieLe": "2026-11-23",
+    "populaire": true
+  },
+  {
+    "id": "plan-formation-afp",
+    "titre": "Plan de formation, Employé·e en hôtellerie-intendance AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "plan-de-formation",
+    "lieu": "general",
+    "date": "2023",
+    "verifieLe": "2026-11-23",
+    "populaire": true
+  },
+  {
+    "id": "ordonnance-cfc",
+    "titre": "Ordonnance sur la formation, Gestionnaire en hôtellerie-intendance CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "editeur": "SEFRI",
+    "formation": "cfc",
+    "type": "ordonnance",
+    "lieu": "general",
+    "date": "6 juillet 2023",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "ordonnance-afp",
+    "titre": "Ordonnance sur la formation, Employé·e en hôtellerie-intendance AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "editeur": "SEFRI",
+    "formation": "afp",
+    "type": "ordonnance",
+    "lieu": "general",
+    "date": "10 juillet 2023",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "programme-entreprise-cfc",
+    "titre": "Programme de formation pour les entreprises formatrices, CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "cfc",
+    "type": "programme",
+    "lieu": "entreprise",
+    "date": "juillet 2025",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "programme-entreprise-afp",
+    "titre": "Programme de formation pour les entreprises formatrices, AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "programme",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "programme-cie-cfc",
+    "titre": "Programme des cours interentreprises, CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "cfc",
+    "type": "programme",
+    "lieu": "cours-interentreprises",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "programme-cie-afp",
+    "titre": "Programme des cours interentreprises, AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "programme",
+    "lieu": "cours-interentreprises",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "dispositions-pq-cfc",
+    "titre": "Dispositions d'exécution de la procédure de qualification, CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final-1.pdf",
+    "editeur": "Hotel & Gastro formation Suisse, OrTra intendance Suisse",
+    "formation": "cfc",
+    "type": "examen",
+    "lieu": "examen",
+    "date": "complétées le 7 novembre 2025",
+    "verifieLe": "2026-11-23",
+    "populaire": true
+  },
+  {
+    "id": "dispositions-pq-afp",
+    "titre": "Dispositions d'exécution de la procédure de qualification, AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final.pdf",
+    "editeur": "Hotel & Gastro formation Suisse, OrTra intendance Suisse",
+    "formation": "afp",
+    "type": "examen",
+    "lieu": "examen",
+    "date": "complétées le 7 novembre 2025",
+    "verifieLe": "2026-11-23",
+    "populaire": true
+  },
+  {
+    "id": "guide-entretien-cfc",
+    "titre": "Guide de l'entretien professionnel, CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/10/Guide-de-lentretien-prof.-CFC.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "cfc",
+    "type": "examen",
+    "lieu": "examen",
+    "date": "octobre 2026",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "guide-entretien-afp",
+    "titre": "Guide de l'entretien professionnel, AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Guide_de_lentretien_professionnel.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "examen",
+    "lieu": "examen",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "note-experience",
+    "titre": "Recommandation pour le calcul de la note d'expérience",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Recommandation_relative_au_calcul_de_la_note_dexperience_Hotellerie-intendance-1.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "les-deux",
+    "type": "examen",
+    "lieu": "ecole",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "equipements-minimaux",
+    "titre": "Liste des équipements minimaux pour les entreprises formatrices",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Liste_des_equipements_minimaux_pour_les_entreprises_formatrices_Hotellerie-intendance-1.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "fiche-cfc",
+    "titre": "Fiche d'information, Gestionnaire en hôtellerie-intendance CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "cfc",
+    "type": "information",
+    "lieu": "general",
+    "date": "2026",
+    "verifieLe": "2026-11-23",
+    "populaire": true
+  },
+  {
+    "id": "fiche-afp",
+    "titre": "Fiche d'information, Employé·e en hôtellerie-intendance AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "information",
+    "lieu": "general",
+    "date": "2026",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "dates-cours-blocs",
+    "titre": "Dates des cours-blocs 2026-2027, Crans-Montana et Thoune",
+    "url": "https://www.hfthun.ch/hubfs/HFThun/HFThun%20Kursdaten%202026-2027.pdf",
+    "editeur": "Hotelfachschule Thun",
+    "formation": "les-deux",
+    "type": "calendrier",
+    "lieu": "ecole",
+    "date": "2026-2027",
+    "verifieLe": "2026-11-23"
+  },
+  {
+    "id": "wigl",
+    "titre": "WIGL, plateforme numérique d'apprentissage (dossier de formation)",
+    "url": "https://www.wigl.ch/fr",
+    "editeur": "WIGL",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "WIGL",
+      "dossier de formation",
+      "dossier de formation numérique",
+      "rapport de formation",
+      "plateforme",
+      "apprentissage numérique",
+      "formateur"
+    ]
+  },
+  {
+    "id": "certificat-medical",
+    "titre": "Certificat médical obligatoire pour entrer en apprentissage",
+    "url": "/documents/certificat-medical-apprentissage.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "date": "2018",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "certificat médical",
+      "médecin",
+      "aptitude",
+      "contrat"
+    ]
+  },
+  {
+    "id": "dossier-candidature-afp",
+    "titre": "Dossier de candidature à une formation AFP",
+    "url": "/documents/dossier-candidature-afp.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "afp",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "date": "2019",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "candidature",
+      "AFP",
+      "contrat",
+      "inscription"
+    ]
+  },
+  {
+    "id": "schema-signature-contrat",
+    "titre": "Processus de signature du contrat d'apprentissage",
+    "url": "/documents/schema-signature-contrat-apprentissage.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "date": "2023",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "contrat",
+      "signature",
+      "engager",
+      "étapes",
+      "schéma"
+    ]
+  },
+  {
+    "id": "brochure-apprentis",
+    "titre": "Apprentie, apprenti : ce que vous devez savoir, droits et devoirs",
+    "url": "/documents/brochure-apprentis-droits-devoirs.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "general",
+    "date": "2022",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "droits",
+      "devoirs",
+      "brochure",
+      "salaire",
+      "vacances",
+      "assurance",
+      "résiliation",
+      "maltraitance"
+    ]
+  },
+  {
+    "id": "brochure-jeunes-travailleurs",
+    "titre": "Jeunes travailleurs et apprentis : durée du travail et du repos",
+    "url": "/documents/jeunes-travailleurs-apprentis-horaires.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "horaires",
+      "moins de 18 ans",
+      "repos",
+      "nuit",
+      "dimanche",
+      "vacances",
+      "heures supplémentaires"
+    ]
+  },
+  {
+    "id": "convention-apprentis",
+    "titre": "Convention pour les apprentis dans l'hôtellerie-restauration suisse",
+    "url": "/documents/convention-apprentis-hotellerie-restauration.pdf",
+    "editeur": "Hotel & Gastro Union, GastroSuisse, HotellerieSuisse, SCA",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "date": "état au 1er mai 2013",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "convention",
+      "CCT",
+      "CCNT",
+      "salaire",
+      "vacances",
+      "durée du travail",
+      "hôtel"
+    ]
+  },
+  {
+    "id": "rapport-de-formation",
+    "titre": "Rapport de formation (formulaire interactif)",
+    "url": "/documents/rapport-de-formation.pdf",
+    "editeur": "CSFO",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "rapport de formation",
+      "semestre",
+      "évaluation",
+      "bilan",
+      "formateur"
+    ]
+  },
+  {
+    "id": "contrat-de-stage",
+    "titre": "Contrat de stage",
+    "url": "/documents/contrat-de-stage.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "date": "2020",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "stage",
+      "contrat de stage",
+      "stage probatoire"
+    ]
+  },
+  {
+    "id": "contrat-stage-prequalification",
+    "titre": "Contrat de stage de préqualification",
+    "url": "/documents/contrat-stage-prequalification.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "date": "2021",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "préqualification",
+      "stage",
+      "préparer l'apprentissage"
+    ]
+  },
+  {
+    "id": "evaluation-de-stage",
+    "titre": "Rapport d'évaluation de stage",
+    "url": "/documents/evaluation-de-stage.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "date": "2016",
+    "verifieLe": "2026-11-24",
+    "mode": "heberge",
+    "populaire": false,
+    "motsCles": [
+      "stage",
+      "évaluation",
+      "rapport de stage"
+    ]
+  },
+  {
+    "id": "formulaire-stage-orientation",
+    "titre": "Formulaire d'enregistrement de stage d'orientation",
+    "url": "https://www.citedesmetiers.ch/app/uploads/2026/03/FORMULAIRE_STAGE_V15.pdf",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "general",
+    "date": "version 15, 2026",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "stage",
+      "découverte",
+      "orientation",
+      "assurance",
+      "enregistrer"
+    ]
+  },
+  {
+    "id": "lfpr",
+    "titre": "Loi fédérale sur la formation professionnelle (LFPr)",
+    "url": "https://www.fedlex.admin.ch/eli/cc/2003/674/fr",
+    "editeur": "Confédération (Fedlex)",
+    "formation": "les-deux",
+    "type": "ordonnance",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "loi",
+      "LFPr",
+      "formation professionnelle",
+      "contrat"
+    ]
+  },
+  {
+    "id": "loi-travail",
+    "titre": "Loi fédérale sur le travail (LTr)",
+    "url": "https://www.fedlex.admin.ch/eli/cc/1966/57_57_57/fr",
+    "editeur": "Confédération (Fedlex)",
+    "formation": "les-deux",
+    "type": "ordonnance",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "loi sur le travail",
+      "LTr",
+      "horaires",
+      "pauses",
+      "repos"
+    ]
+  },
+  {
+    "id": "olt5",
+    "titre": "Ordonnance 5 sur la protection des jeunes travailleurs (OLT 5)",
+    "url": "https://www.fedlex.admin.ch/eli/cc/2007/692/fr",
+    "editeur": "Confédération (Fedlex)",
+    "formation": "les-deux",
+    "type": "ordonnance",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "OLT 5",
+      "jeunes travailleurs",
+      "moins de 18 ans",
+      "travaux dangereux"
+    ]
+  },
+  {
+    "id": "ordonnance-defr-nuit-dimanche",
+    "titre": "Ordonnance du DEFR sur le travail de nuit et du dimanche en formation",
+    "url": "https://www.fedlex.admin.ch/eli/cc/2011/251/fr",
+    "editeur": "Confédération (Fedlex)",
+    "formation": "les-deux",
+    "type": "ordonnance",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "nuit",
+      "dimanche",
+      "23 heures",
+      "dérogation",
+      "hôtellerie"
+    ]
+  },
+  {
+    "id": "afo",
+    "titre": "Allocation de formation (AFO) : informations générales",
+    "url": "https://zeteo.app.ge.ch/mmt/allocation-formation-afo-informations-generales-2626-2910",
+    "editeur": "Office cantonal de l'emploi, Genève",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "AFO",
+      "allocation",
+      "chômage",
+      "adulte",
+      "4300"
+    ]
+  },
+  {
+    "id": "remboursement-hors-canton",
+    "titre": "Remboursement des frais de transport et de logement hors canton",
+    "url": "https://www.ge.ch/remboursement-frais-transport/logement-hors-canton-apprenties-apprentis",
+    "editeur": "État de Genève",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "remboursement",
+      "frais",
+      "transport",
+      "logement",
+      "hors canton",
+      "e-démarches"
+    ]
+  },
+  {
+    "id": "salaires-apprentis",
+    "titre": "Liste des salaires et conditions de travail des apprentis",
+    "url": "https://www.ge.ch/document/liste-salaires-vigueur-apprentis",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "salaire",
+      "salaires",
+      "apprenti",
+      "conditions de travail",
+      "vacances"
+    ]
+  },
+  {
+    "id": "aide-memoire-service-militaire",
+    "titre": "Aide-mémoire 17 : formation professionnelle initiale et service militaire",
+    "url": "https://s3-ch-bern-1.obj.begasoft.ch/sdbb-drupal-backend-bbi-prod/s3fs-public/2025-01/aide-memoire-17-service-militaire-et-civil.pdf",
+    "editeur": "CSFO",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "general",
+    "date": "2025",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "armée",
+      "service militaire",
+      "école de recrues",
+      "service civil",
+      "APG"
+    ]
+  }
 ]

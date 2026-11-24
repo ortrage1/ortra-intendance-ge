@@ -156,3 +156,4 @@ collections:
                 default: lien
                 options: [{ label: Lien vers l'éditeur, value: lien }, { label: Copie autorisée, value: copie }, { label: Hébergé par OrTra, value: heberge }]
               - { name: populaire, label: "Afficher sur la page d'accueil", widget: boolean, default: false }
+              - { name: motsCles, label: "Mots-clés pour la recherche", widget: list, required: false, hint: "Autres mots que les gens pourraient taper, séparés par des virgules." }

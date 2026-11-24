@@ -19,7 +19,7 @@ const documents = (await getCollection('documents')).map((d) => ({
   editeur: d.data.editeur,
   date: d.data.date ?? '',
   formation: d.data.formation,
-  mots: [d.data.titre, d.data.type, d.data.lieu, d.data.editeur].join(' '),
+  mots: [d.data.titre, d.data.type, d.data.lieu, d.data.editeur, ...d.data.motsCles].join(' '),
 }));
 const suggestions = ['AFP ou CFC', 'Diplôme adulte', 'Où ont lieu les cours', 'Examen final', 'Plan de formation'];
 ---

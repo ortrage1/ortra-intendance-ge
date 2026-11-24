@@ -6,6 +6,7 @@ formation: les-deux
 public: [decouvrir]
 rubrique: se-former
 ordre: 1
+parcours: ["decouvrir/essayer", "adulte/commencer"]
 source:
   libelle: "État de Genève, Faire un stage d'orientation (mis à jour le 29 octobre 2026)"
   url: "https://www.ge.ch/informer-metiers-formations/faire-stage-orientation"

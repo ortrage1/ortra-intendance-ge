@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 6
+parcours: ["apprenti/cours", "formateur/difficulte", "formateur/examen"]
 source:
   libelle: "Ordonnance sur la formation professionnelle (OFPr), art. 33 ; formationprof.ch, Examen final"
   url: "https://www.formationprof.ch/fr/lexique/examen-final"

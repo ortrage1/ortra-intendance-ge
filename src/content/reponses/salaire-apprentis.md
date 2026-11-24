@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: se-former
 aussiDans: [apprentis]
 ordre: 7
+parcours: ["decouvrir/concret", "apprenti/droits", "entreprise/preparer"]
 source:
   libelle: "OFPC, Salaires des apprentis 2026-2027 (version de juin 2026)"
   url: "https://www.ge.ch/document/9412/telecharger"

@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 2
+parcours: ["apprenti/horaires", "formateur/contrat"]
 source:
   libelle: "État de Genève, Remboursement des frais de transport et de logement hors canton pour apprentis"
   url: "https://www.ge.ch/remboursement-frais-transport/logement-hors-canton-apprenties-apprentis"

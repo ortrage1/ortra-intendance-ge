@@ -6,6 +6,7 @@ formation: les-deux
 public: [decouvrir, former]
 rubrique: se-former
 ordre: 4
+parcours: ["decouvrir/concret", "entreprise/preparer"]
 source:
   libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 2, 7 et 8 ; fiche d'information CFC 2026"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"

@@ -7,6 +7,7 @@ public: [former, decouvrir]
 rubrique: formateurs
 aussiDans: [apprentis]
 ordre: 5
+parcours: ["apprenti/droits", "formateur/contrat"]
 source:
   libelle: "Code des obligations, art. 344a et 346 ; loi fédérale sur la formation professionnelle (LFPr), art. 14"
   url: "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/fr#art_346"

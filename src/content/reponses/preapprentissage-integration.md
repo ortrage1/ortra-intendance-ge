@@ -6,6 +6,7 @@ formation: les-deux
 public: [reconversion]
 rubrique: se-former
 ordre: 8
+parcours: ["decouvrir/essayer", "adulte/commencer"]
 source:
   libelle: "État de Genève, Candidature au préapprentissage d'intégration (PAI)"
   url: "https://www.ge.ch/candidature-au-preapprentissage-integration-pai"

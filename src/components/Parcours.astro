@@ -1,0 +1,197 @@
+---
+// Parcours guidé : « Vous êtes… » › « Votre sujet » › « Votre question ».
+// Profils et thèmes : src/lib/parcours.ts. Chaque fiche choisit ses thèmes avec son champ « parcours ».
+import { getCollection } from 'astro:content';
+import { PROFILS } from '../lib/parcours';
+
+const fiches = (await getCollection('reponses')).sort((a, b) => a.data.ordre - b.data.ordre || a.data.titre.localeCompare(b.data.titre, 'fr'));
+const donnees = PROFILS.map((p) => ({
+  ...p,
+  themes: p.themes
+    .map((t) => ({
+      id: t.id,
+      label: t.label,
+      items: [
+        ...(t.liens ?? []),
+        ...fiches
+          .filter((r) => r.data.parcours.includes(`${p.id}/${t.id}`))
+          .map((r) => ({ href: `/reponses/${r.id}/`, label: r.data.titre, resume: r.data.resume })),
+      ],
+    }))
+    .filter((t) => t.items.length > 0),
+}));
+---
+<section class="parcours" aria-labelledby="parcours-titre" data-parcours>
+  <div class="parcours-tete">
+    <h2 id="parcours-titre">Trouvez votre réponse en trois clics</h2>
+    <nav class="chemin" aria-label="Votre parcours" data-chemin hidden></nav>
+  </div>
+
+  <!-- Sans JavaScript : chaque profil mène à sa rubrique. -->
+  <ol class="choix" data-etape="profil">
+    {donnees.map((p, i) => (
+      <li style={`--i:${i}`}>
+        <a class="choix-btn" href={p.rubrique} data-profil={p.id}>
+          <span class="choix-label">{p.label}</span>
+          <span class="choix-detail">{p.detail}</span>
+          <span class="choix-fleche" aria-hidden="true">→</span>
+        </a>
+      </li>
+    ))}
+  </ol>
+  <div data-suite></div>
+  <p class="sr-only" aria-live="polite" data-annonce></p>
+</section>
+
+<script type="application/json" id="parcours-data" set:html={JSON.stringify(donnees)} />
+
+<script>
+  interface Item { href: string; label: string; resume?: string }
+  interface Theme { id: string; label: string; items: Item[] }
+  interface Profil { id: string; label: string; detail: string; rubrique: string; themes: Theme[] }
+
+  const racine = document.querySelector<HTMLElement>('[data-parcours]');
+  const brut = document.getElementById('parcours-data')?.textContent;
+  if (racine && brut) init(racine, JSON.parse(brut) as Profil[]);
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, texte?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (texte) e.textContent = texte;
+    return e;
+  }
+
+  function init(root: HTMLElement, profils: Profil[]) {
+    const listeProfils = root.querySelector<HTMLElement>('[data-etape="profil"]')!;
+    const suite = root.querySelector<HTMLElement>('[data-suite]')!;
+    const chemin = root.querySelector<HTMLElement>('[data-chemin]')!;
+    const annonce = root.querySelector<HTMLElement>('[data-annonce]')!;
+
+    listeProfils.querySelectorAll<HTMLAnchorElement>('[data-profil]').forEach((a) => {
+      a.setAttribute('role', 'button');
+      a.addEventListener('click', (ev) => { ev.preventDefault(); aller(a.dataset.profil!, null, true); });
+      // Un bouton s'active aussi avec la barre d'espace.
+      a.addEventListener('keydown', (ev) => { if (ev.key === ' ') { ev.preventDefault(); a.click(); } });
+    });
+
+    window.addEventListener('popstate', () => lireAdresse(false));
+    lireAdresse(false);
+
+    function lireAdresse(focus: boolean) {
+      const q = new URLSearchParams(location.search);
+      afficher(q.get('profil'), q.get('theme'), focus);
+    }
+
+    function aller(profil: string | null, theme: string | null, focus: boolean) {
+      const q = new URLSearchParams(location.search);
+      profil ? q.set('profil', profil) : q.delete('profil');
+      theme ? q.set('theme', theme) : q.delete('theme');
+      const s = q.toString();
+      history.pushState(null, '', `${location.pathname}${s ? `?${s}` : ''}#parcours-titre`);
+      afficher(profil, theme, focus);
+    }
+
+    function afficher(idProfil: string | null, idTheme: string | null, focus: boolean) {
+      const p = profils.find((x) => x.id === idProfil) ?? null;
+      const t = p?.themes.find((x) => x.id === idTheme) ?? null;
+      listeProfils.hidden = !!p;
+      suite.replaceChildren();
+      chemin.replaceChildren();
+      chemin.hidden = !p;
+
+      if (!p) { if (focus) listeProfils.querySelector<HTMLElement>('a')?.focus(); return; }
+
+      // Chemin parcouru, chaque étape cliquable pour revenir en arrière.
+      const ol = el('ol');
+      const etape = (texte: string, action: () => void) => {
+        const li = el('li'); const b = el('button', 'chemin-btn', texte);
+        b.type = 'button'; b.addEventListener('click', action); li.append(b); ol.append(li);
+      };
+      etape('Recommencer', () => aller(null, null, true));
+      etape(p.label, () => aller(p.id, null, true));
+      if (t) { const li = el('li'); li.append(el('span', 'chemin-ici', t.label)); li.setAttribute('aria-current', 'step'); ol.append(li); }
+      chemin.append(ol);
+
+      const bloc = el('div', 'etape');
+      const h = el('h3', 'etape-titre', t ? 'Votre question' : 'Votre sujet');
+      h.tabIndex = -1;
+      bloc.append(h);
+
+      if (!t) {
+        const liste = el('ol', 'choix choix-themes');
+        p.themes.forEach((th, i) => {
+          const li = el('li'); li.style.setProperty('--i', String(i));
+          const b = el('button', 'choix-btn');
+          b.type = 'button';
+          b.append(el('span', 'choix-label', th.label), el('span', 'choix-detail', `${th.items.length} questions`), el('span', 'choix-fleche', '→'));
+          b.lastElementChild!.setAttribute('aria-hidden', 'true');
+          b.addEventListener('click', () => aller(p.id, th.id, true));
+          li.append(b); liste.append(li);
+        });
+        bloc.append(liste);
+        annonce.textContent = `${p.label}. Choisissez votre sujet parmi ${p.themes.length}.`;
+      } else {
+        const liste = el('ul', 'list reponses');
+        t.items.forEach((it, i) => {
+          const li = el('li'); li.style.setProperty('--i', String(i));
+          const a = el('a'); a.href = it.href;
+          const txt = el('span', 'txt', it.label);
+          if (it.resume) txt.append(el('span', 'meta', it.resume));
+          const fl = el('span', 'arrow', '→'); fl.setAttribute('aria-hidden', 'true');
+          a.append(txt, fl); li.append(a); liste.append(li);
+        });
+        bloc.append(liste);
+        annonce.textContent = `${t.label}. ${t.items.length} questions.`;
+      }
+
+      const pied = el('p', 'etape-pied');
+      const tout = el('a', '', `Voir toute la rubrique`); tout.href = p.rubrique;
+      const docs = el('a', '', 'Tous les documents'); docs.href = '/documents/';
+      pied.append(tout, el('span', 'sep', ' · '), docs);
+      bloc.append(pied);
+
+      suite.append(bloc);
+      if (focus) h.focus();
+    }
+  }
+</script>
+
+<!-- Styles globaux : les étapes sont créées par le script, hors du périmètre des styles du composant.
+     Tous les sélecteurs commencent par .parcours pour ne rien toucher d'autre. -->
+<style is:global>
+  .parcours { margin-top: 8px; padding: 24px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius) }
+  .parcours-tete { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 8px 16px }
+  .parcours h2 { margin: 0; font-size: var(--h2) }
+  .parcours [hidden] { display: none !important }
+
+  .parcours .chemin ol { display: flex; flex-wrap: wrap; gap: 4px; list-style: none; margin: 0; padding: 0; font-size: .92rem }
+  .parcours .chemin li + li::before { content: "›"; margin: 0 4px; color: var(--muted) }
+  .parcours .chemin-btn { font: inherit; min-height: var(--tap); padding: 0 6px; color: var(--accent); background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer }
+  .parcours .chemin-btn:hover { text-decoration-thickness: 2px }
+  .parcours .chemin-ici { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 6px; font-weight: 700 }
+
+  .parcours .choix { list-style: none; margin: 20px 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px }
+  @media (max-width: 720px) { .parcours .choix { grid-template-columns: 1fr } }
+  .parcours .choix-btn { position: relative; display: grid; grid-template-columns: 1fr auto; gap: 2px 12px; align-items: center; width: 100%; min-height: 64px; padding: 14px 16px; font: inherit; text-align: left; color: var(--ink); text-decoration: none; background: var(--bg); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease) }
+  .parcours .choix-btn:hover { border-color: var(--accent); background: var(--soft) }
+  .parcours .choix-btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+  .parcours .choix-label { font-family: var(--f-display); font-weight: 700; font-size: 1.08rem; line-height: 1.25 }
+  .parcours .choix-detail { grid-column: 1; font-size: .9rem; color: var(--muted) }
+  .parcours .choix-fleche { grid-column: 2; grid-row: 1 / span 2; color: var(--accent); transition: transform var(--dur-fast) var(--ease) }
+  .parcours .choix-btn:hover .choix-fleche { transform: translateX(3px) }
+
+  .parcours .etape { margin-top: 12px }
+  .parcours .etape-titre { margin: 8px 0 0; font-size: 1rem; text-transform: uppercase; letter-spacing: .06em; color: var(--muted) }
+  .parcours .etape-titre:focus { outline: none }
+  .parcours .reponses { margin-top: 12px }
+  .parcours .reponses .meta { margin-top: 2px; font-size: .92rem }
+  .parcours .etape-pied { margin: 16px 0 0; font-size: .95rem }
+  .parcours .etape-pied .sep { color: var(--muted) }
+
+  /* Apparition en cascade, désactivée si l'appareil demande moins d'animations. */
+  .parcours .etape li { animation: parcours-entree var(--dur) var(--ease) both; animation-delay: calc(var(--i, 0) * 40ms) }
+  @keyframes parcours-entree { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+
+  .parcours .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0 }
+  @media (max-width: 480px) { .parcours { padding: 18px 16px } }
+</style>

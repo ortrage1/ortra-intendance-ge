@@ -7,6 +7,7 @@ public: [former, decouvrir]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 1
+parcours: ["decouvrir/concret", "apprenti/horaires", "formateur/contrat"]
 source:
   libelle: "OFPC, aide-mémoire des commissaires et brochure Jeunes travailleurs et apprentis ; ordonnance du DEFR sur le travail de nuit et du dimanche en formation (RS 822.115.4), art. 2"
   url: "https://www.fedlex.admin.ch/eli/cc/2011/251/fr#art_2"

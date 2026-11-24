@@ -7,6 +7,7 @@ public: [former, decouvrir]
 rubrique: formateurs
 aussiDans: [apprentis]
 ordre: 2
+parcours: ["entreprise/preparer", "formateur/suivi"]
 source:
   libelle: "Hotel & Gastro formation Suisse ; WIGL, liste de prix 2026"
   url: "https://shop.wigl.ch/fr/"

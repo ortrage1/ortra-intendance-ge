@@ -6,6 +6,7 @@ formation: les-deux
 public: [former]
 rubrique: formateurs
 ordre: 4
+parcours: ["formateur/difficulte"]
 source:
   libelle: "OFPC, aide-mémoire des commissaires ; Cité des métiers du Grand Genève, Réussir son apprentissage"
   url: "https://www.citedesmetiers.ch/thematiques/apprentissage-afp-cfc/reussir-son-apprentissage/"

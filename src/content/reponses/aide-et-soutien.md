@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 3
+parcours: ["apprenti/aide", "formateur/difficulte"]
 source:
   libelle: "Cité des métiers du Grand Genève, Réussir son apprentissage ; État de Genève, Pro-Apprentis"
   url: "https://www.citedesmetiers.ch/thematiques/apprentissage-afp-cfc/reussir-son-apprentissage/"

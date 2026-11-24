@@ -64,6 +64,30 @@ collections:
           - { label: "Former : devenir entreprise formatrice", value: former }
           - { label: "Former : vous formez déjà", value: formateurs }
           - { label: Évaluer, value: evaluer }
+      - name: parcours
+        label: Parcours guidé de la page d'accueil
+        hint: "Facultatif : les thèmes du parcours « Trouvez votre réponse en trois clics » où cette question doit apparaître."
+        widget: select
+        multiple: true
+        required: false
+        options:
+          - { label: "Je découvre › Le métier et les diplômes", value: "decouvrir/metier" }
+          - { label: "Je découvre › Essayer et trouver une place", value: "decouvrir/essayer" }
+          - { label: "Je découvre › L'apprentissage, concrètement", value: "decouvrir/concret" }
+          - { label: "Adulte › Obtenir le diplôme", value: "adulte/diplome" }
+          - { label: "Adulte › Me préparer et commencer", value: "adulte/commencer" }
+          - { label: "Apprenti › Mon contrat et mes droits", value: "apprenti/droits" }
+          - { label: "Apprenti › Mes horaires et mes frais", value: "apprenti/horaires" }
+          - { label: "Apprenti › Les cours et l'examen", value: "apprenti/cours" }
+          - { label: "Apprenti › J'ai besoin d'aide", value: "apprenti/aide" }
+          - { label: "Entreprise qui veut former › Devenir entreprise formatrice", value: "entreprise/commencer" }
+          - { label: "Entreprise qui veut former › Préparer la formation", value: "entreprise/preparer" }
+          - { label: "Formateur › Le suivi au quotidien", value: "formateur/suivi" }
+          - { label: "Formateur › Contrat, horaires et frais", value: "formateur/contrat" }
+          - { label: "Formateur › Un apprenti en difficulté", value: "formateur/difficulte" }
+          - { label: "Formateur › L'examen final", value: "formateur/examen" }
+          - { label: "Expert·e ou commissaire › Devenir expert·e ou commissaire", value: "evaluer/devenir" }
+          - { label: "Expert·e ou commissaire › Ma mission", value: "evaluer/mission" }
       - { name: ordre, label: "Ordre d'affichage", widget: number, value_type: int, default: 99 }
       - name: source
         label: Source officielle

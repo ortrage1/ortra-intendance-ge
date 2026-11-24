@@ -6,6 +6,7 @@ formation: les-deux
 public: [evaluer]
 rubrique: evaluer
 ordre: 1
+parcours: ["evaluer/devenir"]
 source:
   libelle: "OrTra intendance Genève, Procédure de nomination pour expert ; HEFP, cours de base pour les experts"
   url: "https://ortra-intendance-ge.ch/sites/default/files/attachments/Descriptif%20fonction%20expert_0.pdf"

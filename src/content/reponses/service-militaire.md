@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 7
+parcours: ["apprenti/droits", "formateur/contrat"]
 source:
   libelle: "CSFO, aide-mémoire 17 Formation professionnelle initiale et service militaire (2025) ; Code des obligations, art. 324a, 324b et 329b"
   url: "https://www.formationprof.ch/fr/bases/formation-professionnelle-initiale"

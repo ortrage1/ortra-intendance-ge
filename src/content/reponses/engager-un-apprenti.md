@@ -6,6 +6,7 @@ formation: les-deux
 public: [former]
 rubrique: former
 ordre: 2
+parcours: ["entreprise/commencer"]
 source:
   libelle: "État de Genève, Engager un apprenti ou une apprentie"
   url: "https://www.ge.ch/devenir-entreprise-formatrice-engager-apprenti/engager-apprenti-apprentie"

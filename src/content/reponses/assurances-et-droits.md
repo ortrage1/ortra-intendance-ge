@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 5
+parcours: ["apprenti/droits"]
 source:
   libelle: "OFPC, brochure Apprentie, apprenti : ce que vous devez savoir, droits et devoirs"
   url: "https://www.citedesmetiers.ch/thematiques/apprentissage-afp-cfc/reussir-son-apprentissage/"

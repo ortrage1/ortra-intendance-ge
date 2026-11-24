@@ -7,6 +7,7 @@ public: [evaluer, former, reconversion]
 rubrique: evaluer
 aussiDans: [apprentis]
 ordre: 4
+parcours: ["apprenti/cours", "formateur/examen", "evaluer/mission"]
 source:
   libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 18, 19 et 25 ; factsheets CFC et AFP 2026"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"

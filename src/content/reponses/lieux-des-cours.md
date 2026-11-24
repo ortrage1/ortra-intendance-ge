@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: se-former
 aussiDans: [apprentis]
 ordre: 3
+parcours: ["decouvrir/concret", "apprenti/cours"]
 source:
   libelle: "OFPC, Professions ouvertes à l'apprentissage, Genève 2026"
   url: "https://www.citedesmetiers.ch/app/uploads/2026/05/Liste_apprentissages_Geneve.pdf"

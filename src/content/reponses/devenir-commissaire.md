@@ -6,6 +6,7 @@ formation: les-deux
 public: [evaluer, former]
 rubrique: evaluer
 ordre: 2
+parcours: ["evaluer/devenir"]
 source:
   libelle: "OFPC, aide-mémoire et lettre de mission des commissaires ; OrTra intendance Genève, procédure de nomination"
   url: "https://ortra-intendance-ge.ch/sites/default/files/attachments/Descriptif%20fonction%20commissaire_1.pdf"

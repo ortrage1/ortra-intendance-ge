@@ -38,3 +38,7 @@ S'y ajoute un **domaine spécifique**, choisi par l'entreprise et inscrit dans l
 ## Et après ?
 
 Le CFC permet de préparer le brevet fédéral de responsable du secteur hôtelier-intendance, ou une école supérieure. Voir [Et après la formation ?](/reponses/apres-la-formation/).
+
+## Vous formez un·e apprenti·e CFC ?
+
+Les [repères pratiques CFC](/former/repere-cfc/) indiquent combien de semaines passer dans chaque département et les mandats pratiques de chaque semestre.

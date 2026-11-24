@@ -26,7 +26,7 @@ const autre = metier.data.sigle === 'CFC' ? { href: '/metiers/afp/', label: 'Voi
     )}
     <Illustration nom={metier.data.formation === 'afp' ? 'afp' : 'cfc'} class="fiche-illu" />
     <div class="prose"><Content /></div>
-    <p class="next"><a href="/reponses/cfc-ou-afp/">Comparer le CFC et l'AFP</a> · <a href={autre.href}>{autre.label}</a></p>
+    <p class="next"><a href="/reponses/cfc-ou-afp/">Comparer le CFC et l'AFP</a> · <a href={autre.href}>{autre.label}</a> · <a href="/metiers/quiz/">Le métier est-il fait pour toi ?</a></p>
     <SourceBox libelle={metier.data.source.libelle} url={metier.data.source.url} verifieLe={metier.data.verifieLe} />
   </article>
 </Base>

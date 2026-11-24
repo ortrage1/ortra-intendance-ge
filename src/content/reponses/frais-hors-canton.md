@@ -26,8 +26,10 @@ statut: verifie
 
 **Comment faire la demande**
 
-1. Créez un compte personnel sur [ge.ch](https://ge.ch/ginainscriptions_pp/identity).
+1. Créez un compte personnel sur [ge.ch](https://ge.ch/ginainscriptions_pp/identity). Vous pouvez aussi le créer à la Cité des métiers, avec l'aide d'un conseiller.
 2. Faites la [demande de remboursement en ligne](https://app2.ge.ch/aelportal/rest/start/OFPC.FRAISAPPRENTIS).
-3. Joignez les justificatifs : abonnement avec quittance, billets ou carte multicourse avec le prix, facture du logement.
+3. Joignez les justificatifs : abonnement avec quittance, billets ou carte multicourse avec le prix, facture du logement. Si l'apprenti est mineur, indiquez le nom de son représentant légal.
+
+Les demandes se font uniquement en ligne, après les déplacements.
 
 **Un conseil sur le meilleur billet ?** L'OFPC répond du lundi au vendredi, de 11 h 30 à 12 h 30, au 022 388 44 45.

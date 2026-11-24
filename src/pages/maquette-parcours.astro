@@ -1,0 +1,22 @@
+---
+// Maquette du parcours guidé : page d'essai, non reliée au menu ni à l'accueil.
+import Base from '../layouts/Base.astro';
+import Search from '../components/Search.astro';
+import Parcours from '../components/Parcours.astro';
+---
+<Base title="Maquette : parcours guidé" description="Maquette du parcours guidé de la page d'accueil.">
+  <div class="wrap maquette">
+    <p class="bandeau"><strong>Maquette.</strong> Cette page sert à tester le parcours guidé avant de l'ajouter à la page d'accueil. Elle n'est reliée à aucune autre page.</p>
+    <h1>Toutes les réponses sur les métiers de l'hôtellerie-intendance à Genève</h1>
+    <p class="lede">Gestionnaire CFC et employé·e AFP : formations, examens et démarches, expliqués simplement et reliés aux sources officielles.</p>
+    <Search />
+    <Parcours />
+  </div>
+</Base>
+
+<style>
+  .maquette { padding-block: 32px 0; max-width: 56rem }
+  .bandeau { margin: 0 0 24px; padding: 12px 16px; background: var(--warn-bg); color: var(--ink); border-radius: 10px; font-size: .95rem }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+  .maquette :global(.parcours) { margin-top: 28px }
+</style>

@@ -9,11 +9,18 @@ export async function getStaticPaths() {
 }
 const { reponse } = Astro.props;
 const { Content } = await render(reponse);
+const RUBRIQUES = {
+  metiers: { href: '/metiers/', label: 'Les métiers' },
+  'se-former': { href: '/se-former/', label: 'Se former' },
+  former: { href: '/former/', label: 'Former' },
+  evaluer: { href: '/evaluer/', label: 'Évaluer' },
+};
+const rubrique = reponse.data.rubrique ? RUBRIQUES[reponse.data.rubrique] : undefined;
 const autres = (await getCollection('reponses')).filter((r) => r.id !== reponse.id).sort((a, b) => a.data.ordre - b.data.ordre).slice(0, 4);
 ---
 <Base title={reponse.data.titre} description={reponse.data.resume}>
   <article class="wrap narrow page" data-pagefind-body data-pagefind-filter={`formation:${reponse.data.formation}`}>
-    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li>Questions fréquentes</li></ol></nav>
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li>{rubrique ? <li><a href={rubrique.href}>{rubrique.label}</a></li> : <li>Questions fréquentes</li>}</ol></nav>
     <h1 data-pagefind-meta="title">{reponse.data.titre}</h1>
     <p class="lede"><strong>En bref.</strong> {reponse.data.resume}</p>
     <div class="prose table-scroll"><Content /></div>

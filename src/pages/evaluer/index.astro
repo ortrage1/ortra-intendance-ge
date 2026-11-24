@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Rubrique from '../../components/Rubrique.astro';
+---
+<Base title="Évaluer" description="Expert·es aux examens et commissaires d'apprentissage en hôtellerie-intendance à Genève : rôle, conditions, candidature.">
+  <div class="wrap page">
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Évaluer</li></ol></nav>
+    <h1>Évaluer et accompagner</h1>
+    <p class="lede">Expert·es aux examens et commissaires d'apprentissage sont des gens du métier. Ils garantissent la qualité de la formation, de la première visite en entreprise jusqu'à l'examen final.</p>
+    <Rubrique rubrique="evaluer" titre="Vos questions" />
+  </div>
+</Base>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+</style>

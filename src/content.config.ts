@@ -56,6 +56,7 @@ const documents = defineCollection({
     verifieLe: z.coerce.date(),
     mode: z.enum(['lien', 'copie', 'heberge']).default('lien'),
     populaire: z.boolean().default(false),
+    motsCles: z.array(z.string()).default([]),
   }),
 });
 

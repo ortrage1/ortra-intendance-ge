@@ -3,7 +3,7 @@ import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 
 const TYPES: Record<string, string> = {
-  'ordonnance': 'Ordonnances', 'plan-de-formation': 'Plans de formation', 'programme': 'Programmes de formation',
+  'ordonnance': 'Lois et ordonnances', 'plan-de-formation': 'Plans de formation', 'programme': 'Programmes de formation',
   'examen': 'Examen final', 'information': 'Informations', 'calendrier': 'Calendriers', 'formulaire': 'Formulaires',
 };
 const docs = (await getCollection('documents')).sort((a, b) => a.data.titre.localeCompare(b.data.titre, 'fr'));
@@ -16,7 +16,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
   <div class="wrap page">
     <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Documents</li></ol></nav>
     <h1>Documents</h1>
-    <p class="lede">Les documents officiels en vigueur, avec leur éditeur et leur date de vérification. Les documents s'ouvrent chez leur éditeur.</p>
+    <p class="lede">Les documents officiels, avec leur éditeur et leur date de vérification. « Copie » signale un document conservé par OrTra ; les autres s'ouvrent chez leur éditeur, dans leur version la plus récente.</p>
 
     <div class="filters" role="group" aria-label="Filtrer par formation">
       <button type="button" data-f="tout" aria-pressed="true">Tous</button>
@@ -32,7 +32,7 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
             <li data-formation={d.data.formation}>
               <a href={d.data.url} target="_blank" rel="noopener">
                 <span class={`badge ${d.data.formation}`}>{badge(d.data.formation)}</span>
-                <span class="txt">{d.data.titre}<span class="meta">{d.data.editeur}{d.data.date ? ` · ${d.data.date}` : ''} · vérifié le {d.data.verifieLe.toLocaleDateString('fr-CH')}</span></span>
+                <span class="txt">{d.data.titre}<span class="meta">{d.data.mode !== 'lien' && <span class="copie">Copie</span>}{d.data.editeur}{d.data.date ? ` · ${d.data.date}` : ''} · vérifié le {d.data.verifieLe.toLocaleDateString('fr-CH')}</span></span>
                 <span class="arrow" aria-hidden="true">↗</span>
               </a>
             </li>
@@ -66,4 +66,5 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
   .filters button[aria-pressed='true'] { color: var(--accent-ink); background: var(--accent); border-color: var(--accent) }
   .groupe { margin-top: 32px; max-width: 52rem }
   .groupe h2 { font-size: 1.2rem }
+  .copie { display: inline-block; margin-right: 6px; padding: 0 6px; border-radius: 4px; font-size: .78rem; font-weight: 700; color: var(--accent); background: var(--soft) }
 </style>

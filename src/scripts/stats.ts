@@ -8,7 +8,7 @@ export const statsActives = () => DOMAINES_PUBLICS.includes(location.hostname);
 
 interface GoatCounter { count?: (v: { path: string; title?: string; event?: boolean }) => void }
 
-/** Compte un événement (recherche, clic dans le parcours). Ne fait rien hors du site public. */
+/** Compte un événement prédéfini (jamais un texte saisi par le visiteur). Ne fait rien hors du site public. */
 export function compterEvenement(chemin: string, titre: string) {
   if (!statsActives()) return;
   const gc = (window as unknown as { goatcounter?: GoatCounter }).goatcounter;

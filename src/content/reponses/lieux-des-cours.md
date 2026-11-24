@@ -19,9 +19,11 @@ statut: verifie
 
 | Votre entreprise formatrice | École professionnelle |
 |---|---|
-| Un EMS ou un autre établissement de soins | CEMEF, Centre d'enseignement de Marcelin, à Morges (VD) |
+| Un EMS | CEMEF, Centre d'enseignement de Marcelin, à Morges (VD) |
 | Un hôtel | Hôtel-école de Crans-Montana (VS), en cours-blocs |
 
-**Adultes (article 32).** Les cours ont lieu à Genève.
+Pour un autre type d'établissement (hôpital, foyer, crèche), renseignez-vous auprès de l'OFPC au moment du contrat.
+
+**Adultes (article 32).** Les cours ont lieu à Genève, selon OrTra intendance Genève.
 
 **Dates des cours-blocs à Crans-Montana.** Elles sont publiées chaque année par l'école hôtelière de Thoune, qui gère l'hôtel-école : [dates des cours 2026-2027](https://www.hfthun.ch/hubfs/HFThun/HFThun%20Kursdaten%202026-2027.pdf), aussi dans la [bibliothèque de documents](/documents/).

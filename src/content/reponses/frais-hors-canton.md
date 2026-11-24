@@ -28,7 +28,7 @@ statut: verifie
 **Comment faire la demande**
 
 1. Créez un compte personnel sur [ge.ch](https://ge.ch/ginainscriptions_pp/identity). Vous pouvez aussi le créer à la Cité des métiers, avec l'aide d'un conseiller.
-2. Faites la [demande de remboursement en ligne](https://app2.ge.ch/aelportal/rest/start/OFPC.FRAISAPPRENTIS).
+2. Faites la [demande de remboursement en ligne](https://app2.ge.ch/aelportal/rest/start/OFPC.FRAISAPPRENTIS). Si une page de fin de session s'affiche, connectez-vous d'abord à votre compte, ou passez par la [page de l'État de Genève](https://www.ge.ch/remboursement-frais-transport/logement-hors-canton-apprenties-apprentis).
 3. Joignez les justificatifs : abonnement avec quittance, billets ou carte multicourse avec le prix, facture du logement. Si l'apprenti est mineur, indiquez le nom de son représentant légal.
 
 Les demandes se font uniquement en ligne, après les déplacements.

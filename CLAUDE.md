@@ -21,7 +21,8 @@ Les demandes viennent d'une personne bénévole non technicienne. Elle valide ch
 4. Couleurs et tailles : uniquement via les variables de `src/styles/global.css`.
 5. Accessibilité : contraste WCAG 2.2 AA, textes alternatifs, navigation au clavier, respect de « réduire les animations ».
 6. Avant de proposer un changement : `npm run build` doit réussir.
-7. Ne jamais ajouter de script de suivi, de service tiers ou de collecte de données personnelles.
+7. Ne jamais ajouter de script de suivi, de service tiers ou de collecte de données personnelles. Seule exception, décidée par OrTra :
+   GoatCounter (sans cookie), qui ne reçoit que des événements prédéfinis, jamais un texte saisi par un visiteur.
 8. Expliquer chaque changement en une ou deux phrases simples, compréhensibles par une personne non technicienne.
 9. Tout ce que la personne lit est en français : titres et descriptions des propositions de modification (pull requests),
    messages d'enregistrement (commits), questions posées pendant le travail.

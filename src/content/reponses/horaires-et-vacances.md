@@ -1,6 +1,6 @@
 ---
 titre: "Horaires, heures supplémentaires et vacances"
-resume: "Les apprentis ont en général un contrat de 42 heures par semaine et 5 semaines de vacances. Au-delà, des heures supplémentaires sont possibles jusqu'à 50 heures par semaine, et doivent être compensées."
+resume: "Les apprentis ont en général un contrat de 42 heures par semaine et 5 semaines de vacances. Les limites dépendent de l'âge et de la convention de l'établissement : avant 18 ans, 9 heures par jour au maximum, cours compris. Les heures supplémentaires doivent être compensées."
 motsCles: ["moins de 18 ans", "mineur", "jeune", "nuit", "soir", "23 heures", "repos", "pause", "jours fériés", "horaire", "horaires", "heures", "42 heures", "50 heures", "heures supplémentaires", "travail supplémentaire", "compensation", "majoration", "vacances", "congé", "dimanche", "dimanches", "repos", "planning", "jour de cours", "école", "relevé d'heures", "droits", "devoirs"]
 formation: les-deux
 public: [former, decouvrir]
@@ -9,7 +9,7 @@ aussiDans: [formateurs]
 ordre: 1
 parcours: ["decouvrir/concret", "apprenti/horaires", "formateur/contrat"]
 source:
-  libelle: "OFPC, aide-mémoire des commissaires et brochure Jeunes travailleurs et apprentis ; ordonnance du DEFR sur le travail de nuit et du dimanche en formation (RS 822.115.4), art. 2"
+  libelle: "OFPC, aide-mémoire des commissaires et brochure Jeunes travailleurs et apprentis ; ordonnance du DEFR sur le travail de nuit et du dimanche en formation (RS 822.115.4), art. 2 ; État de Genève, Horaires à respecter pour les jeunes employés"
   url: "https://www.fedlex.admin.ch/eli/cc/2011/251/fr#art_2"
 verifieLe: 2026-11-24
 statut: verifie
@@ -20,7 +20,7 @@ statut: verifie
 | | |
 |---|---|
 | **42 heures** | Durée habituelle du contrat. Une journée compte 8 h 24, une demi-journée 4 h 12. |
-| **50 heures** | Maximum légal par semaine. Entre la durée du contrat et 50 heures, ce sont des heures supplémentaires. |
+| **50 heures** | Maximum légal par semaine dans l'hôtellerie et les EMS. Entre la durée du contrat et 50 heures, ce sont des heures supplémentaires. Avant 18 ans, d'autres limites s'ajoutent : voir plus bas. |
 | **140 heures** | Plafond par année civile pour le travail au-delà de 50 heures, avec au maximum 2 heures par jour. |
 
 **Les heures supplémentaires.** Avec un contrat de 42 heures, on peut en faire jusqu'à 8 par semaine, par exemple pour un inventaire ou l'absence d'un collègue malade. Elles se compensent par un congé ; sinon, elles sont payées au salaire normal majoré d'au moins un quart. Les règles sur le repos quotidien sont plus strictes pour les moins de 18 ans.
@@ -37,7 +37,7 @@ statut: verifie
 
 **Moins de 18 ans : des règles plus protectrices**
 
-- **9 heures par jour au maximum**, cours compris, et 45 heures par semaine.
+- **9 heures par jour au maximum**, cours compris, et 45 ou 50 heures par semaine selon l'établissement, sans dépasser l'horaire des autres employés.
 - **Une journée de 12 heures au plus**, pauses comprises : entre 6 h et 20 h jusqu'à 16 ans, entre 6 h et 22 h dès 16 ans.
 - **12 heures de repos** d'affilée entre deux journées.
 - **Fin à 20 heures** au plus tard la veille d'un jour d'école ou de cours interentreprises.

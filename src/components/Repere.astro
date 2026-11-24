@@ -29,7 +29,7 @@ const housekeeping = tot.find((t) => t.d === 'C')!.semaines;
 
     <aside class="cle">
       <h2>Pas seulement du housekeeping</h2>
-      <p>L'apprentissage couvre <strong>quatre domaines</strong> : l'accueil, le service, le nettoyage et le linge. Le nettoyage ne représente qu'environ <strong>{housekeeping} semaines sur {totalSemaines}</strong> en entreprise. Prévoyez dès le départ un passage dans chaque département, avec une personne pour encadrer l'apprenti.</p>
+      <p>L'apprentissage couvre <strong>quatre domaines</strong> avec une durée indicative : l'accueil, le service, le nettoyage et le linge. S'y ajoute l'organisation du travail, présente dans tous les services. Le nettoyage ne représente qu'environ <strong>{housekeeping} semaines sur {totalSemaines}</strong> en entreprise. Prévoyez dès le départ un passage dans chaque département, avec une personne pour encadrer l'apprenti.</p>
     </aside>
 
     <section aria-labelledby="t-total">
@@ -60,12 +60,15 @@ const housekeeping = tot.find((t) => t.d === 'C')!.semaines;
 
     <section aria-labelledby="t-sem">
       <h2 id="t-sem">Semestre par semestre</h2>
+      <nav class="sauts no-print" aria-label="Aller au semestre">
+        {r.semestres.map((s) => <a href={`#semestre-${s.numero}`}>{s.numero}<sup>{s.numero === 1 ? 'er' : 'e'}</sup> sem.</a>)}
+      </nav>
       <ol class="semestres">
         {r.semestres.map((s) => {
           const total = Object.values(s.semaines).reduce((a, b) => a + (b ?? 0), 0);
           const parts = (Object.entries(s.semaines) as [Domaine, number][]);
           return (
-            <li class="sem">
+            <li class="sem" id={`semestre-${s.numero}`}>
               <h3>{s.numero}<sup>{s.numero === 1 ? 'er' : 'e'}</sup> semestre</h3>
               <div class="pile" aria-hidden="true">
                 {parts.map(([d, n]) => <span class={`dom-${d}`} style={`width:${pct(n, total)}`}>{n >= 3 ? `${COURT[d]} ${n}` : ''}</span>)}
@@ -151,6 +154,10 @@ const housekeeping = tot.find((t) => t.d === 'C')!.semaines;
   .dom-A { --dom: var(--dA) } .dom-B { --dom: var(--dB) } .dom-C { --dom: var(--dC) } .dom-D { --dom: var(--dD) } .dom-E { --dom: var(--dE) }
   .txt-A { color: var(--dA); font-weight: 700 } .txt-B { color: var(--dB); font-weight: 700 } .txt-C { color: var(--dC); font-weight: 700 } .txt-D { color: var(--dD); font-weight: 700 }
 
+  .sauts { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px }
+  .sauts a { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 14px; color: var(--accent); background: var(--surface); border: 1px solid var(--line); border-radius: 999px; text-decoration: none; font-weight: 700 }
+  .sauts a:hover { border-color: var(--accent) }
+  .sem { scroll-margin-top: 16px }
   .semestres { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 16px }
   .sem { padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); break-inside: avoid }
   .sem h3 { margin: 0 0 10px; font-size: 1.15rem }

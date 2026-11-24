@@ -52,8 +52,9 @@ if (total < MINIMUM || pages.length < 4) {
 // Résumé lisible dans GitHub : questions, recherches, recherches sans résultat.
 const evenements = (prefixe) => liste.filter((h) => h.event && h.path.startsWith(prefixe)).slice(0, 15);
 resume.push(`## Statistiques des ${JOURS} derniers jours`, '', `Visites des fiches : ${total}`, '', '### Fiches les plus lues', ...pages.slice(0, 15).map((p) => `- ${p.id} : ${p.count}`));
-resume.push('', '### Recherches les plus fréquentes', ...evenements('recherche/').map((h) => `- ${h.title} : ${h.count}`));
-resume.push('', '### Recherches sans résultat (fiches à créer ?)', ...evenements('recherche-sans-resultat/').map((h) => `- ${h.title} : ${h.count}`));
+const compte = (chemin) => liste.find((h) => h.event && h.path === chemin)?.count ?? 0;
+resume.push('', '### Recherches', `- avec résultat : ${compte('recherche/avec-resultat')}`, `- sans résultat : ${compte('recherche/sans-resultat')}`);
+resume.push('', '### Fiches proposées en réponse directe à une recherche', ...evenements('recherche/reponse/').map((h) => `- ${h.path.replace('recherche/reponse/', '')} : ${h.count}`));
 resume.push('', '### Parcours guidé', ...evenements('parcours/').map((h) => `- ${h.path.replace('parcours/', '')} : ${h.count}`));
 if (process.env.GITHUB_STEP_SUMMARY) await appendFile(process.env.GITHUB_STEP_SUMMARY, `${resume.join('\n')}\n`);
 else console.log(resume.join('\n'));

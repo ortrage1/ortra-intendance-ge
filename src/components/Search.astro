@@ -138,20 +138,23 @@ const suggestions = ['AFP ou CFC', 'Diplôme adulte', 'Où ont lieu les cours', 
       if (docs.length) h += `<p class="group-title">Documents officiels</p>` + docs.map(([, d]) => `<a class="hit" href="${d.url}" target="_blank" rel="noopener">${badge(d.formation)}<strong>${esc(d.titre)}</strong><span class="meta">${esc(d.editeur)}${d.date ? ` · ${esc(d.date)}` : ''} · s'ouvre dans un nouvel onglet</span></a>`).join('');
       if (!total) h += `<div class="empty">Aucun résultat pour « ${esc(brut)} ». Essayez un mot plus simple, par exemple « examen », « adulte » ou « cours ».</div>`;
       out.innerHTML = h;
-      noterRecherche(brut, total);
+      noterRecherche(brut, total, reps.length ? reps[0][1].url : '');
     }
 
     // Une recherche est comptée quand la personne a fini de taper (pas à chaque lettre).
+    // Aucun mot saisi n'est transmis : seulement « avec résultat » ou « sans résultat »,
+    // et l'identifiant de la fiche proposée en réponse directe, le cas échéant.
     let dernierCompte = '';
     let attente: number | undefined;
-    function noterRecherche(brut: string, total: number) {
+    function noterRecherche(brut: string, total: number, reponse: string) {
       clearTimeout(attente);
       attente = window.setTimeout(() => {
         const cle = norm(brut);
         if (cle.length < 3 || cle === dernierCompte) return;
         dernierCompte = cle;
-        compterEvenement(`recherche/${cle}`, brut);
-        if (!total) compterEvenement(`recherche-sans-resultat/${cle}`, brut);
+        compterEvenement(total ? 'recherche/avec-resultat' : 'recherche/sans-resultat', 'Recherche');
+        const id = reponse.match(/^\/reponses\/([a-z0-9-]+)\//)?.[1];
+        if (id) compterEvenement(`recherche/reponse/${id}`, 'Recherche');
       }, 1500);
     }
 
@@ -160,7 +163,11 @@ const suggestions = ['AFP ou CFC', 'Diplôme adulte', 'Où ont lieu les cours', 
     rootEl.querySelector('form')!.addEventListener('submit', (e) => { e.preventDefault(); render(); });
     out.addEventListener('click', (e) => {
       const b = (e.target as HTMLElement).closest<HTMLButtonElement>('[data-f]');
-      if (b) { filtre = b.dataset.f as typeof filtre; render(); }
+      if (b) {
+        filtre = b.dataset.f as typeof filtre;
+        // Après le rafraîchissement des résultats, le focus revient sur le filtre choisi.
+        render().then(() => out.querySelector<HTMLButtonElement>(`[data-f="${filtre}"]`)?.focus());
+      }
     });
     document.querySelectorAll<HTMLElement>('[data-q]').forEach((b) => b.addEventListener('click', () => {
       input.value = b.dataset.q ?? ''; filtre = 'tout'; render(); input.focus({ preventScroll: true });

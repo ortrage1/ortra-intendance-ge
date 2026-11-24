@@ -33,3 +33,7 @@ L'employé·e en hôtellerie-intendance assure l'entretien des locaux, le nettoy
 ## Et après ?
 
 Avec l'AFP, on peut poursuivre vers le CFC de gestionnaire en hôtellerie-intendance : une année de formation est prise en compte.
+
+## Vous formez un·e apprenti·e AFP ?
+
+Les [repères pratiques AFP](/former/repere-afp/) indiquent combien de semaines passer dans chaque département et les mandats pratiques de chaque semestre.

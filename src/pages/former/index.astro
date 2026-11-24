@@ -7,6 +7,14 @@ import Rubrique from '../../components/Rubrique.astro';
     <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li aria-current="page">Former</li></ol></nav>
     <h1>Former des apprentis</h1>
     <p class="lede">Hôtel, EMS, hôpital, foyer ou crèche : votre établissement peut former des gestionnaires et des employé·es en hôtellerie-intendance. Voici les étapes pour commencer, puis l'essentiel pour accompagner vos apprentis au quotidien.</p>
+    <section class="reperes" aria-labelledby="t-reperes">
+      <h2 id="t-reperes">Repères pratiques</h2>
+      <p>Où l'apprenti doit passer, combien de semaines dans chaque département, et les mandats de chaque semestre. À imprimer ou à garder sous la main.</p>
+      <div class="reperes-liens">
+        <a href="/former/repere-cfc/"><span class="badge cfc">CFC</span><strong>Gestionnaire en hôtellerie-intendance</strong><span>3 ans, 6 semestres</span></a>
+        <a href="/former/repere-afp/"><span class="badge afp">AFP</span><strong>Employé·e en hôtellerie-intendance</strong><span>2 ans, 4 semestres</span></a>
+      </div>
+    </section>
     <Rubrique rubrique="former" titre="Devenir entreprise formatrice" />
     <Rubrique rubrique="formateurs" titre="Vous formez déjà" />
     <p class="more">Plans, programmes et grilles : tout est dans la <a href="/documents/">bibliothèque de documents</a>.</p>
@@ -17,4 +25,13 @@ import Rubrique from '../../components/Rubrique.astro';
   .page { padding-block: 40px 0 }
   .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
   .more { margin-top: 24px; color: var(--muted) }
+  .reperes { margin-top: 28px; padding: 20px 22px; background: var(--soft); border-radius: var(--radius); max-width: 52rem }
+  .reperes h2 { margin: 0 0 6px; font-size: 1.3rem }
+  .reperes p { margin: 0 }
+  .reperes-liens { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px }
+  @media (max-width: 600px) { .reperes-liens { grid-template-columns: 1fr } }
+  .reperes-liens a { display: flex; flex-direction: column; gap: 4px; padding: 14px 16px; color: var(--ink); text-decoration: none; background: var(--surface); border: 1px solid var(--line); border-radius: 12px; transition: border-color var(--dur-fast) var(--ease) }
+  .reperes-liens a:hover { border-color: var(--accent) }
+  .reperes-liens .badge { align-self: flex-start }
+  .reperes-liens span:last-child { font-size: .9rem; color: var(--muted) }
 </style>

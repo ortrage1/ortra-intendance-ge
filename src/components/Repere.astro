@@ -1,0 +1,193 @@
+---
+// Page « Repères pour les formateurs » : temps par domaine, semestre par semestre,
+// mandats pratiques, cours interentreprises, et que faire si un domaine manque.
+import Base from '../layouts/Base.astro';
+import { REPERES, totaux, type Domaine } from '../lib/reperes';
+
+interface Props { id: 'cfc' | 'afp' }
+const { id } = Astro.props;
+const r = REPERES[id];
+const autre = id === 'cfc' ? REPERES.afp : REPERES.cfc;
+const tot = totaux(r);
+const totalSemaines = tot.reduce((n, t) => n + t.semaines, 0);
+const maxTotal = Math.max(...tot.map((t) => t.semaines));
+const nom = (d: Domaine) => r.domaines.find((x) => x.code === d)!;
+const COURT: Record<Domaine, string> = { A: 'Accueil', B: 'Service', C: 'Nettoyage', D: 'Linge', E: 'Organisation' };
+const pct = (n: number, de: number) => `${Math.round((n / de) * 1000) / 10}%`;
+const housekeeping = tot.find((t) => t.d === 'C')!.semaines;
+---
+<Base title={`Repères ${r.sigle} pour les formateurs`} description={`Où et combien de temps former un·e apprenti·e ${r.sigle} en hôtellerie-intendance : départements, semestres, mandats pratiques, cours interentreprises.`}>
+  <article class="wrap page repere" data-pagefind-body data-pagefind-filter={`formation:${id}`}>
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/former/">Former</a></li><li aria-current="page">Repères {r.sigle}</li></ol></nav>
+    <h1>Repères pour former un·e {r.titre.replace(/^Employé·e/, 'employé·e').replace(/^Gestionnaire/, 'gestionnaire')}</h1>
+    <p class="lede">Où l'apprenti doit passer, combien de temps, et quels mandats pratiques faire chaque semestre. {r.duree}.</p>
+
+    <div class="actions no-print">
+      <button type="button" class="btn" data-imprimer>Imprimer ou enregistrer en PDF</button>
+      <a class="btn btn-ghost" href={`/former/repere-${id === 'cfc' ? 'afp' : 'cfc'}/`}>Voir les repères {autre.sigle}</a>
+    </div>
+
+    <aside class="cle">
+      <h2>Pas seulement du housekeeping</h2>
+      <p>L'apprentissage couvre <strong>quatre domaines</strong> : l'accueil, le service, le nettoyage et le linge. Le nettoyage ne représente qu'environ <strong>{housekeeping} semaines sur {totalSemaines}</strong> en entreprise. Prévoyez dès le départ un passage dans chaque département, avec une personne pour encadrer l'apprenti.</p>
+    </aside>
+
+    <section aria-labelledby="t-total">
+      <h2 id="t-total">Sur toute la formation : où et combien de temps</h2>
+      <p class="note">Durées indicatives en entreprise, en semaines. Un domaine peut se travailler dans plusieurs services.</p>
+      <ul class="totaux">
+        {tot.map((t) => (
+          <li class={`dom-${t.d}`}>
+            <div class="tot-tete">
+              <span class="pastille" aria-hidden="true">{t.d}</span>
+              <span class="tot-nom"><strong>{nom(t.d).ou}</strong><span>{nom(t.d).nom}</span></span>
+              <span class="tot-val">environ <strong>{t.semaines}</strong> semaines</span>
+            </div>
+            <span class="barre" aria-hidden="true"><span style={`width:${pct(t.semaines, maxTotal)}`}></span></span>
+            <span class="exemples">Par exemple : {nom(t.d).exemples}.</span>
+          </li>
+        ))}
+        <li class="dom-E">
+          <div class="tot-tete">
+            <span class="pastille" aria-hidden="true">E</span>
+            <span class="tot-nom"><strong>{nom('E').ou}</strong><span>{nom('E').nom}</span></span>
+            <span class="tot-val">tout au long</span>
+          </div>
+          <span class="exemples">Par exemple : {nom('E').exemples}.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section aria-labelledby="t-sem">
+      <h2 id="t-sem">Semestre par semestre</h2>
+      <ol class="semestres">
+        {r.semestres.map((s) => {
+          const total = Object.values(s.semaines).reduce((a, b) => a + (b ?? 0), 0);
+          const parts = (Object.entries(s.semaines) as [Domaine, number][]);
+          return (
+            <li class="sem">
+              <h3>{s.numero}<sup>{s.numero === 1 ? 'er' : 'e'}</sup> semestre</h3>
+              <div class="pile" aria-hidden="true">
+                {parts.map(([d, n]) => <span class={`dom-${d}`} style={`width:${pct(n, total)}`}>{n >= 3 ? `${COURT[d]} ${n}` : ''}</span>)}
+              </div>
+              <p class="repartition">{parts.map(([d, n], i) => <>{i > 0 && ' · '}<span class={`txt-${d}`}>{COURT[d]}</span> : {n} sem.</>)}</p>
+              <h4>Mandats pratiques à faire</h4>
+              <ul class="mandats">
+                {s.mandats.map((m) => (
+                  <li><span class="code">{m.code}</span> {m.texte} <span class="doms">{m.domaines.map((d) => <span class={`mini dom-${d}`} title={nom(d).nom}>{d}</span>)}</span></li>
+                ))}
+              </ul>
+              <p class="aussi"><strong>À faire aussi :</strong> {s.aussi.join(' ; ')}.</p>
+            </li>
+          );
+        })}
+      </ol>
+    </section>
+
+    <section aria-labelledby="t-ext">
+      <h2 id="t-ext">Votre établissement ne couvre pas un domaine ?</h2>
+      <p>C'est fréquent : pas de restaurant, linge confié à une blanchisserie externe, pas de réception. La solution est un <strong>stage dans une autre entreprise</strong> qui couvre ce domaine.</p>
+      <ol class="etapes">
+        <li><strong>Le signaler dès le départ</strong>, au moment de la demande d'autorisation de former. Le ou la commissaire le repère aussi lors de sa visite.</li>
+        <li><strong>Trouver une entreprise d'accueil</strong> qui a ce département : un autre hôtel, un EMS, une blanchisserie, un restaurant.</li>
+        <li><strong>Cadrer le stage avec la conseillère ou le conseiller en formation de l'OFPC</strong> : quel domaine, combien de semaines (voir les repères ci-dessus), à quel semestre, et les modalités pratiques.</li>
+        <li><strong>Suivre le stage</strong> : le ou la commissaire passe pendant le stage, puis fait le bilan avec un rapport et une appréciation.</li>
+      </ol>
+      <p>Service de la formation professionnelle de l'OFPC : 022 388 46 56, formation.professionnelle@etat.ge.ch.</p>
+    </section>
+
+    <section aria-labelledby="t-cie">
+      <h2 id="t-cie">Les cours interentreprises</h2>
+      <p class="note">{r.cie.reduce((n, c) => n + c.jours, 0)} jours au total. L'apprenti y est libéré, sans baisse de salaire.</p>
+      <ul class="cie">
+        {r.cie.map((c) => <li><strong>{c.nom}</strong>, {c.jours} jours : {c.contenu.join(' ; ')}.</li>)}
+      </ul>
+    </section>
+
+    <section aria-labelledby="t-exa">
+      <h2 id="t-exa">Et à la fin</h2>
+      <p>{r.examen} Voir <a href="/reponses/examen-final/">L'examen final</a>.</p>
+    </section>
+
+    <aside class="source">
+      <p><strong>Source :</strong> factsheet {r.sigle} de Hotel & Gastro formation Suisse et OrTra intendance Suisse, révisée en mai 2025. <a href={r.factsheet} target="_blank" rel="noopener">Ouvrir la factsheet officielle (PDF)</a>. Les durées sont indicatives ; le plan de formation fait foi.</p>
+    </aside>
+  </article>
+</Base>
+
+<script>
+  document.querySelector<HTMLButtonElement>('[data-imprimer]')?.addEventListener('click', () => window.print());
+</script>
+
+<style>
+  .page { padding-block: 40px 0; max-width: 56rem }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+  .repere section { margin-top: 40px }
+  .note { color: var(--muted); font-size: .95rem; margin-top: 4px }
+
+  .repere { --dA: #1F5A66; --dB: #8E5A0C; --dC: #4F6B22; --dD: #7A3E6E; --dE: #56636A }
+  @media (prefers-color-scheme: dark) { .repere { --dA: #7FC3CF; --dB: #E5B46A; --dC: #A9C97A; --dD: #D49BC6; --dE: #A3AFB2 } }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 20px }
+  .btn { display: inline-flex; align-items: center; min-height: var(--tap); padding: 0 18px; font: inherit; font-weight: 700; color: var(--accent-ink); background: var(--accent); border: 1px solid var(--accent); border-radius: 999px; text-decoration: none; cursor: pointer }
+  .btn-ghost { color: var(--accent); background: transparent }
+  .btn:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+
+  .cle { margin-top: 28px; padding: 20px 22px; background: var(--soft); border-radius: var(--radius) }
+  .cle h2 { margin: 0 0 6px; font-size: 1.3rem }
+  .cle p { margin: 0 }
+
+  .totaux { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 18px }
+  .tot-tete { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; gap: 12px; align-items: center }
+  .pastille { display: grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; font-weight: 800; color: var(--surface); background: var(--dom) }
+  .tot-nom { display: flex; flex-direction: column }
+  .tot-nom span { font-size: .9rem; color: var(--muted) }
+  .tot-val { white-space: nowrap; text-align: right }
+  .tot-val strong { font-family: var(--f-display); font-size: 1.3rem }
+  .barre { display: block; height: 10px; margin: 8px 0 4px 44px; background: var(--line); border-radius: 99px; overflow: hidden }
+  .barre span { display: block; height: 100%; background: var(--dom); border-radius: 99px }
+  .exemples { display: block; margin-left: 44px; font-size: .92rem; color: var(--muted) }
+
+  .dom-A { --dom: var(--dA) } .dom-B { --dom: var(--dB) } .dom-C { --dom: var(--dC) } .dom-D { --dom: var(--dD) } .dom-E { --dom: var(--dE) }
+  .txt-A { color: var(--dA); font-weight: 700 } .txt-B { color: var(--dB); font-weight: 700 } .txt-C { color: var(--dC); font-weight: 700 } .txt-D { color: var(--dD); font-weight: 700 }
+
+  .semestres { list-style: none; margin: 16px 0 0; padding: 0; display: grid; gap: 16px }
+  .sem { padding: 18px 20px; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); break-inside: avoid }
+  .sem h3 { margin: 0 0 10px; font-size: 1.15rem }
+  .pile { display: flex; height: 28px; border-radius: 8px; overflow: hidden; gap: 2px }
+  .pile span { display: flex; align-items: center; justify-content: center; min-width: 0; padding: 0 4px; font-size: .78rem; font-weight: 700; color: var(--surface); background: var(--dom); white-space: nowrap; overflow: hidden }
+  .repartition { margin: 8px 0 0; font-size: .95rem }
+  .sem h4 { margin: 14px 0 6px; font-size: .95rem; text-transform: uppercase; letter-spacing: .05em; color: var(--muted) }
+  .mandats { margin: 0; padding-left: 1.1rem; display: grid; gap: 4px }
+  .code { font-variant-numeric: tabular-nums; font-size: .85rem; color: var(--muted) }
+  .doms { white-space: nowrap }
+  .mini { display: inline-grid; place-items: center; width: 20px; height: 20px; margin-left: 3px; border-radius: 50%; font-size: .72rem; font-weight: 800; color: var(--surface); background: var(--dom); vertical-align: middle }
+  .aussi { margin: 10px 0 0; font-size: .95rem; color: var(--muted) }
+
+  .etapes { display: grid; gap: 8px; padding-left: 1.3rem }
+  .cie { display: grid; gap: 6px; padding-left: 1.1rem }
+  .source { margin-top: 40px; padding-top: 16px; border-top: 1px solid var(--line); font-size: .92rem; color: var(--muted) }
+
+  @media (max-width: 480px) {
+    .tot-tete { grid-template-columns: auto minmax(0, 1fr) }
+    .tot-val { grid-column: 2; text-align: left }
+    .barre, .exemples { margin-left: 0 }
+    .sem { padding: 16px }
+  }
+
+  @media print {
+    .repere { --dA: #1F5A66; --dB: #8E5A0C; --dC: #4F6B22; --dD: #7A3E6E; --dE: #56636A }
+    .no-print { display: none !important }
+    .page { padding: 0; max-width: none }
+    .repere section { margin-top: 20px }
+    .sem { border-color: #ccc }
+    .pile span, .pastille, .mini, .barre span { -webkit-print-color-adjust: exact; print-color-adjust: exact }
+  }
+</style>
+
+<style is:global>
+  @media print {
+    .site-head, .site-foot, .skip { display: none !important }
+    body { background: #fff !important; color: #000 !important }
+  }
+</style>

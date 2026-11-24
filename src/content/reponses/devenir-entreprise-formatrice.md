@@ -22,6 +22,8 @@ statut: verifie
 
 L'autorisation est gratuite.
 
+**Prévoir le parcours de l'apprenti.** Il devra passer par l'accueil, le service, le nettoyage et le linge. Si un de ces départements manque, un stage dans une autre entreprise est possible. Voir [Répartir la formation entre les départements](/reponses/repartir-departements/).
+
 **Qui peut former ?** En hôtellerie-intendance, notamment :
 
 - les gestionnaires en hôtellerie-intendance CFC, ou titulaires d'un ancien titre (gestionnaire en intendance CFC, spécialiste en hôtellerie CFC), avec au moins 2 ans d'expérience ;

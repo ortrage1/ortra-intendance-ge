@@ -4,8 +4,9 @@ resume: "Apprenti, formatrice ou formateur : en cas de difficulté, la porte d'e
 motsCles: ["difficulté", "problème", "conflit", "maltraitance", "harcèlement", "harcèlement sexuel", "mobbing", "discrimination", "violence", "aide", "soutien", "rupture", "résiliation", "arrêter l'apprentissage", "mentorat", "Pro-Apprentis", "conseiller en formation", "OFPC"]
 formation: les-deux
 public: [decouvrir, former]
-rubrique: se-former
-ordre: 9
+rubrique: apprentis
+aussiDans: [formateurs]
+ordre: 4
 source:
   libelle: "OFPC, prévention de la maltraitance des apprentis (eduPros) et aide-mémoire des commissaires"
   url: "https://www.ge.ch/actualite/pro-apprentis-veritable-coup-pouce-pendant-apprentissage-10-04-2025"

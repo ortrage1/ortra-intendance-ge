@@ -5,6 +5,7 @@ motsCles: ["cours", "école", "lieu", "école professionnelle", "Marcelin", "CEM
 formation: les-deux
 public: [decouvrir, former]
 rubrique: se-former
+aussiDans: [apprentis]
 ordre: 3
 source:
   libelle: "OFPC, Professions ouvertes à l'apprentissage, Genève 2026"

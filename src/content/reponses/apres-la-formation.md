@@ -5,6 +5,7 @@ motsCles: ["après", "débouchés", "perspectives", "carrière", "perfectionneme
 formation: les-deux
 public: [decouvrir, reconversion]
 rubrique: metiers
+aussiDans: [apprentis]
 ordre: 2
 source:
   libelle: "Ordonnance CFC du 6 juillet 2023, art. 2 ; Hotel & Gastro formation Suisse ; orientation.ch"

@@ -666,5 +666,100 @@
       "licence",
       "prix"
     ]
+  },
+  {
+    "id": "contrat-apprentissage-formulaire",
+    "titre": "Contrat d'apprentissage : formulaire interactif",
+    "url": "https://www.formationprof.ch/fr/documents/contrat-dapprentissage-formulaire-interactif",
+    "editeur": "CSFO, formationprof.ch",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "date": "version 2026, pour les formations dès 2027",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "contrat",
+      "contrat d'apprentissage",
+      "formulaire",
+      "engager",
+      "signer"
+    ]
+  },
+  {
+    "id": "contrat-apprentissage-a-z",
+    "titre": "Le contrat d'apprentissage de A à Z",
+    "url": "https://www.formationprof.ch/fr/preparation/le-contrat-dapprentissage",
+    "editeur": "CSFO, formationprof.ch",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "contrat",
+      "temps d'essai",
+      "salaire",
+      "vacances",
+      "résiliation",
+      "engager"
+    ]
+  },
+  {
+    "id": "modele-entretien-periode-essai",
+    "titre": "Modèle : rapport d'entretien de période d'essai",
+    "url": "https://www.formationprof.ch/fr/documents/modele-rapport-entretien-de-periode-dessai",
+    "editeur": "CSFO, formationprof.ch",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "temps d'essai",
+      "période d'essai",
+      "entretien",
+      "bilan"
+    ]
+  },
+  {
+    "id": "rapport-stage-orientation",
+    "titre": "Rapport de stage (stage d'essai ou d'orientation)",
+    "url": "https://www.ge.ch/document/rapport-stage-orientation",
+    "editeur": "OFPC Genève",
+    "formation": "les-deux",
+    "type": "formulaire",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "stage",
+      "stage d'essai",
+      "stage probatoire",
+      "rapport de stage",
+      "sélection"
+    ]
+  },
+  {
+    "id": "aide-memoire-resiliation",
+    "titre": "Aide-mémoire 23 : résiliation de contrats d'apprentissage",
+    "url": "https://www.formationprof.ch/fr/documents/aide-memoire-23-resiliation-de-contrats-dapprentissage",
+    "editeur": "CSFO, formationprof.ch",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "résiliation",
+      "résilier",
+      "rupture",
+      "contrat"
+    ]
   }
 ]

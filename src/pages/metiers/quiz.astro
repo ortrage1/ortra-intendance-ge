@@ -1,0 +1,17 @@
+---
+import Base from '../../layouts/Base.astro';
+import Quiz from '../../components/Quiz.astro';
+---
+<Base title="Le métier est-il fait pour toi ?" description="Un questionnaire de 12 questions pour savoir si les métiers de l'hôtellerie-intendance te correspondent, et quels départements te plairaient le plus.">
+  <div class="wrap page" data-pagefind-body>
+    <nav class="crumbs" aria-label="Fil d'Ariane"><ol><li><a href="/">Accueil</a></li><li><a href="/metiers/">Les métiers</a></li><li aria-current="page">Questionnaire</li></ol></nav>
+    <h1>L'hôtellerie-intendance, c'est pour toi ?</h1>
+    <p class="lede">Accueil, service, chambres, lingerie : découvre en quelques minutes si ce métier te ressemble.</p>
+    <Quiz />
+  </div>
+</Base>
+
+<style>
+  .page { padding-block: 40px 0 }
+  .lede { font-size: 1.15rem; color: var(--muted); max-width: var(--measure) }
+</style>

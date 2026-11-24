@@ -9,6 +9,7 @@ export interface ProfilParcours { id: string; label: string; detail: string; rub
 export const PROFILS: ProfilParcours[] = [
   { id: 'decouvrir', label: 'Je découvre le métier', detail: 'Jeune, parent, enseignant', rubrique: '/metiers/', themes: [
     { id: 'metier', label: 'Le métier et les diplômes', liens: [
+      { href: '/metiers/quiz/', label: 'Le métier est-il fait pour toi ?', resume: '12 questions pour savoir si tu es fait·e pour l’hôtellerie-intendance.' },
       { href: '/metiers/cfc/', label: 'Gestionnaire en hôtellerie-intendance CFC', resume: "Le métier, la formation en 3 ans, ce qu'on apprend." },
       { href: '/metiers/afp/', label: 'Employé·e en hôtellerie-intendance AFP', resume: "Le métier, la formation en 2 ans, ce qu'on apprend." },
     ] },

@@ -24,6 +24,12 @@ const metiers = (await getCollection('metiers')).sort((a) => (a.data.sigle === '
       ))}
     </ul>
 
+    <a class="quiz-appel" href="/metiers/quiz/">
+      <strong>Le métier est-il fait pour toi ?</strong>
+      <span>Réponds à 12 questions et découvre si l'hôtellerie-intendance te correspond.</span>
+      <span class="go">Faire le questionnaire →</span>
+    </a>
+
     <Rubrique rubrique="metiers" titre="Choisir et évoluer" />
   </div>
 </Base>
@@ -37,6 +43,10 @@ const metiers = (await getCollection('metiers')).sort((a) => (a.data.sigle === '
   .metier:hover { border-color: var(--accent) }
   .metier .badge { align-self: flex-start }
   .metier strong { font-family: var(--f-display); font-size: 1.2rem; line-height: 1.2 }
+  .quiz-appel { display: grid; gap: 4px; max-width: 52rem; margin-top: 16px; padding: 18px 20px; color: inherit; text-decoration: none; background: var(--soft); border: 1px solid transparent; border-radius: var(--radius); transition: border-color var(--dur-fast) var(--ease) }
+  .quiz-appel:hover { border-color: var(--accent) }
+  .quiz-appel strong { font-family: var(--f-display); font-size: 1.15rem }
+  .quiz-appel .go { color: var(--accent); font-weight: 700 }
   .metier .meta { color: var(--muted); font-size: .95rem }
   .metier .go { margin-top: auto; color: var(--accent); font-weight: 700 }
 </style>

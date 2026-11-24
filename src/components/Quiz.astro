@@ -1,0 +1,235 @@
+---
+// Questionnaire « L'hôtellerie-intendance, c'est pour toi ? ».
+// Questions, points et seuils : src/lib/quiz.ts. Rien n'est enregistré : tout se passe dans le navigateur.
+import { QUESTIONS, DEPARTEMENTS, MAX, SEUILS } from '../lib/quiz';
+const donnees = { questions: QUESTIONS, departements: DEPARTEMENTS, max: MAX, seuils: SEUILS };
+---
+<section class="quiz" aria-labelledby="quiz-titre" data-quiz>
+  <div data-zone>
+    <h2 id="quiz-titre" class="quiz-h">{QUESTIONS.length} questions, 3 minutes</h2>
+    <p>Réponds spontanément, il n'y a pas de bonne ou de mauvaise réponse. À la fin, tu sauras si le métier te correspond et quels départements te plairaient le plus.</p>
+    <p class="quiz-note">Tes réponses ne sont ni envoyées ni enregistrées.</p>
+    <noscript><p class="quiz-note"><strong>Ce questionnaire a besoin de JavaScript.</strong> Tu peux aussi lire directement les fiches <a href="/metiers/cfc/">CFC</a> et <a href="/metiers/afp/">AFP</a>.</p></noscript>
+    <button type="button" class="quiz-go" data-demarrer hidden>Commencer le questionnaire <span aria-hidden="true">→</span></button>
+  </div>
+  <p class="sr-only" aria-live="polite" data-annonce></p>
+</section>
+
+<script type="application/json" id="quiz-data" set:html={JSON.stringify(donnees)} />
+
+<script>
+  import { compterEvenement } from '../scripts/stats';
+  type Dep = 'A' | 'B' | 'C' | 'D';
+  interface Reponse { texte: string; ok: number; dep?: Dep[] }
+  interface Question { texte: string; aide?: string; reponses: Reponse[] }
+  interface Donnees { questions: Question[]; departements: Record<Dep, { nom: string; detail: string }>; max: number; seuils: { oui: number; peutEtre: number } }
+
+  const racine = document.querySelector<HTMLElement>('[data-quiz]');
+  const brut = document.getElementById('quiz-data')?.textContent;
+  if (racine && brut) init(racine, JSON.parse(brut) as Donnees);
+
+  function el<K extends keyof HTMLElementTagNameMap>(tag: K, cls?: string, texte?: string) {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (texte) e.textContent = texte;
+    return e;
+  }
+
+  function melanger<T>(liste: T[]): T[] {
+    const copie = [...liste];
+    for (let i = copie.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [copie[i], copie[j]] = [copie[j], copie[i]];
+    }
+    return copie;
+  }
+
+  function lien(href: string, texte: string, cls = '') {
+    const a = el('a', cls, texte); a.href = href; return a;
+  }
+
+  function init(root: HTMLElement, d: Donnees) {
+    const zone = root.querySelector<HTMLElement>('[data-zone]')!;
+    const annonce = root.querySelector<HTMLElement>('[data-annonce]')!;
+    const demarrer = root.querySelector<HTMLButtonElement>('[data-demarrer]')!;
+    // Index de la réponse choisie pour chaque question (null : pas encore répondu).
+    let choix: (Reponse | null)[] = d.questions.map(() => null);
+    // L'ordre mélangé est gardé pour qu'un retour en arrière montre la même liste.
+    let ordres: Reponse[][] = [];
+
+    demarrer.hidden = false;
+    demarrer.addEventListener('click', () => commencer());
+
+    function commencer() {
+      choix = d.questions.map(() => null);
+      ordres = d.questions.map((q) => melanger(q.reponses));
+      question(0);
+    }
+
+    function question(n: number) {
+      const q = d.questions[n];
+      zone.replaceChildren();
+
+      const tete = el('div', 'quiz-tete');
+      const compteur = el('p', 'quiz-compteur', `Question ${n + 1} sur ${d.questions.length}`);
+      const barre = el('div', 'quiz-barre');
+      barre.setAttribute('aria-hidden', 'true');
+      const plein = el('span'); plein.style.transform = `scaleX(${n / d.questions.length})`;
+      barre.append(plein);
+      tete.append(compteur, barre);
+
+      const fs = el('fieldset', 'quiz-q');
+      const lg = el('legend', '', q.texte);
+      lg.tabIndex = -1;
+      fs.append(lg);
+      if (q.aide) fs.append(el('p', 'quiz-aide', q.aide));
+      const liste = el('ul', 'quiz-rep');
+      ordres[n].forEach((r, i) => {
+        const li = el('li'); li.style.setProperty('--i', String(i));
+        const b = el('button', 'quiz-choix', r.texte);
+        b.type = 'button';
+        if (choix[n] === r) b.setAttribute('aria-pressed', 'true');
+        b.addEventListener('click', () => {
+          choix[n] = r;
+          n + 1 < d.questions.length ? question(n + 1) : resultat();
+        });
+        li.append(b); liste.append(li);
+      });
+      fs.append(liste);
+
+      const pied = el('p', 'quiz-pied');
+      if (n > 0) {
+        const retour = el('button', 'quiz-lien', '← Question précédente');
+        retour.type = 'button';
+        retour.addEventListener('click', () => question(n - 1));
+        pied.append(retour);
+      }
+
+      zone.append(tete, fs, pied);
+      annonce.textContent = `Question ${n + 1} sur ${d.questions.length}.`;
+      lg.focus();
+    }
+
+    function resultat() {
+      const points = choix.reduce((s, r) => s + (r?.ok ?? 0), 0);
+      const niveau = points >= d.seuils.oui ? 'oui' : points >= d.seuils.peutEtre ? 'peut-etre' : 'non';
+      compterEvenement(`quiz/resultat/${niveau}`, 'Questionnaire métier');
+
+      const deps: Record<Dep, number> = { A: 0, B: 0, C: 0, D: 0 };
+      choix.forEach((r) => r?.dep?.forEach((k) => { deps[k] += 1; }));
+      const top = (Object.entries(deps) as [Dep, number][])
+        .filter(([, v]) => v > 0)
+        .sort((a, b) => b[1] - a[1])
+        .slice(0, 2);
+      const aVerifier = d.questions.filter((_, i) => choix[i]?.ok === 0);
+
+      zone.replaceChildren();
+      const bloc = el('div', `quiz-res quiz-res-${niveau}`);
+      const h = el('h2', 'quiz-h');
+      h.tabIndex = -1;
+
+      const textes = {
+        oui: ["L'hôtellerie-intendance a tout pour te plaire !", "Tes réponses montrent que tu aimes le concret, le soin du détail et le bien-être des autres. C'est le cœur de ce métier."],
+        'peut-etre': ['Ça vaut la peine d’essayer', "Certaines facettes du métier te plaisent, d'autres moins. Le meilleur moyen de savoir, c'est de passer quelques jours dans un établissement."],
+        non: ['Ce n’est peut-être pas fait pour toi', "Plusieurs aspects importants du métier ne t'attirent pas. Ce n'est pas grave : c'est utile de le savoir, et d'autres métiers t'attendent."],
+      } as const;
+      h.textContent = textes[niveau][0];
+      bloc.append(el('p', 'quiz-score', `Ton résultat : ${points} sur ${d.max}`), h, el('p', '', textes[niveau][1]));
+
+      if (niveau !== 'non' && top.length) {
+        bloc.append(el('h3', 'quiz-h3', 'Ce qui te plairait le plus'));
+        const ul = el('ul', 'quiz-deps');
+        top.forEach(([k]) => {
+          const li = el('li');
+          li.append(el('strong', '', d.departements[k].nom), document.createTextNode(` : ${d.departements[k].detail}.`));
+          ul.append(li);
+        });
+        bloc.append(ul, el('p', 'quiz-aide', "Pendant la formation, tu travailles dans tous ces départements. C'est ce qui rend le métier varié."));
+      }
+
+      if (niveau !== 'non' && aVerifier.length) {
+        bloc.append(el('h3', 'quiz-h3', 'À vérifier pendant un stage'));
+        const ul = el('ul', 'quiz-deps');
+        aVerifier.forEach((q) => ul.append(el('li', '', q.texte)));
+        bloc.append(ul);
+      }
+
+      bloc.append(el('h3', 'quiz-h3', 'Et maintenant ?'));
+      const suite = el('ul', 'list quiz-suite');
+      const item = (href: string, label: string, resume: string) => {
+        const li = el('li'); const a = lien(href, '');
+        const txt = el('span', 'txt', label); txt.append(el('span', 'meta', resume));
+        const fl = el('span', 'arrow', '→'); fl.setAttribute('aria-hidden', 'true');
+        a.append(txt, fl); li.append(a); suite.append(li);
+      };
+      if (niveau === 'non') {
+        item('https://www.citedesmetiers.ch/', 'Cité des métiers de Genève', 'Des conseillers pour t’aider à trouver ta voie, gratuitement.');
+        item('https://www.orientation.ch/', 'orientation.ch', 'Tous les métiers et apprentissages de Suisse.');
+        item('/reponses/stage-decouverte/', 'Faire quand même un stage de découverte', 'Quelques jours sur place disent parfois autre chose qu’un questionnaire.');
+      } else {
+        item('/reponses/stage-decouverte/', 'Faire un stage de découverte', 'Quelques jours dans un hôtel, un EMS ou un hôpital pour voir le métier en vrai.');
+        item('/metiers/cfc/', 'Gestionnaire en hôtellerie-intendance CFC', 'La formation en 3 ans.');
+        item('/metiers/afp/', 'Employé·e en hôtellerie-intendance AFP', 'La formation en 2 ans, plus pratique.');
+        item('/reponses/cfc-ou-afp/', 'CFC ou AFP : lequel choisir ?', 'Les différences, simplement expliquées.');
+        item('/reponses/trouver-une-place/', 'Trouver une place d’apprentissage', 'Où chercher et comment postuler à Genève.');
+      }
+      bloc.append(suite);
+
+      const pied = el('p', 'quiz-pied');
+      const refaire = el('button', 'quiz-lien', 'Refaire le questionnaire');
+      refaire.type = 'button';
+      refaire.addEventListener('click', () => commencer());
+      pied.append(refaire);
+      bloc.append(pied, el('p', 'quiz-note', 'Ce questionnaire donne une première idée. Il ne remplace ni un stage ni un entretien avec un conseiller en orientation.'));
+
+      zone.append(bloc);
+      annonce.textContent = '';
+      h.focus();
+    }
+  }
+</script>
+
+<!-- Styles globaux : les étapes sont créées par le script. Tous les sélecteurs commencent par .quiz. -->
+<style is:global>
+  .quiz { margin-top: 24px; padding: 28px; max-width: 46rem; background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius) }
+  .quiz [hidden] { display: none !important }
+  .quiz .quiz-h { margin: 0 0 8px; font-size: var(--h2) }
+  .quiz .quiz-h:focus, .quiz legend:focus { outline: none }
+  .quiz .quiz-h3 { margin: 24px 0 8px; font-size: 1.1rem }
+  .quiz .quiz-note { font-size: .92rem; color: var(--muted) }
+  .quiz .quiz-aide { margin: 4px 0 0; font-size: .95rem; color: var(--muted) }
+
+  .quiz .quiz-go { display: inline-flex; align-items: center; gap: 10px; min-height: var(--tap); margin-top: 8px; padding: 12px 22px; font: inherit; font-weight: 700; color: var(--accent-ink); background: var(--accent); border: 0; border-radius: 99px; cursor: pointer; transition: transform var(--dur-fast) var(--ease) }
+  .quiz .quiz-go:hover { transform: translateY(-1px) }
+  .quiz .quiz-go:focus-visible, .quiz .quiz-choix:focus-visible, .quiz .quiz-lien:focus-visible { outline: 3px solid var(--accent); outline-offset: 2px }
+
+  .quiz .quiz-tete { display: grid; gap: 8px; margin-bottom: 16px }
+  .quiz .quiz-compteur { margin: 0; font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted) }
+  .quiz .quiz-barre { height: 6px; overflow: hidden; background: var(--soft); border-radius: 99px }
+  .quiz .quiz-barre span { display: block; height: 100%; background: var(--accent); transform-origin: left; transition: transform var(--dur) var(--ease) }
+
+  .quiz .quiz-q { margin: 0; padding: 0; border: 0; min-width: 0 }
+  .quiz .quiz-q legend { padding: 0; font-family: var(--f-display); font-size: 1.35rem; font-weight: 700; line-height: 1.3 }
+  .quiz .quiz-rep { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 10px }
+  .quiz .quiz-choix { width: 100%; min-height: 56px; padding: 14px 18px; font: inherit; text-align: left; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 12px; cursor: pointer; transition: border-color var(--dur-fast) var(--ease), background var(--dur-fast) var(--ease) }
+  .quiz .quiz-choix:hover { border-color: var(--accent); background: var(--soft) }
+  .quiz .quiz-choix[aria-pressed="true"] { border-color: var(--accent); box-shadow: inset 0 0 0 1px var(--accent) }
+  .quiz .quiz-rep li { animation: quiz-entree var(--dur) var(--ease) both; animation-delay: calc(var(--i, 0) * 40ms) }
+  @keyframes quiz-entree { from { opacity: 0; transform: translateY(6px) } to { opacity: 1; transform: none } }
+
+  .quiz .quiz-pied { margin: 18px 0 0 }
+  .quiz .quiz-lien { min-height: var(--tap); padding: 0; font: inherit; color: var(--accent); background: none; border: 0; text-decoration: underline; text-underline-offset: 3px; cursor: pointer }
+
+  .quiz .quiz-score { margin: 0 0 4px; font-size: .9rem; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--muted) }
+  .quiz .quiz-res { border-left: 4px solid var(--accent); padding-left: 18px }
+  .quiz .quiz-res-peut-etre { border-left-color: var(--afp) }
+  .quiz .quiz-res-non { border-left-color: var(--muted) }
+  .quiz .quiz-deps { margin: 0; padding-left: 1.2em }
+  .quiz .quiz-deps li + li { margin-top: 4px }
+  .quiz .quiz-suite { margin-top: 8px }
+  .quiz .quiz-suite .meta { margin-top: 2px; font-size: .92rem }
+
+  .quiz .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0 }
+  @media (max-width: 480px) { .quiz { padding: 20px 16px } .quiz .quiz-q legend { font-size: 1.2rem } }
+  @media (prefers-reduced-motion: reduce) { .quiz .quiz-rep li { animation: none } .quiz .quiz-barre span { transition: none } }
+</style>

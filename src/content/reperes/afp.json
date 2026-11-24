@@ -1,0 +1,249 @@
+{
+  "sigle": "AFP",
+  "titre": "Employé·e en hôtellerie-intendance AFP",
+  "duree": "2 ans, 4 semestres",
+  "revision": "mai 2025",
+  "factsheet": "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+  "examen": "Travail pratique de 4 h 30, dont un entretien professionnel de 30 minutes.",
+  "domaines": [
+    {
+      "code": "A",
+      "nom": "Présentation personnelle et communication",
+      "ou": "Accueil, réception",
+      "exemples": "accueillir et renseigner les hôtes, résidents ou patients, conseiller, communiquer"
+    },
+    {
+      "code": "B",
+      "nom": "Service de boissons et de mets",
+      "ou": "Restaurant, cafétéria, office",
+      "exemples": "mettre en place, servir les boissons et les mets, buffet, vaisselle"
+    },
+    {
+      "code": "C",
+      "nom": "Nettoyage et aménagement de locaux",
+      "ou": "Étages, housekeeping, nettoyage",
+      "exemples": "nettoyer et contrôler les chambres et les locaux, nettoyage à fond, plantes"
+    },
+    {
+      "code": "D",
+      "nom": "Mise en œuvre des tâches du circuit du linge",
+      "ou": "Lingerie, buanderie",
+      "exemples": "trier, laver, repasser, distribuer le linge, linge infectieux"
+    },
+    {
+      "code": "E",
+      "nom": "Mise en œuvre de processus opérationnels",
+      "ou": "Dans tous les services",
+      "exemples": "organiser son travail, stocks, caisse, qualité, sécurité, instruire des collègues"
+    }
+  ],
+  "semestres": [
+    {
+      "numero": 1,
+      "accueil": 1,
+      "service": 0,
+      "nettoyage": 11,
+      "linge": 11,
+      "mandats": [
+        {
+          "code": "MPE 101",
+          "texte": "Nettoyage de contrôle et nettoyage courant",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 102",
+          "texte": "Circuit du linge, zone sale",
+          "domaines": [
+            "A",
+            "D",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 103",
+          "texte": "Aménagement des locaux et entretien des plantes",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        }
+      ],
+      "aussi": [
+        "Entretien de fin de temps d'essai",
+        "Rapport de formation"
+      ]
+    },
+    {
+      "numero": 2,
+      "accueil": 2,
+      "service": 4,
+      "nettoyage": 9,
+      "linge": 8,
+      "mandats": [
+        {
+          "code": "MPE 201",
+          "texte": "Machines et appareils, organisation de la vaisselle, élimination des déchets",
+          "domaines": [
+            "B",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 202",
+          "texte": "Aménagement des locaux et entretien des plantes",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 203",
+          "texte": "Nettoyage de contrôle et nettoyage courant",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 204",
+          "texte": "Nettoyage intermédiaire",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 205",
+          "texte": "Circuit du linge, zone propre",
+          "domaines": [
+            "A",
+            "D",
+            "E"
+          ]
+        }
+      ],
+      "aussi": [
+        "Rapport de formation"
+      ]
+    },
+    {
+      "numero": 3,
+      "accueil": 6,
+      "service": 11,
+      "nettoyage": 3,
+      "linge": 3,
+      "mandats": [
+        {
+          "code": "MPE 301",
+          "texte": "Buffet, y compris encadrer les hôtes",
+          "domaines": [
+            "A",
+            "B",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 302",
+          "texte": "Nettoyage à fond",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 303",
+          "texte": "Circuit des marchandises dans le nettoyage",
+          "domaines": [
+            "A",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 304",
+          "texte": "Organisation du circuit du linge",
+          "domaines": [
+            "A",
+            "D"
+          ]
+        }
+      ],
+      "aussi": [
+        "Rapport de formation"
+      ]
+    },
+    {
+      "numero": 4,
+      "accueil": 3,
+      "service": 11,
+      "nettoyage": 7,
+      "linge": 2,
+      "mandats": [
+        {
+          "code": "MPE 401",
+          "texte": "Accueil des hôtes",
+          "domaines": [
+            "A",
+            "B",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 402",
+          "texte": "Nettoyage de contrôle et nettoyage courant",
+          "domaines": [
+            "C",
+            "E"
+          ]
+        },
+        {
+          "code": "MPE 403",
+          "texte": "Linge infectieux",
+          "domaines": [
+            "D",
+            "E"
+          ]
+        }
+      ],
+      "aussi": [
+        "Rapport de formation",
+        "Certificat de formation"
+      ]
+    }
+  ],
+  "cie": [
+    {
+      "nom": "CIE 1",
+      "jours": 2,
+      "contenu": [
+        "Nettoyage, 1 jour",
+        "Circuit du linge, 1 jour"
+      ]
+    },
+    {
+      "nom": "CIE 2",
+      "jours": 4,
+      "contenu": [
+        "Accueil et communication, 1,5 jour",
+        "Service, 2,5 jours"
+      ]
+    },
+    {
+      "nom": "CIE 3",
+      "jours": 4,
+      "contenu": [
+        "Nettoyage, 2 jours",
+        "Circuit du linge, 2 jours"
+      ]
+    },
+    {
+      "nom": "CIE 4",
+      "jours": 4,
+      "contenu": [
+        "Accueil, service, nettoyage et linge, 1 jour chacun"
+      ]
+    }
+  ]
+}

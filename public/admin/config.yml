@@ -129,6 +129,112 @@ collections:
       - { name: verifieLe, label: Vérifié le, widget: datetime, time_format: false, date_format: "DD.MM.YYYY", format: "YYYY-MM-DD" }
       - { name: body, label: Texte de la fiche, widget: markdown }
 
+  - name: reperes
+    label: Repères pratiques (formateurs)
+    description: "Semaines par département, mandats et cours interentreprises, d'après les factsheets. À mettre à jour quand une nouvelle factsheet sort."
+    files:
+      - name: cfc
+        label: Repères CFC
+        file: /src/content/reperes/cfc.json
+        format: json
+        fields:
+          - { name: sigle, label: Diplôme, widget: select, options: [CFC, AFP] }
+          - { name: titre, label: Titre du diplôme, widget: string }
+          - { name: duree, label: "Durée (ex. 3 ans, 6 semestres)", widget: string }
+          - { name: revision, label: "Révision de la factsheet (ex. mai 2025)", widget: string }
+          - { name: factsheet, label: "Adresse de la factsheet officielle (PDF)", widget: string }
+          - { name: examen, label: Examen final en une phrase, widget: text }
+          - name: domaines
+            label: Domaines de compétences
+            label_singular: Domaine
+            widget: list
+            summary: "{{code}} · {{ou}}"
+            fields:
+              - { name: code, label: Lettre, widget: select, options: [A, B, C, D, E] }
+              - { name: nom, label: Nom officiel, widget: string }
+              - { name: ou, label: "Où dans l'établissement", widget: string }
+              - { name: exemples, label: Exemples concrets, widget: string }
+          - name: semestres
+            label: Semestres
+            label_singular: Semestre
+            widget: list
+            summary: "Semestre {{numero}}"
+            fields:
+              - { name: numero, label: Numéro du semestre, widget: number, value_type: int }
+              - { name: accueil, label: "Semaines à l'accueil (A)", widget: number, value_type: int, default: 0 }
+              - { name: service, label: "Semaines au service (B)", widget: number, value_type: int, default: 0 }
+              - { name: nettoyage, label: "Semaines au nettoyage (C)", widget: number, value_type: int, default: 0 }
+              - { name: linge, label: "Semaines au linge (D)", widget: number, value_type: int, default: 0 }
+              - name: mandats
+                label: Mandats pratiques
+                label_singular: Mandat
+                widget: list
+                summary: "{{code}} {{texte}}"
+                fields:
+                  - { name: code, label: "Code (ex. MPE 101)", widget: string }
+                  - { name: texte, label: En langage simple, widget: string }
+                  - { name: domaines, label: Domaines concernés, widget: select, multiple: true, options: [A, B, C, D, E] }
+              - { name: aussi, label: "À faire aussi (rapport, entretien…)", widget: list, required: false }
+          - name: cie
+            label: Cours interentreprises
+            label_singular: Module
+            widget: list
+            summary: "{{nom}} ({{jours}} jours)"
+            fields:
+              - { name: nom, label: "Nom (ex. CIE 1)", widget: string }
+              - { name: jours, label: Nombre de jours, widget: number, value_type: float }
+              - { name: contenu, label: Contenu, widget: list }
+      - name: afp
+        label: Repères AFP
+        file: /src/content/reperes/afp.json
+        format: json
+        fields:
+          - { name: sigle, label: Diplôme, widget: select, options: [CFC, AFP] }
+          - { name: titre, label: Titre du diplôme, widget: string }
+          - { name: duree, label: "Durée (ex. 3 ans, 6 semestres)", widget: string }
+          - { name: revision, label: "Révision de la factsheet (ex. mai 2025)", widget: string }
+          - { name: factsheet, label: "Adresse de la factsheet officielle (PDF)", widget: string }
+          - { name: examen, label: Examen final en une phrase, widget: text }
+          - name: domaines
+            label: Domaines de compétences
+            label_singular: Domaine
+            widget: list
+            summary: "{{code}} · {{ou}}"
+            fields:
+              - { name: code, label: Lettre, widget: select, options: [A, B, C, D, E] }
+              - { name: nom, label: Nom officiel, widget: string }
+              - { name: ou, label: "Où dans l'établissement", widget: string }
+              - { name: exemples, label: Exemples concrets, widget: string }
+          - name: semestres
+            label: Semestres
+            label_singular: Semestre
+            widget: list
+            summary: "Semestre {{numero}}"
+            fields:
+              - { name: numero, label: Numéro du semestre, widget: number, value_type: int }
+              - { name: accueil, label: "Semaines à l'accueil (A)", widget: number, value_type: int, default: 0 }
+              - { name: service, label: "Semaines au service (B)", widget: number, value_type: int, default: 0 }
+              - { name: nettoyage, label: "Semaines au nettoyage (C)", widget: number, value_type: int, default: 0 }
+              - { name: linge, label: "Semaines au linge (D)", widget: number, value_type: int, default: 0 }
+              - name: mandats
+                label: Mandats pratiques
+                label_singular: Mandat
+                widget: list
+                summary: "{{code}} {{texte}}"
+                fields:
+                  - { name: code, label: "Code (ex. MPE 101)", widget: string }
+                  - { name: texte, label: En langage simple, widget: string }
+                  - { name: domaines, label: Domaines concernés, widget: select, multiple: true, options: [A, B, C, D, E] }
+              - { name: aussi, label: "À faire aussi (rapport, entretien…)", widget: list, required: false }
+          - name: cie
+            label: Cours interentreprises
+            label_singular: Module
+            widget: list
+            summary: "{{nom}} ({{jours}} jours)"
+            fields:
+              - { name: nom, label: "Nom (ex. CIE 1)", widget: string }
+              - { name: jours, label: Nombre de jours, widget: number, value_type: float }
+              - { name: contenu, label: Contenu, widget: list }
   - name: bibliotheque
     label: Documents
     files:

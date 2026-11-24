@@ -1,0 +1,39 @@
+name: Veille des documents officiels
+
+on:
+  schedule:
+    - cron: '0 6 * * 1' # chaque lundi à 6 h (UTC)
+  workflow_dispatch: {}  # bouton « Run workflow » pour lancer à la main
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Vérifier les documents
+        run: node scripts/veille-documents.mjs
+      - name: Créer une alerte si un document a changé
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if grep -q '^### ' veille-rapport.md; then
+            gh issue create --title "Veille des documents : à vérifier ($(date +%d.%m.%Y))" --body-file veille-rapport.md
+          else
+            echo "Rien à signaler."
+          fi
+          cat veille-rapport.md >> "$GITHUB_STEP_SUMMARY"
+      - name: Garder l'état pour la semaine suivante
+        run: |
+          if git diff --quiet data/; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/veille-documents.json
+          git commit -m "chore: état de la veille des documents"
+          git push

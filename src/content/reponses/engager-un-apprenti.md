@@ -1,7 +1,7 @@
 ---
 titre: "Engager un apprenti"
 resume: "L'entreprise et l'apprenti signent un contrat d'apprentissage, puis l'envoient à l'OFPC pour approbation. C'est cette approbation qui inscrit l'apprenti à l'école professionnelle."
-motsCles: ["engager", "contrat d'apprentissage", "contrat", "signer", "approbation", "temps d'essai", "période d'essai", "OFPC", "dossier d'entrée", "stage de préqualification", "stage", "recruter", "employeur"]
+motsCles: ["certificat médical", "médecin", "dossier AFP", "engager", "contrat d'apprentissage", "contrat", "signer", "approbation", "temps d'essai", "période d'essai", "OFPC", "dossier d'entrée", "stage de préqualification", "stage", "recruter", "employeur"]
 formation: les-deux
 public: [former]
 rubrique: former
@@ -20,6 +20,9 @@ statut: verifie
 - le contrat en 3 exemplaires, remplis et signés, avec le numéro AVS de l'apprenti ;
 - une copie du dernier bulletin scolaire ;
 - une copie de la pièce d'identité suisse ou du permis de séjour (B avec activité lucrative ou C) ; sinon, une copie de la demande d'autorisation de travail envoyée à l'Office cantonal de la population et des migrations (OCPM).
+
+- un **certificat médical** d'aptitude, établi par un médecin : Genève l'exige pour approuver le contrat dans les métiers de l'hôtellerie et de l'intendance ;
+- pour une formation AFP, le **dossier de candidature AFP**, signé par l'apprenti, son représentant légal s'il est mineur, et l'entreprise.
 
 L'approbation par l'OFPC inscrit l'apprenti à l'école professionnelle et aux cours interentreprises.
 

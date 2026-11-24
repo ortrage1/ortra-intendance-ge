@@ -1,15 +1,15 @@
 ---
 titre: "Horaires, heures supplémentaires et vacances"
 resume: "Les apprentis ont en général un contrat de 42 heures par semaine et 5 semaines de vacances. Au-delà, des heures supplémentaires sont possibles jusqu'à 50 heures par semaine, et doivent être compensées."
-motsCles: ["horaire", "horaires", "heures", "42 heures", "50 heures", "heures supplémentaires", "travail supplémentaire", "compensation", "majoration", "vacances", "congé", "dimanche", "dimanches", "repos", "planning", "jour de cours", "école", "relevé d'heures", "droits", "devoirs"]
+motsCles: ["moins de 18 ans", "mineur", "jeune", "nuit", "soir", "23 heures", "repos", "pause", "jours fériés", "horaire", "horaires", "heures", "42 heures", "50 heures", "heures supplémentaires", "travail supplémentaire", "compensation", "majoration", "vacances", "congé", "dimanche", "dimanches", "repos", "planning", "jour de cours", "école", "relevé d'heures", "droits", "devoirs"]
 formation: les-deux
 public: [former, decouvrir]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 1
 source:
-  libelle: "OFPC, aide-mémoire des commissaires (questions sur le temps de travail) ; liste des salaires apprentis 2026-2027"
-  url: "https://www.ge.ch/document/liste-salaires-vigueur-apprentis"
+  libelle: "OFPC, aide-mémoire des commissaires et brochure Jeunes travailleurs et apprentis ; ordonnance du DEFR sur le travail de nuit et du dimanche en formation (RS 822.115.4), art. 2"
+  url: "https://www.fedlex.admin.ch/eli/cc/2011/251/fr#art_2"
 verifieLe: 2026-11-24
 statut: verifie
 ---
@@ -28,9 +28,21 @@ statut: verifie
 
 **Le jour de cours compte comme une journée de travail.** L'entreprise ne peut pas demander à l'apprenti de venir travailler après l'école.
 
-**Les vacances** sont de 5 semaines par an. Elles doivent être accordées ; l'entreprise peut toutefois refuser certaines périodes selon son activité.
+**Les pauses.** Au moins 15 minutes au-delà de 5 h 30 de travail, 30 minutes au-delà de 7 heures, une heure au-delà de 9 heures. Une pause compte comme temps de travail si l'on ne peut pas quitter son poste.
 
-**Les dimanches.** Dès 16 ans, l'apprenti a droit à au moins 12 dimanches de congé par an, en plus de ceux des vacances. Dans les entreprises saisonnières, ils peuvent être répartis de façon irrégulière.
+**Les vacances** sont de 5 semaines par an : c'est le minimum légal jusqu'à 20 ans, et la règle des conventions de la branche. Au moins deux semaines se prennent d'affilée, pendant les vacances scolaires. Elles doivent être accordées ; l'entreprise peut toutefois refuser certaines périodes selon son activité. Elles ne peuvent pas être réduites pour une absence non fautive (maladie, accident, service militaire) de moins de deux mois complets.
+
+**Les jours fériés à Genève :** 1er janvier, Vendredi saint, lundi de Pâques, Ascension, lundi de Pentecôte, 1er août, Jeûne genevois, 25 et 31 décembre. Un jour férié travaillé ou tombant pendant les vacances est compensé.
+
+**Moins de 18 ans : des règles plus protectrices**
+
+- **9 heures par jour au maximum**, cours compris, et 45 heures par semaine.
+- **Une journée de 12 heures au plus**, pauses comprises : entre 6 h et 20 h jusqu'à 16 ans, entre 6 h et 22 h dès 16 ans.
+- **12 heures de repos** d'affilée entre deux journées.
+- **Fin à 20 heures** au plus tard la veille d'un jour d'école ou de cours interentreprises.
+- L'horaire est connu, si possible, **15 jours à l'avance**.
+
+**Le soir et le dimanche en hôtellerie-intendance, dès 16 ans.** Une ordonnance fédérale prévoit une exception pour la branche : l'apprenti peut travailler jusqu'à 23 heures, et dix nuits par an jusqu'à 1 heure. Il a droit à au moins 12 dimanches de congé par an, en plus de ceux des vacances ; dans les entreprises saisonnières, ils peuvent être répartis de façon irrégulière. Avant 16 ans, le travail de nuit et du dimanche est interdit.
 
 **Un conseil aux apprentis :** notez vos heures réelles dans un carnet. C'est très utile en cas de désaccord.
 

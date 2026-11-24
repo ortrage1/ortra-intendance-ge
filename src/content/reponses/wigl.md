@@ -38,7 +38,7 @@ Les licences formateur se renouvellent automatiquement. Les prix sont à confirm
 
 **Se faire aider**
 
-- **Les tutoriels** sont dans votre tableau de bord WIGL, sous l'onglet « Instruction pour formateur ».
+- **Les tutoriels** sont dans votre tableau de bord WIGL, sous « Moyens auxiliaires WIGL ». Voir [Utiliser WIGL au quotidien : mode d'emploi](/reponses/utiliser-wigl/).
 - **Un café en ligne** réunit chaque mois les formatrices et formateurs pour répondre à leurs questions : [inscription sur le site de WIGL](https://website.wigl.ch/fr/cafe-en-ligne/).
 - **Les différents paquets** sont présentés dans un [module de présentation](https://rise.articulate.com/share/d6pMIOznb0aa_viq6-hKBYw_3YBi-zvu#/).
 - **Hotel & Gastro formation Suisse**, siège romand à Pully, répond aux questions des formateurs de Suisse romande : [hotelgastro.ch](https://hotelgastro.ch/fr/).

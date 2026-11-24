@@ -8,9 +8,9 @@ rubrique: evaluer
 aussiDans: [apprentis]
 ordre: 4
 source:
-  libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 18, 19 et 25"
+  libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 18, 19 et 25 ; factsheets CFC et AFP 2026"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"
-verifieLe: 2026-11-23
+verifieLe: 2026-11-24
 statut: verifie
 ---
 
@@ -22,10 +22,21 @@ statut: verifie
 
 **Comment la note globale est calculée**
 
-| | Pratique | Culture générale | Expérience |
+| | Pratique | Culture | Expérience |
 |---|---|---|---|
 | Apprentis | 60 % | 20 % | 20 % |
 | Article 32 | 80 % | 20 % | – |
+
+**Le travail pratique en détail**
+
+| Partie | CFC | AFP | Poids |
+|---|---|---|---|
+| Accueil, service | 150 min | 80 min | 30 % |
+| Locaux, linge | 180 min | 160 min | 50 % |
+| Entretien | 30 min | 30 min | 20 % |
+| **Total** | **6 h** | **4 h 30** | |
+
+Les poids se rapportent à la note de travail pratique. Au CFC, la partie accueil et service comprend le domaine spécifique. Au CFC, le dossier de formation peut servir d'aide pendant l'examen.
 
 **Pour réussir**, il faut à la fois une note de travail pratique d'au moins 4 et une note globale d'au moins 4.
 

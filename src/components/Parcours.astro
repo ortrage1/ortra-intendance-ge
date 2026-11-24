@@ -46,6 +46,7 @@ const donnees = PROFILS.map((p) => ({
 <script type="application/json" id="parcours-data" set:html={JSON.stringify(donnees)} />
 
 <script>
+  import { compterEvenement } from '../scripts/stats';
   interface Item { href: string; label: string; resume?: string }
   interface Theme { id: string; label: string; items: Item[] }
   interface Profil { id: string; label: string; detail: string; rubrique: string; themes: Theme[] }
@@ -83,6 +84,7 @@ const donnees = PROFILS.map((p) => ({
     }
 
     function aller(profil: string | null, theme: string | null, focus: boolean) {
+      if (profil) compterEvenement(theme ? `parcours/${profil}/${theme}` : `parcours/${profil}`, 'Parcours guidé');
       const q = new URLSearchParams(location.search);
       profil ? q.set('profil', profil) : q.delete('profil');
       theme ? q.set('theme', theme) : q.delete('theme');

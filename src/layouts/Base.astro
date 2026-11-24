@@ -30,6 +30,17 @@ const nav = [
     <meta name="description" content={description} />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <meta name="theme-color" content="#1F5A66" />
+    <script>
+      // Comptage des visites (GoatCounter, sans cookie), seulement sur le site public.
+      import { statsActives, GOATCOUNTER } from '../scripts/stats';
+      if (statsActives()) {
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://gc.zgo.at/count.js';
+        s.dataset.goatcounter = GOATCOUNTER;
+        document.head.append(s);
+      }
+    </script>
   </head>
   <body>
     <a class="skip" href="#contenu">Aller au contenu</a>

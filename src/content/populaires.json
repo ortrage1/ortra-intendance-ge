@@ -1,0 +1,25 @@
+{
+  "source": "selection",
+  "misAJourLe": "2026-11-24",
+  "periode": "",
+  "questions": [
+    "cfc-ou-afp",
+    "salaire-apprentis",
+    "lieux-des-cours",
+    "trouver-une-place",
+    "diplome-adulte",
+    "examen-final",
+    "horaires-et-vacances",
+    "devenir-entreprise-formatrice"
+  ],
+  "selection": [
+    "cfc-ou-afp",
+    "salaire-apprentis",
+    "lieux-des-cours",
+    "trouver-une-place",
+    "diplome-adulte",
+    "examen-final",
+    "horaires-et-vacances",
+    "devenir-entreprise-formatrice"
+  ]
+}

@@ -4,11 +4,17 @@ import Base from '../layouts/Base.astro';
 import Search from '../components/Search.astro';
 import Illustration from '../components/Illustration.astro';
 import Parcours from '../components/Parcours.astro';
+import populaires from '../content/populaires.json';
 
 const reponses = (await getCollection('reponses')).sort((a, b) => a.data.ordre - b.data.ordre);
-const populaires = (await getCollection('documents')).filter((d) => d.data.populaire);
+const docsPopulaires = (await getCollection('documents')).filter((d) => d.data.populaire);
 // L'encadré genevois reprend la fiche « Où ont lieu les cours ? » : une seule source à corriger.
 const lieux = reponses.find((r) => r.id === 'lieux-des-cours')!;
+// Questions mises en avant : les plus consultées (mise à jour chaque semaine), sinon une sélection.
+const parStats = populaires.source === 'statistiques';
+const questions = populaires.questions
+  .map((id) => reponses.find((r) => r.id === id))
+  .filter((r): r is (typeof reponses)[number] => !!r);
 const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
 ---
 <Base title="Accueil">
@@ -32,17 +38,18 @@ const badge = (f: string) => (f === 'les-deux' ? 'CFC·AFP' : f.toUpperCase());
   <section class="block">
     <div class="wrap split">
       <div>
-        <h2>Questions les plus posées</h2>
+        <h2>{parStats ? 'Questions les plus consultées' : 'Questions fréquentes'}</h2>
         <ul class="list">
-          {reponses.map((r) => (
+          {questions.map((r) => (
             <li><a href={`/reponses/${r.id}/`}><span class="txt">{r.data.titre}</span><span class="arrow" aria-hidden="true">→</span></a></li>
           ))}
         </ul>
+        {parStats && <p class="more">Selon les visites des {populaires.periode}, mis à jour le {new Date(populaires.misAJourLe).toLocaleDateString('fr-CH')}.</p>}
       </div>
       <div>
         <h2>Documents les plus consultés</h2>
         <ul class="list">
-          {populaires.map((d) => (
+          {docsPopulaires.map((d) => (
             <li><a href={d.data.url} target="_blank" rel="noopener">
               <span class={`badge ${d.data.formation}`}>{badge(d.data.formation)}</span>
               <span class="txt">{d.data.titre}<span class="meta">{d.data.editeur} · vérifié le {d.data.verifieLe.toLocaleDateString('fr-CH')}</span></span>

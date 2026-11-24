@@ -41,6 +41,7 @@ const suggestions = ['AFP ou CFC', 'Diplôme adulte', 'Où ont lieu les cours', 
 <script is:inline type="application/json" id="search-data" set:html={JSON.stringify({ reponses, documents })}></script>
 
 <script>
+  import { compterEvenement } from '../scripts/stats';
   type Formation = 'cfc' | 'afp' | 'les-deux';
   interface Reponse { url: string; titre: string; resume: string; mots: string; formation: Formation; source: string; verifie: string; statut: string }
   interface Doc { url: string; titre: string; editeur: string; date: string; formation: Formation; mots: string }
@@ -137,6 +138,21 @@ const suggestions = ['AFP ou CFC', 'Diplôme adulte', 'Où ont lieu les cours', 
       if (docs.length) h += `<p class="group-title">Documents officiels</p>` + docs.map(([, d]) => `<a class="hit" href="${d.url}" target="_blank" rel="noopener">${badge(d.formation)}<strong>${esc(d.titre)}</strong><span class="meta">${esc(d.editeur)}${d.date ? ` · ${esc(d.date)}` : ''} · s'ouvre dans un nouvel onglet</span></a>`).join('');
       if (!total) h += `<div class="empty">Aucun résultat pour « ${esc(brut)} ». Essayez un mot plus simple, par exemple « examen », « adulte » ou « cours ».</div>`;
       out.innerHTML = h;
+      noterRecherche(brut, total);
+    }
+
+    // Une recherche est comptée quand la personne a fini de taper (pas à chaque lettre).
+    let dernierCompte = '';
+    let attente: number | undefined;
+    function noterRecherche(brut: string, total: number) {
+      clearTimeout(attente);
+      attente = window.setTimeout(() => {
+        const cle = norm(brut);
+        if (cle.length < 3 || cle === dernierCompte) return;
+        dernierCompte = cle;
+        compterEvenement(`recherche/${cle}`, brut);
+        if (!total) compterEvenement(`recherche-sans-resultat/${cle}`, brut);
+      }, 1500);
     }
 
     let timer: number | undefined;

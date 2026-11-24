@@ -5,7 +5,7 @@ motsCles: ["difficulté", "apprenti en difficulté", "absences", "absent", "reta
 formation: les-deux
 public: [former]
 rubrique: formateurs
-ordre: 2
+ordre: 4
 source:
   libelle: "OFPC, aide-mémoire des commissaires ; Cité des métiers du Grand Genève, Réussir son apprentissage"
   url: "https://www.citedesmetiers.ch/thematiques/apprentissage-afp-cfc/reussir-son-apprentissage/"

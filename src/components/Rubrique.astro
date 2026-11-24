@@ -3,11 +3,12 @@
 // une fiche ajoutée dans l'outil d'édition avec cette rubrique apparaît ici.
 import { getCollection } from 'astro:content';
 
-interface Props { rubrique: 'metiers' | 'se-former' | 'former' | 'evaluer'; titre?: string }
+interface Props { rubrique: 'metiers' | 'se-former' | 'apprentis' | 'former' | 'formateurs' | 'evaluer'; titre?: string }
 const { rubrique, titre = 'Questions de cette rubrique' } = Astro.props;
 const fiches = (await getCollection('reponses'))
-  .filter((r) => r.data.rubrique === rubrique)
-  .sort((a, b) => a.data.ordre - b.data.ordre);
+  .filter((r) => r.data.rubrique === rubrique || r.data.aussiDans?.includes(rubrique))
+  // Les fiches propres à la rubrique d'abord, puis celles qui y sont aussi affichées.
+  .sort((a, b) => Number(a.data.rubrique !== rubrique) - Number(b.data.rubrique !== rubrique) || a.data.ordre - b.data.ordre);
 ---
 {fiches.length > 0 && (
   <section class="rubrique">

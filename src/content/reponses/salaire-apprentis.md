@@ -5,6 +5,7 @@ motsCles: ["salaire", "salaire apprenti", "rémunération", "paie", "combien", "
 formation: les-deux
 public: [decouvrir, former]
 rubrique: se-former
+aussiDans: [apprentis]
 ordre: 7
 source:
   libelle: "OFPC, Salaires des apprentis 2026-2027 (version de juin 2026)"

@@ -2,6 +2,8 @@ import { defineCollection } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
 
+const RUBRIQUES = ['metiers', 'se-former', 'apprentis', 'former', 'formateurs', 'evaluer'] as const;
+
 const formation = z.enum(['cfc', 'afp', 'les-deux']);
 const source = z.object({ libelle: z.string(), url: z.string().url().optional() });
 
@@ -15,7 +17,8 @@ const reponses = defineCollection({
     formation,
     public: z.array(z.enum(['decouvrir', 'reconversion', 'former', 'evaluer'])).default([]),
     // Rubrique du menu où la fiche apparaît (pages « Les métiers », « Se former »…).
-    rubrique: z.enum(['metiers', 'se-former', 'former', 'evaluer']).optional(),
+    rubrique: z.enum(RUBRIQUES).optional(),
+    aussiDans: z.array(z.enum(RUBRIQUES)).optional(),
     ordre: z.number().default(99),
     source,
     verifieLe: z.coerce.date(),

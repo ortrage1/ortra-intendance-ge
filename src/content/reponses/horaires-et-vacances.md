@@ -4,8 +4,9 @@ resume: "Les apprentis ont en général un contrat de 42 heures par semaine et 5
 motsCles: ["horaire", "horaires", "heures", "42 heures", "50 heures", "heures supplémentaires", "travail supplémentaire", "compensation", "majoration", "vacances", "congé", "dimanche", "dimanches", "repos", "planning", "jour de cours", "école", "relevé d'heures", "droits", "devoirs"]
 formation: les-deux
 public: [former, decouvrir]
-rubrique: former
-ordre: 4
+rubrique: apprentis
+aussiDans: [formateurs]
+ordre: 1
 source:
   libelle: "OFPC, aide-mémoire des commissaires (questions sur le temps de travail) ; liste des salaires apprentis 2026-2027"
   url: "https://www.ge.ch/document/liste-salaires-vigueur-apprentis"

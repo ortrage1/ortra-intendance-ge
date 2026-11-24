@@ -5,6 +5,7 @@ motsCles: ["examen", "examen final", "procédure de qualification", "PQ", "notes
 formation: les-deux
 public: [evaluer, former, reconversion]
 rubrique: evaluer
+aussiDans: [apprentis]
 ordre: 4
 source:
   libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 18, 19 et 25"

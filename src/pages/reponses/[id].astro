@@ -12,7 +12,9 @@ const { Content } = await render(reponse);
 const RUBRIQUES = {
   metiers: { href: '/metiers/', label: 'Les métiers' },
   'se-former': { href: '/se-former/', label: 'Se former' },
+  apprentis: { href: '/en-apprentissage/', label: 'En apprentissage' },
   former: { href: '/former/', label: 'Former' },
+  formateurs: { href: '/former/', label: 'Former' },
   evaluer: { href: '/evaluer/', label: 'Évaluer' },
 };
 const rubrique = reponse.data.rubrique ? RUBRIQUES[reponse.data.rubrique] : undefined;

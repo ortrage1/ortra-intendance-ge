@@ -4,8 +4,8 @@ resume: "L'apprenti tient un dossier de formation, que la formatrice ou le forma
 motsCles: ["suivre", "dossier de formation", "rapport de formation", "semestre", "évaluation", "bilan", "formateur", "commissaire", "visite", "difficultés", "accompagnement", "entreprise formatrice"]
 formation: les-deux
 public: [former]
-rubrique: former
-ordre: 3
+rubrique: formateurs
+ordre: 1
 source:
   libelle: "Ordonnances du SEFRI de 2023, art. 12 et 13 ; OrTra intendance Genève, fonction de commissaire"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"

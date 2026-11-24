@@ -1,7 +1,7 @@
 ---
 titre: "L'examen final (procédure de qualification)"
 resume: "L'examen comprend un travail pratique, avec un entretien professionnel, et la culture générale. Pour les apprentis s'ajoute une note d'expérience ; pour les adultes en article 32, il n'y en a pas et le calcul change."
-motsCles: ["examen", "examen final", "procédure de qualification", "PQ", "notes", "grille", "évaluation", "entretien professionnel", "travail pratique", "TPP", "expert", "série zéro", "note d'expérience", "culture générale", "article 32", "adulte", "réussite"]
+motsCles: ["série zéro", "séries zéro", "exemple d'examen", "s'entraîner", "examen", "examen final", "procédure de qualification", "PQ", "notes", "grille", "évaluation", "entretien professionnel", "travail pratique", "TPP", "expert", "série zéro", "note d'expérience", "culture générale", "article 32", "adulte", "réussite"]
 formation: les-deux
 public: [evaluer, former, reconversion]
 rubrique: evaluer
@@ -31,4 +31,6 @@ statut: verifie
 
 **Quelles règles s'appliquent à vous ?** Les règles ci-dessus s'appliquent aux examens dès le 1er janvier 2026 pour l'AFP et dès le 1er janvier 2027 pour le CFC. Les personnes formées selon l'ancien droit, ou qui répètent l'examen, sont expliquées dans [Où trouver le plan de formation ?](/reponses/plan-de-formation/).
 
-**Documents de référence.** Les dispositions d'exécution, une pour chaque diplôme, détaillent le déroulement. Elles sont dans la [bibliothèque de documents](/documents/), avec les guides, les grilles d'évaluation et les séries zéro.
+**Documents de référence.** Les dispositions d'exécution, une pour chaque diplôme, détaillent le déroulement. Elles sont dans la [bibliothèque de documents](/documents/), avec les guides et les grilles d'évaluation.
+
+**S'entraîner avec les séries zéro.** Ce sont des exemples d'examen, avec les consignes pour le candidat et pour les expert·es. Elles sont publiées par Hotel & Gastro formation Suisse, sur la [page de l'hôtellerie-intendance](https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/), et la série zéro AFP est aussi dans la bibliothèque.

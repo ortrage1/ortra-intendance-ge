@@ -13,7 +13,7 @@ verifieLe: 2026-11-24
 statut: verifie
 ---
 
-**Le dossier de formation.** L'apprenti y note au fur et à mesure les travaux importants qu'il réalise, sur papier ou avec un outil numérique. En hôtellerie-intendance, la branche propose [WIGL](https://www.wigl.ch/fr), une plateforme qui réunit le dossier de formation, le matériel d'apprentissage et le suivi de la progression entre l'entreprise, l'école et les cours interentreprises. Côté formatrice ou formateur, WIGL permet aussi d'évaluer les mandats pratiques et d'établir les rapports de formation. L'accès est payant : en 2026, 150 francs pour le dossier de formation seul, et 79 francs par an pour un accès formateur. Au moins une fois par semestre, la formatrice ou le formateur le contrôle, le signe et en discute avec lui.
+**Le dossier de formation.** L'apprenti y note au fur et à mesure les travaux importants qu'il réalise, sur papier ou avec un outil numérique. En hôtellerie-intendance, la branche propose la plateforme WIGL : voir [WIGL : le dossier de formation numérique](/reponses/wigl/).
 
 **Le rapport de formation.** À la fin de chaque semestre, la formatrice ou le formateur rédige un rapport sur le niveau atteint. Il tient compte du travail en entreprise, des résultats de l'école et des cours interentreprises.
 

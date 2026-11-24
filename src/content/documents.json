@@ -187,8 +187,8 @@
   },
   {
     "id": "wigl",
-    "titre": "WIGL, plateforme numérique d'apprentissage (dossier de formation)",
-    "url": "https://www.wigl.ch/fr",
+    "titre": "Boutique WIGL : licences apprentis et formateurs",
+    "url": "https://shop.wigl.ch/fr/",
     "editeur": "WIGL",
     "formation": "les-deux",
     "type": "information",
@@ -203,7 +203,11 @@
       "rapport de formation",
       "plateforme",
       "apprentissage numérique",
-      "formateur"
+      "formateur",
+      "boutique",
+      "shop",
+      "acheter",
+      "commander"
     ]
   },
   {
@@ -573,6 +577,94 @@
       "école de recrues",
       "service civil",
       "APG"
+    ]
+  },
+  {
+    "id": "documents-reference-cfc",
+    "titre": "Documents de référence, gestionnaire en hôtellerie-intendance CFC",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Documents_de_reference_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "cfc",
+    "type": "information",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "documents de référence",
+      "CFC",
+      "ordonnance 2023"
+    ]
+  },
+  {
+    "id": "documents-reference-afp",
+    "titre": "Documents de référence, employé·e en hôtellerie-intendance AFP",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Documents_de_reference_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "information",
+    "lieu": "general",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "documents de référence",
+      "AFP",
+      "ordonnance 2023"
+    ]
+  },
+  {
+    "id": "serie-zero-afp-candidat",
+    "titre": "Série zéro AFP : document du candidat",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/001_AFP_Candidat_serie_zero_.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "examen",
+    "lieu": "examen",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "série zéro",
+      "exemple d'examen",
+      "entraînement",
+      "candidat"
+    ]
+  },
+  {
+    "id": "serie-zero-afp-experts",
+    "titre": "Série zéro AFP : annexe pour les expert·es",
+    "url": "https://hotelgastro.ch/wp-content/uploads/2026/02/001_AFP_Annexe_PEX_serie_zero__________________.pdf",
+    "editeur": "Hotel & Gastro formation Suisse",
+    "formation": "afp",
+    "type": "examen",
+    "lieu": "examen",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "série zéro",
+      "experts",
+      "PEX",
+      "exemple d'examen"
+    ]
+  },
+  {
+    "id": "wigl-paquets",
+    "titre": "WIGL : présentation des différents paquets",
+    "url": "https://rise.articulate.com/share/d6pMIOznb0aa_viq6-hKBYw_3YBi-zvu#/",
+    "editeur": "WIGL",
+    "formation": "les-deux",
+    "type": "information",
+    "lieu": "entreprise",
+    "verifieLe": "2026-11-24",
+    "mode": "lien",
+    "populaire": false,
+    "motsCles": [
+      "WIGL",
+      "paquets",
+      "licence",
+      "prix"
     ]
   }
 ]

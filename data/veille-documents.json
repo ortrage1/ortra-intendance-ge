@@ -1,0 +1,334 @@
+{
+  "documents": {
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf": {
+      "titre": "Plan de formation, Gestionnaire en hôtellerie-intendance CFC",
+      "statut": 200,
+      "empreinte": "25c748d9b4d4733c"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf": {
+      "titre": "Plan de formation, Employé·e en hôtellerie-intendance AFP",
+      "statut": 200,
+      "empreinte": "f246abf7a9d428cd"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf": {
+      "titre": "Ordonnance sur la formation, Gestionnaire en hôtellerie-intendance CFC",
+      "statut": 200,
+      "empreinte": "ae4339a724711445"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf": {
+      "titre": "Ordonnance sur la formation, Employé·e en hôtellerie-intendance AFP",
+      "statut": 200,
+      "empreinte": "1cd0850c32c18773"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Gestionnaire_en_hotellerie-intendance_CFC.pdf": {
+      "titre": "Programme de formation pour les entreprises formatrices, CFC",
+      "statut": 200,
+      "empreinte": "3cd3e8e530eab51d"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf": {
+      "titre": "Programme de formation pour les entreprises formatrices, AFP",
+      "statut": 200,
+      "empreinte": "6cf0c30cb88abe42"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Gestionnaire_en_hotellerie-intendance_CFC.pdf": {
+      "titre": "Programme des cours interentreprises, CFC",
+      "statut": 200,
+      "empreinte": "22b77b93eb3e3465"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf": {
+      "titre": "Programme des cours interentreprises, AFP",
+      "statut": 200,
+      "empreinte": "87911394c3399d21"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final-1.pdf": {
+      "titre": "Dispositions d'exécution de la procédure de qualification, CFC",
+      "statut": 200,
+      "empreinte": "69006a81d7871eb9"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final.pdf": {
+      "titre": "Dispositions d'exécution de la procédure de qualification, AFP",
+      "statut": 200,
+      "empreinte": "390a5ee22b3e15c9"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Guide-de-lentretien-prof.-CFC.pdf": {
+      "titre": "Guide de l'entretien professionnel, CFC",
+      "statut": 200,
+      "empreinte": "1ec7b417a0fce27a"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Guide_de_lentretien_professionnel.pdf": {
+      "titre": "Guide de l'entretien professionnel, AFP",
+      "statut": 200,
+      "empreinte": "857c71752511bf31"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Recommandation_relative_au_calcul_de_la_note_dexperience_Hotellerie-intendance-1.pdf": {
+      "titre": "Recommandation pour le calcul de la note d'expérience",
+      "statut": 200,
+      "empreinte": "8efe9737fc2cc137"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Liste_des_equipements_minimaux_pour_les_entreprises_formatrices_Hotellerie-intendance-1.pdf": {
+      "titre": "Liste des équipements minimaux pour les entreprises formatrices",
+      "statut": 200,
+      "empreinte": "bde541b22e44ae20"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Gestionnaire_en_hotellerie-intendance_CFC.pdf": {
+      "titre": "Fiche d'information, Gestionnaire en hôtellerie-intendance CFC",
+      "statut": 200,
+      "empreinte": "b9a8105c67feca6b"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf": {
+      "titre": "Fiche d'information, Employé·e en hôtellerie-intendance AFP",
+      "statut": 200,
+      "empreinte": "5986cd21561a0e99"
+    },
+    "https://www.hfthun.ch/hubfs/HFThun/HFThun%20Kursdaten%202026-2027.pdf": {
+      "titre": "Dates des cours-blocs 2026-2027, Crans-Montana et Thoune",
+      "statut": 200,
+      "empreinte": "1244c5373cb755aa"
+    },
+    "https://shop.wigl.ch/fr/": {
+      "titre": "Boutique WIGL : licences apprentis et formateurs",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.citedesmetiers.ch/app/uploads/2026/03/FORMULAIRE_STAGE_V15.pdf": {
+      "titre": "Formulaire d'enregistrement de stage d'orientation",
+      "statut": 200,
+      "empreinte": "264b415f389ac704"
+    },
+    "https://www.fedlex.admin.ch/eli/cc/2003/674/fr": {
+      "titre": "Loi fédérale sur la formation professionnelle (LFPr)",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.fedlex.admin.ch/eli/cc/1966/57_57_57/fr": {
+      "titre": "Loi fédérale sur le travail (LTr)",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.fedlex.admin.ch/eli/cc/2007/692/fr": {
+      "titre": "Ordonnance 5 sur la protection des jeunes travailleurs (OLT 5)",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.fedlex.admin.ch/eli/cc/2011/251/fr": {
+      "titre": "Ordonnance du DEFR sur le travail de nuit et du dimanche en formation",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://zeteo.app.ge.ch/mmt/allocation-formation-afo-informations-generales-2626-2910": {
+      "titre": "Allocation de formation (AFO) : informations générales",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.ge.ch/remboursement-frais-transport/logement-hors-canton-apprenties-apprentis": {
+      "titre": "Remboursement des frais de transport et de logement hors canton",
+      "statut": 200,
+      "empreinte": "maj:2 février 2026"
+    },
+    "https://www.ge.ch/document/liste-salaires-vigueur-apprentis": {
+      "titre": "Liste des salaires et conditions de travail des apprentis",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://s3-ch-bern-1.obj.begasoft.ch/sdbb-drupal-backend-bbi-prod/s3fs-public/2025-01/aide-memoire-17-service-militaire-et-civil.pdf": {
+      "titre": "Aide-mémoire 17 : formation professionnelle initiale et service militaire",
+      "statut": 200,
+      "empreinte": "7f788f373d09b81a"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Documents_de_reference_Gestionnaire_en_hotellerie-intendance_CFC.pdf": {
+      "titre": "Documents de référence, gestionnaire en hôtellerie-intendance CFC",
+      "statut": 200,
+      "empreinte": "5d288e1b6db168a4"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Documents_de_reference_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf": {
+      "titre": "Documents de référence, employé·e en hôtellerie-intendance AFP",
+      "statut": 200,
+      "empreinte": "4d95c8a023050ff9"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/001_AFP_Candidat_serie_zero_.pdf": {
+      "titre": "Série zéro AFP : document du candidat",
+      "statut": 200,
+      "empreinte": "bea360e70143a1da"
+    },
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/001_AFP_Annexe_PEX_serie_zero__________________.pdf": {
+      "titre": "Série zéro AFP : annexe pour les expert·es",
+      "statut": 200,
+      "empreinte": "ae093cc839bb11f0"
+    },
+    "https://rise.articulate.com/share/d6pMIOznb0aa_viq6-hKBYw_3YBi-zvu#/": {
+      "titre": "WIGL : présentation des différents paquets",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.citedesmetiers.ch/thematiques/apprentissage-afp-cfc/reussir-son-apprentissage/": {
+      "titre": "Source de la fiche « aide-et-soutien »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.orientation.ch/fr/professions/responsable-du-secteur-hotelier-intendance-bf": {
+      "titre": "Source de la fiche « apres-la-formation »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/": {
+      "titre": "Source de la fiche « cfc-ou-afp »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://ortra-intendance-ge.ch/sites/default/files/attachments/Descriptif%20fonction%20commissaire_1.pdf": {
+      "titre": "Source de la fiche « devenir-commissaire »",
+      "statut": 200,
+      "empreinte": "281ffa64e2c50383"
+    },
+    "https://www.ge.ch/devenir-entreprise-formatrice-engager-apprenti/devenir-entreprise-formatrice": {
+      "titre": "Source de la fiche « devenir-entreprise-formatrice »",
+      "statut": 200,
+      "empreinte": "maj:6 octobre 2026"
+    },
+    "https://ortra-intendance-ge.ch/sites/default/files/attachments/Descriptif%20fonction%20expert_0.pdf": {
+      "titre": "Source de la fiche « devenir-expert »",
+      "statut": 200,
+      "empreinte": "d96a1b760cb1ecea"
+    },
+    "https://www.ge.ch/actualite/pro-apprentis-veritable-coup-pouce-pendant-apprentissage-10-04-2025": {
+      "titre": "Source de la fiche « difficultes-et-maltraitance »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.citedesmetiers.ch": {
+      "titre": "Source de la fiche « diplome-adulte »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.formationprof.ch/fr/lexique/examen-final": {
+      "titre": "Source de la fiche « echec-examen »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.ge.ch/devenir-entreprise-formatrice-engager-apprenti/engager-apprenti-apprentie": {
+      "titre": "Source de la fiche « engager-un-apprenti »",
+      "statut": 200,
+      "empreinte": "maj:6 octobre 2026"
+    },
+    "https://www.fedlex.admin.ch/eli/cc/2011/251/fr#art_2": {
+      "titre": "Source de la fiche « horaires-et-vacances »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.citedesmetiers.ch/app/uploads/2026/05/Liste_apprentissages_Geneve.pdf": {
+      "titre": "Source de la fiche « lieux-des-cours »",
+      "statut": 200,
+      "empreinte": "8da41b035099f596"
+    },
+    "https://www.fedlex.admin.ch/eli/cc/27/317_321_377/fr#art_346": {
+      "titre": "Source de la fiche « modifier-ou-resilier-contrat »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.ge.ch/candidature-au-preapprentissage-integration-pai": {
+      "titre": "Source de la fiche « preapprentissage-integration »",
+      "statut": 200,
+      "empreinte": "maj:12 novembre 2026"
+    },
+    "https://www.ge.ch/document/9412/telecharger": {
+      "titre": "Source de la fiche « salaire-apprentis »",
+      "statut": 200,
+      "empreinte": "c348171d45838ae5"
+    },
+    "https://www.formationprof.ch/fr/bases/formation-professionnelle-initiale": {
+      "titre": "Source de la fiche « service-militaire »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://www.ge.ch/informer-metiers-formations/faire-stage-orientation": {
+      "titre": "Source de la fiche « stage-decouverte »",
+      "statut": 200,
+      "empreinte": "maj:29 octobre 2026"
+    },
+    "https://www.orientation.ch/fr/professions/gestionnaire-en-hotellerie-intendance-cfc": {
+      "titre": "Source de la fiche « trouver-une-place »",
+      "statut": 200,
+      "empreinte": null
+    },
+    "https://website.wigl.ch/fr/academy/": {
+      "titre": "Source de la fiche « utiliser-wigl »",
+      "statut": 200,
+      "empreinte": null
+    }
+  },
+  "pdfEditeur": [
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/001_AFP_Annexe_PEX_serie_zero__________________.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/001_AFP_Candidat_serie_zero_.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/003_AFP_Grille_devaluation_Entretien_professionnel_serie_zero.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Dispositions_dexecution_relatives_a_la_procedure_de_qualification_avec_examen_final-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Documents_de_reference_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Documents_de_reference_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Ordonnance_sur_la_formation_professionnelle_initiale_Specialiste_en_hotellerie_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_de_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_detude_pour_les_ecoles_professionnelles_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Plan_detude_pour_les_ecoles_professionnelles_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Pos_1_Gestion_dentreprise_et_organisation_Serie22.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_cours_interentreprises_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Programme_de_formation_pour_les_entreprises_formatrices_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/01_Rapport_de_formation_Presentation_interactif.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Factsheet_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Guide_de_lentretien_professionnel.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Liste_des_professions_apparentees_Hotellerie-intendance.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Liste_du_materiel_pour_les_cours_interentreprises_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Liste_du_materiel_pour_les_cours_interentreprises_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Employee_en_hotellerie-intendance_AFP__Employe_en_hotellerie-intendance_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Ordonnance_sur_la_formation_Gestionnaire_en_hotellerie-intendance_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Plan_de_formation_Specialiste_en_hotellerie_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Pos_2_HygieneSecurite_au_travail_et_protection_de_la_santeLogistique_Serie22.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Recommandation_relative_au_calcul_de_la_note_dexperience_Hotellerie-intendance-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/02_Travail_pratique_-_Tache_1_2_DC_A_B_AFP_CAND.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Liste_des_equipements_minimaux_pour_les_entreprises_formatrices_Hotellerie-intendance-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Plan_detudes_cadre_Specialiste_en_hotellerie_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Pos_3_Preservation_de_la_valeur_Connaissances_des_materiaux_Serie22.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Recommandations_relatives_a_lhygiene_et_a_la_securite_au_travail_pour_les_cours_interentreprises_CFC_AFP.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Recommandations_relatives_a_lhygiene_et_a_la_securite_au_travail_pour_les_cours_interentreprises_Gestionnaire_en_hotellerie-intendanc.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/03_Travail_pratique_-_Tache_1_2_DC_C_E_AFP_CAND.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/04_Pos_1-3_Base_de_travail_Serie22.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/04_Reglement_CIE_Specialiste_en_hotellerie_CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/04_Travail_pratique_-_Tache_1_2_DC__D_E_AFP_CAND-2.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/04_Travail_pratique_-_Tache_1_2_DC__D_E_AFP_CAND.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/05_Travail_pratique___Grille_devaluation_AFP_A_B_EXP_12.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/02/07_Entretien_professionel_AFP_EXP_11.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/04/Convention-pour-les-apprentis-dans-lhotellerie-restauration-suisse-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Entretien-prof.-document-Cand.-CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Entretien-prof.-document-PEX-CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/F-Allgemein-Auftrag-12-VPA-HKB-AB-EFZ-Kand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/F-Allgemein-Auftrag-12-VPA-HKB-AB-EFZ.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/F-Allgemein_Bewertungsraster_HK_A_B_EFZ.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/F-pv-entretien-prof.-CFC.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Formulierunge_Englisch_Schwerpunkt_Hotellerie.pdf-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Grille-devaluation-CDO-AB-Hotellerie.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Grille-devaluation-CDO-AB-intendance.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Grille-devaluation-CDO-CE-Tache-1-1.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Grille-devaluation-CDO-CE-Tache-2-1.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Grille-devaluation-CDO-DE-Tache-1.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Grille-devaluation-CDO-DE-Tache-2.xlsx",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Guide-de-lentretien-prof.-CFC.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-1-CDO-CE-Instruction-Cand-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-1-CDO-CE-Instruction-PEX-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-1-CDO-DE-Instruction-Cand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-1-CDO-DE-Instruction-PEX.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-2-CDO-CE-Travail-Cand-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-2-CDO-CE-Travail-PEX-1.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-2-CDO-DE-Travail-Cand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-2-CDO-DE-Travail-PEX.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-3-VPA-CDO-AB-Cand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-3-VPA-CDO-AB-PEX.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-4-VPA-CDO-AB-Cand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-4-VPA-CDO-AB-PEX.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-5-VPA-CDO-AB-Cand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-5-VPA-CDO-AB-PEX.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-6-VPA-CDO-AB-Cand.pdf",
+    "https://hotelgastro.ch/wp-content/uploads/2026/10/Tache-6-VPA-CDO-AB-PEX.pdf"
+  ],
+  "verifieLe": "2026-11-24"
+}

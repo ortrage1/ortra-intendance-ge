@@ -27,3 +27,13 @@ Les demandes viennent d'une personne bénévole non technicienne. Elle valide ch
 9. Tout ce que la personne lit est en français : titres et descriptions des propositions de modification (pull requests),
    messages d'enregistrement (commits), questions posées pendant le travail.
 10. Avant d'ajouter une phrase, relire la page : ne pas répéter une information déjà présente, la compléter ou la remplacer.
+
+## Quand un document officiel change
+
+La veille hebdomadaire (`.github/workflows/veille-documents.yml`) ouvre une alerte GitHub qui liste les pages à relire.
+Pour traiter une alerte :
+1. Lire le nouveau document en entier.
+2. Bibliothèque : mettre à jour l'entrée dans `src/content/documents.json` (adresse, date, « Vérifié le »).
+3. Factsheet : mettre à jour `src/content/reperes/cfc.json` ou `afp.json` (semaines, mandats, cours interentreprises, révision).
+4. Relire chaque page citée dans l'alerte et corriger les chiffres ou les noms qui ont changé ; mettre à jour « verifieLe ».
+5. Proposer les changements dans une PR en français, avec aperçu, puis fermer l'alerte.

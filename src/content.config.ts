@@ -62,4 +62,27 @@ const documents = defineCollection({
   }),
 });
 
-export const collections = { reponses, metiers, documents };
+// Repères pratiques pour les formateurs (un fichier par diplôme), modifiables dans l'outil d'édition.
+const domaine = z.enum(['A', 'B', 'C', 'D', 'E']);
+const semaines = z.number().int().min(0).max(26);
+const reperes = defineCollection({
+  loader: glob({ base: './src/content/reperes', pattern: '*.json' }),
+  schema: z.object({
+    sigle: z.enum(['CFC', 'AFP']),
+    titre: z.string(),
+    duree: z.string(),
+    revision: z.string(),
+    factsheet: z.string().url(),
+    examen: z.string(),
+    domaines: z.array(z.object({ code: domaine, nom: z.string(), ou: z.string(), exemples: z.string() })).length(5),
+    semestres: z.array(z.object({
+      numero: z.number().int().min(1).max(8),
+      accueil: semaines, service: semaines, nettoyage: semaines, linge: semaines,
+      mandats: z.array(z.object({ code: z.string(), texte: z.string(), domaines: z.array(domaine).min(1) })),
+      aussi: z.array(z.string()).default([]),
+    })).min(1),
+    cie: z.array(z.object({ nom: z.string(), jours: z.number().min(0), contenu: z.array(z.string()) })),
+  }),
+});
+
+export const collections = { reponses, metiers, documents, reperes };

@@ -1,6 +1,7 @@
 import { defineCollection } from 'astro:content';
 import { glob, file } from 'astro/loaders';
 import { z } from 'astro/zod';
+import { CLES_PARCOURS } from './lib/parcours';
 
 const RUBRIQUES = ['metiers', 'se-former', 'apprentis', 'former', 'formateurs', 'evaluer'] as const;
 
@@ -19,6 +20,7 @@ const reponses = defineCollection({
     // Rubrique du menu où la fiche apparaît (pages « Les métiers », « Se former »…).
     rubrique: z.enum(RUBRIQUES).optional(),
     aussiDans: z.array(z.enum(RUBRIQUES)).optional(),
+    parcours: z.array(z.enum(CLES_PARCOURS)).default([]),
     ordre: z.number().default(99),
     source,
     verifieLe: z.coerce.date(),

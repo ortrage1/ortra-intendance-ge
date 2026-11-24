@@ -7,6 +7,7 @@ public: [decouvrir, reconversion]
 rubrique: metiers
 aussiDans: [apprentis]
 ordre: 2
+parcours: ["decouvrir/metier"]
 source:
   libelle: "Ordonnance CFC du 6 juillet 2023, art. 2 ; Hotel & Gastro formation Suisse ; orientation.ch"
   url: "https://www.orientation.ch/fr/professions/responsable-du-secteur-hotelier-intendance-bf"

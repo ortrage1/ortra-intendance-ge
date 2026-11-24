@@ -6,6 +6,7 @@ formation: les-deux
 public: [former]
 rubrique: former
 ordre: 6
+parcours: ["entreprise/preparer", "formateur/suivi"]
 source:
   libelle: "Ordonnances du SEFRI (CFC du 6 juillet 2023, AFP du 10 juillet 2023), art. 25"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"

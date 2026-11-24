@@ -6,6 +6,7 @@ formation: les-deux
 public: [former]
 rubrique: formateurs
 ordre: 1
+parcours: ["formateur/suivi", "evaluer/mission"]
 source:
   libelle: "Ordonnances du SEFRI de 2023, art. 12 et 13 ; OrTra intendance Genève, fonction de commissaire"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"

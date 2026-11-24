@@ -6,6 +6,7 @@ formation: les-deux
 public: [reconversion]
 rubrique: se-former
 ordre: 2
+parcours: ["adulte/diplome"]
 source:
   libelle: "Office pour l'orientation, la formation professionnelle et continue (OFPC)"
   url: "https://www.citedesmetiers.ch"

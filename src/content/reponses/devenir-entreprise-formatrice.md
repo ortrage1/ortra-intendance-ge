@@ -6,6 +6,7 @@ formation: les-deux
 public: [former]
 rubrique: former
 ordre: 1
+parcours: ["entreprise/commencer"]
 source:
   libelle: "État de Genève, Devenir entreprise formatrice ; ordonnances du SEFRI de 2023, art. 10 et 11"
   url: "https://www.ge.ch/devenir-entreprise-formatrice-engager-apprenti/devenir-entreprise-formatrice"

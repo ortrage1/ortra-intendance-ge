@@ -6,6 +6,7 @@ formation: les-deux
 public: [decouvrir]
 rubrique: se-former
 ordre: 5
+parcours: ["decouvrir/essayer", "adulte/commencer"]
 source:
   libelle: "orientation.ch, Cité des métiers du Grand Genève"
   url: "https://www.orientation.ch/fr/professions/gestionnaire-en-hotellerie-intendance-cfc"

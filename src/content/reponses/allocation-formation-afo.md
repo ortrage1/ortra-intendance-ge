@@ -6,6 +6,7 @@ formation: les-deux
 public: [reconversion, former]
 rubrique: se-former
 ordre: 3
+parcours: ["adulte/diplome"]
 source:
   libelle: "État de Genève, Office cantonal de l'emploi, Allocation de formation (AFO), informations générales"
   url: "https://zeteo.app.ge.ch/mmt/allocation-formation-afo-informations-generales-2626-2910"

@@ -7,6 +7,7 @@ public: [decouvrir, former]
 rubrique: apprentis
 aussiDans: [formateurs]
 ordre: 4
+parcours: ["apprenti/aide", "formateur/difficulte", "evaluer/mission"]
 source:
   libelle: "OFPC, prévention de la maltraitance des apprentis (eduPros) et aide-mémoire des commissaires"
   url: "https://www.ge.ch/actualite/pro-apprentis-veritable-coup-pouce-pendant-apprentissage-10-04-2025"

@@ -7,6 +7,7 @@ public: [former, decouvrir]
 rubrique: formateurs
 aussiDans: [apprentis]
 ordre: 3
+parcours: ["apprenti/cours", "formateur/suivi"]
 source:
   libelle: "Hotel & Gastro formation Suisse, documents remis aux formateurs genevois (séance du 15 janvier 2026) ; WIGL, tutoriel Travailler dans le portfolio"
   url: "https://website.wigl.ch/fr/academy/"

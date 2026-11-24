@@ -6,6 +6,7 @@ formation: les-deux
 public: [decouvrir]
 rubrique: metiers
 ordre: 1
+parcours: ["decouvrir/metier", "adulte/diplome", "entreprise/commencer"]
 source:
   libelle: "Ordonnances du SEFRI du 6 et du 10 juillet 2023"
   url: "https://hotelgastro.ch/fr/ausbildung/hotellerie-intendance-afp-cfc/"
